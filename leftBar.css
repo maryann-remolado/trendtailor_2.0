@@ -1,0 +1,182 @@
+/* Sidebar styling */
+.sidebar {
+    color: black;
+    box-sizing: border-box;
+    position: absolute;
+    width: 500px;
+    height:600px;
+    margin-left: 65px;
+    margin-top: 250px;
+    border-radius: 15px 0px 0px 15px;
+    padding: 20px; /* Optional: Add padding for better spacing */
+    background-color: #d9d9d9; /* Optional: Background color for sidebar */
+    transition: transform 0.3s ease-in-out; /* Smooth animation for open/close */
+}
+
+/* Style for Dashboard */
+.sidebar a {
+    display: flex; /* Use flexbox to align the icon and text */
+    align-items: center; /* Vertically center the icon and text */
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 10px;
+    display: block;
+    color: black;
+    padding: 10px 0;
+    font-size: 18px;
+    text-decoration: none;
+    padding-left: 10px;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+ 
+}
+/* Styling for Dashboard Icons (My Account to Signout) */
+.sidebar > a > i {
+    font-size: 2.0rem; /* Adjust the size of the icons */
+    margin-right: 15px; /* Add space between the icon and the text */
+    vertical-align: middle; /* Align icons vertically with the text */
+    text-shadow: none;
+}
+ 
+/* Style for Links on Hover */
+.sidebar a:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px 0 0 10px; /* Rounded left, flat right */
+    padding-left: 13px; /* Maintain the same padding on hover */
+    font-weight: bold; /* Make active link bold */
+
+}
+/* Style for Active Link */
+.sidebar a:active {
+    font-weight: normal; /* Make active link bold */
+    color:white; /* Change color for active link */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for active state */
+
+}
+
+.sidebar a.active {
+    background-color: black; /* Same as hover effect */
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px; /* Rounded left, flat right */
+    padding-left: 13px;
+    font-weight: bold; /* Keep it bold to match hover */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for active state */
+
+
+}
+
+/* Submenu styling */
+.subMenu {
+    display: none;
+    margin-left: 50px;
+}
+ 
+.subMenu a {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #767272;
+    text-shadow: none;
+}
+
+/* Responsive styling for screens 768px and below */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 75%; /* Adjust width for smaller screens */
+        left: 20px; /* Adjust left positioning */
+        margin-left: 70px;
+        top: 45px; /* Adjust top positioning */
+        height: auto; /* Allow height to be dynamic */
+        padding: 15px; /* Reduce padding */
+        border-radius: 10px; /* Slightly adjust border radius */
+        display: flex; /* Flexbox layout for horizontal alignment */
+        justify-content: space-around; /* Distribute items evenly */
+        position: absolute;
+    }
+
+    .sidebar a {
+        font-size: 16px; /* Reduce font size for smaller screens */
+        padding: 8px;
+        justify-content: center; /* Center icon within each link */
+        position: relative; /* Needed for positioning tooltip */
+    }
+
+    .sidebar a span {
+        display: none; /* Hide text span inside each link */
+    }
+
+    .sidebar > a > i {
+        font-size: 1.8rem; /* Reduce icon size */
+        margin-right: 0;
+    }
+
+    .sidebar a:hover {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding-left: 10px; /* Maintain the same padding on hover */
+    }
+
+    /* Tooltip styling for sidebar only */
+    .sidebar > a::after {
+        content: attr(data-tooltip); /* Display text from data-tooltip attribute */
+        position: absolute;
+        top: -40px; /* Position tooltip above the icon */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(227, 224, 224, 0.7); /* Semi-transparent black background */
+        color: rgb(83, 82, 82);
+        padding: 2px 8px;
+        border-radius: 5px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none; /* Prevent tooltip from blocking mouse events */
+    }
+
+    .sidebar a:hover::after {
+        opacity: 1; /* Show tooltip on hover */
+    }
+
+    /* Submenu responsive styling */
+    .subMenu {
+        margin-left: -100px; /* Adjust margin for smaller screens */
+        display: none; /* Hide submenu by default */
+        position: absolute; /* Position it as an absolute dropdown */
+        background-color: rgba(234, 231, 231, 0.8); /* White background with 80% opacity */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: 10; /* Ensure it stays on top */
+        opacity: 0; /* Hidden by default */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        transform: translateY(-10px); /* Slightly move up */
+    }
+
+    .subMenu a {
+        font-size: 12px; /* Slightly smaller font for submenu items */
+        padding-left: 5px; /* Reduced indentation */
+        line-height: 15px; /* Adjust line height for submenu */
+        color: black;
+    }
+
+    /* Show the submenu on hover */
+    .sidebar a:hover + .subMenu,
+    .subMenu:hover {
+        display: block;
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Slide into place */
+    }
+}

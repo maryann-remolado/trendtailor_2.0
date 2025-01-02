@@ -1,0 +1,526 @@
+.r-side {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    left: 840px;
+    top: 300px;
+    background: #f7f7f7;
+    border: 2px solid #D9D9D9;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%); /* Center the sidebar horizontally */
+ }
+ 
+
+#productSection {
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+
+#productSection h2 {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#productSection p {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#productSection hr {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+
+#productsSubmenu {
+    display: none; /* Ensure it's hidden by default */
+}
+
+.wht{
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 350px;
+    border: 1px solid #828282;
+}
+
+/* Input row - Aligns input fields in a row */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds spacing between input fields */
+}
+
+/* Individual input groups */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+    margin-top: -10px;
+    color: #000000;
+}
+
+/* Input field styling */
+input[type="text"] {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 8px;
+
+    width: 200px;
+    height: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+input[type="text"]:hover{
+    border-color: #888; /* Change border color when hovered */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow on hover */
+ }
+
+input[type="text"]:focus{
+    outline: none; /* Remove default outline */
+    border-color:black; /* Blue border when focused */
+    background-color: #f8f9fa; /* Slightly lighter background on focus */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* Stronger shadow when focused */
+    padding-right: 30px; /* Maintain padding for the eye icon */
+ } 
+
+/* Style for the input-images container */
+.input-images {
+    display: flex;
+    flex-direction: column;
+  
+    
+}
+
+/* Style for the image-frame */
+.image-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 30%;
+    height: 30px;
+    overflow: hidden; /* Hide overflow for images */
+    position: relative;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0 !important;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* Label for the file input */
+.image-frame label {
+    color: grey;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+/* File input style */
+#productImages {
+    opacity: 0; /* Hide the input */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Hover effect for the frame */
+.image-frame:hover {
+    border-color: #aaa; /* Change border color on hover */
+    background-color: #f0f0f0; /* Slight background change */
+}
+
+/* Uploaded image preview (if images are appended dynamically) */
+.image-frame img {
+    width: 200px !important;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* Label styling */
+label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-rw {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds spacing between input fields */
+}
+
+/* Individual input groups */
+.input-grp {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    margin-top: -103px; /* Adjust the value to move it down */
+    margin-left: 295px;
+    color: #000000;
+}
+.input-ctgry{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    margin-top: 10px; /* Adjust the value to move it down */
+    margin-left: 294px;
+    color:  #767272
+}
+
+.input-ctgry label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;  
+    gap: 40px; /* Adds spacing between input fields */
+    color: black;
+
+}
+
+.input-ctgry select {
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 15px;
+
+    width: 235px;
+    height: 45px;
+
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    cursor: pointer;
+}
+.input-ctgry option:hover {
+    color: #767272; /* Change text color on hover */
+}
+
+.input-stock {
+    display: flex;                /* Use flexbox for alignment */
+    flex-direction: column;      /* Stack label and input vertically */
+    margin-top: -71px;         /* Space below each input group */
+    font-family: 'Poppins', sans-serif; /* Font style */
+    
+}
+
+.input-stock label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;  
+}
+
+.input-stock input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 15px;
+
+    width: 200px;
+    height: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0
+}
+
+ 
+.image-con {
+    margin: 15px 0 15px 20px; /* Adjust the margins */
+    width: 130px; /* Width of the button */
+    height: 190px; /* Height of the button */
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    background-size: cover; /* Ensures the background image fits */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px; /* Slightly rounded corners */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    top: -12px; /* Move it upward by 20px */
+    position: absolute;
+}
+.image-upload-container {
+    display: inline-block;
+    position: relative; /* Set relative positioning */
+}
+ 
+.add-image-btn:hover {
+    background-color: rgb(197, 193, 193); /* Darker green on hover */
+}
+
+.input-button {
+    display: flex;               /* Center the button horizontally */
+    justify-content: right;     /* Center the button */
+    margin-top: 20px;           /* Space above the button */
+}
+
+.input-button button {
+    width: 70px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 16px;
+    background-color: rgb(32, 31, 31); /* Grey background for upgrade */
+    color: white; /* Black text */
+    padding: 5px 10px; /* Padding around the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 5px; /* Space between buttons */
+    margin-right: 40px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.input-button button:hover {
+    background-color: rgb(92, 89, 89); /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.input-button button:active {
+    background-color: rgb(92, 89, 89); /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+.cancel-button button {
+    width: 120px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 16px;
+    background-color: rgb(255, 255, 255); /* Grey background for upgrade */
+    color: black; /* Black text */
+    padding: 5px 10px; /* Padding around the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 5px; /* Space between buttons */
+    margin-right: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.wy{
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 20px;
+    border: 1px solid #828282;
+}
+
+.wr{
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 5px;
+    border: 1px solid #828282;
+}
+.add-prdct-btn {
+    padding: 10px 20px;
+    background-color:white; /* Grey background for upgrade */
+    color: black;
+    border: 1px solid #828282;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+    margin-top: 20px; /* Space above the white box */
+    height: 40px;
+    width: 610px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+
+}
+
+.add-prdct-btn:hover {
+    background-color: whitesmoke; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.add-prdct-btn:active {
+    background-color: whitesmoke; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+.left-text {
+    float: left;        /* Float the text to the left */
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+    text-align: center;
+
+    color: #000000;
+    }
+
+.right-icon {
+    float: right;       /* Float the icon to the right */
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+    text-align: center;
+    text-decoration-line: underline;
+    cursor: pointer;
+
+    color: #000000;
+}
+
+.right-icon i {
+    margin-left: 10px;   /* Adds some space between "check" and the icon */
+    font-size: 15px;    /* Adjust the icon size if needed */
+}
+
+#imagePreview img {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.image-frame {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: #f8f8f8;
+    min-height: 100px;
+    width: 210px;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.image-frame img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+

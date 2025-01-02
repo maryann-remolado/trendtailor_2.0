@@ -1,0 +1,315 @@
+/* Profile section */
+#profileSection, #contactInfoSection {
+    display: none; /* Hidden by default */
+    background-color:#f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+}
+ 
+ 
+/* Profile Section styling */
+#profileSection {
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+ 
+/* My Profile title styling */
+#profileSection h1 {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -40px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+ 
+/* Manage and protect your account text styling */
+#profileSection p {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 40px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+/* Gray line divider under "Manage and protect your account" */
+#profileSection .gray-divider {
+    margin: 5px 0; /* Space above and below the line */
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative; /* Enable positioning adjustments */
+    top: -5px; /* Move the line up by 5 pixels */
+}
+/* Label Styling for Username, Shop Name, Bio */
+#profileSection .row h5 {
+    width: 396px;
+    height: 24px;
+ 
+    font-size: 14px;
+    font-weight: 550;
+    color: #000;
+    margin-bottom: 5px;
+    line-height: 24px;
+ 
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+/* Input Fields Styling for Username and Shop Name */
+#profileSection input[type="text"]:not(#bio) {
+    width: 300px;
+    height: 48px;
+ 
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 150%;
+    /* identical to box height, or 22px */
+    color:  #828282;
+    padding: 4px 10px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+ 
+    border: 1px solid #e0e0e0; /* This defines the border of the input box */
+    border-radius: 8px; /* This rounds the corners of the input box */
+    background-color: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+ 
+/* Input fields on hover and focus */
+#profileSection input[type="text"]:not(#bio):hover {
+    border-color: #888; /*Changes the border color when hovered */
+}
+ 
+#profileSection input[type="text"]:not(#bio):focus {
+    outline: none;
+    border-color: black; /* Changes the border color when focused */
+    background-color: #f8f9fa; /* Makes the background white on focus */
+}
+/* Input Field Styling for Bio */
+#profileSection #bio{
+    width: 300px;
+    height: 150px;
+ 
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 150%;
+    /* identical to box height, or 22px */
+    color:  #828282;
+    padding: 10px;
+ 
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+ 
+    border: 1px solid #e0e0e0; /* This defines the border of the input box */
+    border-radius: 8px; /* This rounds the corners of the input box */
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+ 
+    resize: none; /* Prevents manual resizing */
+}
+/* Hover and Focus effects for Bio */
+#profileSection #bio:hover {
+    border-color: #888; /*Changes the border color when hovered */
+}
+#profileSection #bio:focus {
+    outline: none;
+    border-color: black; /* Changes the border color when focused */
+    background-color: #f8f9fa; /* Makes the background white on focus */
+}
+#profileSection .content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.save-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+    margin-top: -80px; /* Add margin to push it down */
+    
+}
+ 
+/* Save Button Styling */
+.save-button {
+    width: 95px;
+    height: 30px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+ 
+    display: block;
+    margin-top: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+ 
+.save-button:hover {
+    background-color: whitesmoke;
+    transform: scale(1.05);
+}
+.save-button:active{
+    background-color: whitesmoke; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+ 
+ /* Styling for Profile Image */
+.profile-image-container {
+    position: absolute; /* Absolute positioning for the profile image */
+    top: 150px; /* Adjust this value to move it vertically */
+    right: 50px; /* Adjust this value to move it horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.profile-image {
+    position: relative;
+    width: 140px; /* Ensure equal width and height */
+    height: 140px;
+    border-radius: 100%; /* Make it a circle */
+    overflow: hidden; /* Ensure the image stays inside the circle */
+    border: 2px solid #ccc; /* Optional: Add a border for styling */
+}
+ 
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the circle without stretching */
+    border-radius: 50%; /* Ensures the image itself is circular */
+}
+/* Styling for Select Image Button */
+.select-image-button {
+    margin-top: 18px;
+    padding: 10px 20px; /* Add padding for a larger button */
+    background-color: black; /* Blue background */
+    color: #fff; /* White text */
+    border: none; /* Remove default borders */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+}
+ 
+.select-image-button:hover {
+    background-color: rgb(94, 91, 91); /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+ 
+.select-image-button:active {
+    background-color: rgb(94, 91, 91); /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+/* Media Queries for 768px and below */
+@media screen and (max-width: 768px) {
+    /* Profile Section */
+    #profileSection {
+        padding: 15px;
+    }
+
+    /* Title font size */
+    #profileSection h1 {
+        font-size: 28px;
+        text-align: left; /* Center title */
+        margin-top: 30px;
+    }
+
+    /* Paragraph font size */
+    #profileSection p {
+        font-size: 13px;
+        top: 45px;
+        text-align: left; /* Center paragraph */
+    }
+
+    #profileSection .row h5 {
+        font-size: 12px;
+    }
+
+    /* Adjust input fields for smaller screens */
+    #profileSection input[type="text"]:not(#bio) {
+        width: 50%; /* Make input fields full width */
+        max-width: 50%;
+        height: 30px;
+    }
+
+    #profileSection #bio{
+        width: 50%; /* Make input fields full width */
+        max-width: 50%;
+        height: 150px;
+        position: absolute;
+    }
+
+    /* Profile Image Container */
+    .profile-image-container {
+        position: fixed;
+        top: 115px;
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 20px; /* Space below the image */
+    }
+
+    /* Profile Image */
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-left: 365px;
+        position: absolute;
+        margin-top: 20px;
+    }
+
+    /* Save Button */
+    .save-button-container {
+        justify-content: right;
+        margin-top: 50px;
+        position: relative;
+    }
+
+    /* Select Image Button */
+    .select-image-button {
+        width: 40%;
+        padding: 12px 0;
+        margin-left: 365px;
+        margin-top: 145px;
+        position: absolute;
+    }
+}

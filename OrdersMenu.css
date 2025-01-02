@@ -1,0 +1,517 @@
+.right-side {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    left: 492px;
+    top: 277px;
+    background: #f7f7f7;
+    border-radius: 15px;
+    padding: 20px;
+    display: none; /* Initially hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+
+#ordersSection{
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+
+#ordersSection h3 {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#ordersSection p {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#ordersSection hr {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+
+.who {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 150px;
+    border: 1px solid #000000;
+}
+
+.wth {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 230px;
+    border: 1px solid #000000;
+}
+
+.hdr {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+
+.ttle {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 8px ;
+
+    color: #000000;
+}
+
+.see-all {
+    color: rgb(56, 56, 56); /* Bootstrap primary color or any color you prefer */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.see-all i {
+    margin-left: 5px; /* Adds space between the text and the arrow */
+}
+
+.see-all i:hover {
+    color: #6a6d6d; /* Change color on hover (blue, like Bootstrap's primary color) */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* Click (active) effect */
+.see-all i:active {
+    color: black; /* Darker shade of blue when clicked */
+    transform: scale(0.9); /* Slightly shrink the icon when clicked */
+}
+
+.lne {
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: rotate(0.08deg);
+    margin-top: 40px; /* Space above the line */
+}
+
+.gt{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 20px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 75px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order-ds {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.o-id {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.s-details {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgb(56, 56, 56); /* Bootstrap primary color or any color you prefer */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+}
+
+.gray-l {
+    border: 1px solid #ccc; /* Light gray color for the line */
+    margin-top: 10px; /* Space above the line */
+}
+
+.product-rw {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between items in the row */
+    align-items: center; /* Vertically center the items */
+    padding: 10px 0; /* Add padding to the row */
+}
+
+.p-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.t-price {
+    margin-right: 15px; /* Add space between the price and the icon */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.confirm-text {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    margin-right: 5px; /* Add some space between the text and the icon */
+}
+
+.c-icon i {
+    font-size: 18px; /* Adjust icon size */
+    color: gray; /* Set icon color */
+    cursor: pointer; /* Add cursor pointer to make it look clickable */
+}
+
+/* Hover effect */
+.c-icon i:hover {
+    color: #2d2e2e; /* Change color on hover (blue, like Bootstrap's primary color) */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* Click (active) effect */
+.c-icon i:active {
+    color: black; /* Darker shade of blue when clicked */
+    transform: scale(0.9); /* Slightly shrink the icon when clicked */
+}
+
+.o-date{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.wth {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 270px;
+    border: 1px solid #000000;
+}
+
+.white-x {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+.u-status {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 8px ;
+
+    color: #000000;
+}
+
+.s-all {
+    color: rgb(56, 56, 56); /* Bootstrap primary color or any color you prefer */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+}
+.s-all i {
+    margin-left: 5px; /* Adds space between the text and the arrow */
+}
+
+.s-all i {
+    margin-left: 5px; /* Adds space between the text and the arrow */
+}
+
+.s-all i:hover {
+    color: #6a6d6d; /* Change color on hover (blue, like Bootstrap's primary color) */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.ey {
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: rotate(0.08deg);
+    margin-top: 40px; /* Space above the line */
+}
+
+.gri{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 20px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 180px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ord {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.order {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.see {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgb(56, 56, 56); /* Bootstrap primary color or any color you prefer */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+}
+
+.product-row {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between items in the row */
+    align-items: center; /* Vertically center the items */
+    padding: 10px 0; /* Add padding to the row */
+}
+
+.product-n {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.total-p {
+    margin-right: 15px; /* Add space between the price and the icon */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.p-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.order-d {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.status-dropdown {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Label styling */
+.status-dropdown label {
+    margin-right: 15px; /* Add space between the price and the icon */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style the select dropdown */
+#orderStatus {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #757373;
+    font-size: 11px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #4c4a4a;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Hover effect for dropdown */
+#orderStatus:hover {
+    border-color: #3e3d3d;
+}
+
+/* Focus effect when dropdown is clicked */
+#orderStatus:focus {
+    outline: none;
+    border-color: #111112;
+    box-shadow: 0 0 5px rgba(35, 35, 36, 0.5);
+}
+
+/* Style for dropdown options */
+#orderStatus option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+.up-btn-container {
+    margin-top: 10px; /* Adds space between the dropdown and button */
+    float: right;
+    position: relative; /* Optional for more control */
+    left: 25px; /* Adjust this value to move the button further right */
+}
+
+.up-btn {
+    width: 120px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 16px;
+    background-color: rgb(32, 31, 31); /* Grey background for upgrade */
+    color: white; /* Black text */
+    padding: 5px 10px; /* Padding around the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 5px; /* Space between buttons */
+    margin-right: 30px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.up-btn:hover {
+    background-color: rgb(92, 89, 89); /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.up-btn:active {
+    background-color: rgb(92, 89, 89); /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+

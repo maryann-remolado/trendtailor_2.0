@@ -1,0 +1,55 @@
+/* Responsive Styles */
+@media (max-width: 768px) {
+   /* Stack columns vertically on smaller screens */
+   .footer-content {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       text-align: left;
+   }
+
+   /* Ensure each footer column occupies an equal width */
+   .footer-column, .footer-colmn, .footer-clmn {
+       flex: 1;
+       min-width: 150px; /* Minimum width before wrapping */
+       padding: 10px;
+       margin-top: 100px;
+   }
+
+   /* Remove left margin on headings and lists */
+   .footer-column h3, .footer-colmn h4, .footer-clmn h5,
+   .footer-column ul, .footer-colmn ul, .footer-clmn ul {
+       margin-left: 15px;
+       text-align: left;
+   }
+
+   /* Reduce font sizes for smaller screens */
+   .footer-column h3, .footer-colmn h4, .footer-clmn h5 {
+       font-size: 13px;
+       margin-bottom: 5px;
+   }
+
+   .footer-column ul li a, .footer-colmn ul li a, .footer-clmn ul li a {
+       font-size: 10px;
+       margin-bottom: 2px;
+       padding: 0;
+
+   }
+
+   /* Center align reserved text */
+   .reserved h5 {
+       position: static;
+       margin-top: 5px;
+       font-size: 10px;
+   }
+
+   /* Adjust footer divider width */
+   .footer-divider {
+       width: 95%; 
+       margin-top: -30px;
+       margin-left: -120px;
+       position: relative;
+   }
+}

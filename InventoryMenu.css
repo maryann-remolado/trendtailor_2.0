@@ -1,0 +1,219 @@
+#inventorySection{
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+
+#inventorySection h4 {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#inventorySection p {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#inventorySection hr {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+.container-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space between the left and right sections */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Vertical stacking */
+    gap: 20px; /* Space between the vertical boxes */
+    flex: 1; /* Let this section take as much space as needed */
+}
+.w-wt {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 100px;
+    width:210px;
+    border: 1px solid #000000;
+}
+
+.ww-t {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 100px;
+    width:210px;
+    border: 1px solid #000000;
+}
+
+.wwt {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 100px;
+    width:210px;
+    border: 1px solid #000000;
+}
+
+.inventory-content {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Spaces items horizontally */
+}
+
+.inventory-text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #000000;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bi-archive-fill {
+    font-size: 20px; /* Adjust the size of the inventory icon */
+}
+
+.bi-arrow-up-right {
+    font-size: 20px; /* Adjust the size of the arrow icon */
+    color: rgb(0, 0, 0); /* Optional: make the arrow green */
+    cursor: pointer;
+
+}
+
+.item-count {
+    display: block; /* Ensure it's on its own line */
+    text-align: center; /* Center the text */
+    font-size: 25px; /* Adjust the font size */
+    text-decoration: underline; /* Underline the text */
+    margin-top: 20px; /* Add some space above the text */
+    margin-left: 50px;
+
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #454545;
+}
+.rt-box {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    height: auto; /* Allow the box to grow with content */
+    width: 250px; /* Set a width for the right box */
+    margin-left: 20px; /* Space between the left and right boxes */
+    margin-top: 20px; /* Space above the box */
+    border: 1px solid #000000; /* Border for visibility */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 20px;
+}
+
+.rt-box h5 {
+    font-size: 20px; /* Adjust the font size for the heading */
+    font-weight: 600; /* Make the heading bold */
+    color: #333; /* Darker color for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+    padding-top: 0; /* Padding above the heading */
+}
+
+.rt-box p {
+    font-size: 18px; /* Adjust the font size for the paragraph */
+    font-weight: 500; /* Semi-bold font for emphasis */
+    color: #000; /* Black text for the stock value */
+    margin-top: 5px; /* Space above the paragraph */
+    margin-bottom: 20px; /* Space below the paragraph */
+    text-align: left; /* Center the text horizontally */
+    font-family: 'Poppins', sans-serif; /* Use the Poppins font */
+}
+
+.rt-box hr {
+    border: none; /* Remove default border */
+    border-top: 2px solid #ccc; /* Custom border style */
+    margin-top: 10px; /* Space above the hr */
+    margin-bottom: 10px; /* Space below the hr */
+    width: 100%; /* Ensure hr takes full width */
+
+}
+
+.rt-box h5 {
+    font-size: 16px; /* Font size for Payments heading */
+    font-weight: 600; /* Bold font for emphasis */
+    color: #333; /* Dark color for the heading */
+    margin: 10px 0; /* Space above and below the heading */
+}
+
+.payment-row {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+    margin-top: 10px; /* Space above the payment row */
+    font-size: 14px; /* Font size for received and amount text */
+    color: #454545; /* Color for the text */
+}
+
+.download-row {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+    margin-top: 200px; /* Space above the download row */
+    font-size: 14px; /* Font size for download text */
+    color: #454545; /* Color for the text */
+    cursor: pointer;
+}
+
+.download-row span {
+    display: flex; /* Make each item a flex container */
+    align-items: center; /* Center items vertically */
+}
+
+.download-row i {
+    font-size: 16px; /* Adjust icon size */
+    margin-right: 5px; /* Space between the icon and text */
+}
+
+
+
+
+

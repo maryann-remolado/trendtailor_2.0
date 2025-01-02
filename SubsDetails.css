@@ -1,0 +1,195 @@
+/* Subscription Details Section Styles */
+#subscription-details {
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+
+}
+ 
+.subscription-title {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+  
+.subscription-subtitle {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -15px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+  
+.gray {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+ 
+.whitBx {
+    background-color: #fff; /* White background */
+    padding: 20px; /* Padding for spacing inside the box */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-top: 20px; /* Space above the box */
+    height: 370px;
+}
+
+.gray-box {
+    display: flex; /* Use flexbox to arrange items horizontally */
+    align-items: center; /* Center items vertically */
+    background-color: #D9D9D9; /* Gray background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for spacing inside the box */
+    margin: 20px 0; /* Space above and below each gray box */
+    mix-blend-mode: darken;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.item-left {
+    flex: 1; /* Take available space */
+    text-align: left; /* Align text to the left */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    color: #000000;
+}
+
+.divider {
+    width: 1px; /* Width of the divider line */
+    height: 30px; /* Height of the divider line */
+    background-color: #5a5858; /* Color of the divider */
+    margin: 0 5px; /* Space around the divider */
+}
+
+.item-right {
+    flex: 1; /* Take available space */
+    text-align: left; /* Align text to the right */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    color: #000000;
+}
+
+.button-container {
+    bottom: 70px;
+    right: 40px;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-end; /* Align items to the left */
+    position: absolute; /* Ensure the container stays positioned correctly */
+
+}
+
+.upgrade-button,
+.downgrade-button {
+    width: 130px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: rgb(255, 255, 255); /* Grey background for upgrade */
+    color: black; /* Black text */
+    padding: 5px 10px; /* Padding around the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 10px; /* Space between buttons */
+    margin-right: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));}
+
+.upgrade-button:hover, .downgrade-button:hover, .cancel-button:hover {
+    background-color: whitesmoke; /* Darker green on hover */
+    transform: scale(1.05);
+ }
+.upgrade-button:active, .downgrade-button:active, .cancel-button:active{
+    background-color: whitesmoke; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+ }
+ 
+.cancel-button {
+    width: 270px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: rgb(255, 255, 255); /* Red */
+    color: black; /* White text */
+    padding: 5px 10px; /* Padding around the button */
+    margin-right: 10px;
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+@media (max-width: 768px) {
+    #subscriptionDetails {
+        padding: 15px;
+    }
+    .subscription-title {
+        text-align: left;
+        font-size: 28px;
+        top: 10px;
+    }
+    
+    .subscription-subtitle {
+        text-align: left;
+        top: 2px;
+    }
+    .whitBx {
+        height: 320px;
+    }
+    
+    .gray-box {
+        margin-bottom: 15px; /* Space above and below each gray box */
+        margin-top: 3px;
+    }
+    .button-container {
+        bottom: 30px; /* Adjust the position for smaller screens */
+        right: 20px;  /* Adjust the position for smaller screens */
+    }
+
+    .upgrade-button,
+    .downgrade-button {
+        width: 120px; /* Slightly smaller buttons for smaller screens */
+        font-size: 10px; /* Adjust font size for smaller screens */
+    }
+
+    .cancel-button {
+        width: 255px; /* Reduce width for smaller screens */
+        font-size: 10px; /* Adjust font size for smaller screens */
+    }
+    
+}

@@ -1,0 +1,951 @@
+.right-side {
+    position: absolute;
+    width: 650px;
+    height: 660px;
+    left: 840px;
+    top: 130px;
+    background: white;
+    border: 2px solid #D9D9D9;
+    border-radius: 15px;    
+    padding: 20px;
+    display: none; /* Initially hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%); /* Center the sidebar horizontally */
+ }
+ 
+
+#ordersSection{
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+
+#ordersSection h3 {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#ordersSection p {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#ordersSection hr {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+
+.who {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 13px; /* Space above the white box */
+    height: 210px;
+    border: 1px solid #000000;
+}
+
+.wth {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 50px;
+    border: 1px solid #000000;
+}
+
+.hdr {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+
+.shop-title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.ttle {
+    display: flex; /* Makes children align in a row */
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 8px; /* Adds space between elements */
+    cursor: pointer; /* Makes the whole span clickable */
+    margin-top: -10px;
+}
+
+.ttle a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.ttle i {
+    margin: 5px; /* Spacing between the title and icons */
+    margin-top: 5px;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: black; /* Set default icon color */
+    transition: color 0.3s ease; /* Add hover effect transition */
+}
+
+.title a:hover, .ttle i:hover {
+    color: grey; /* Set default icon color */
+}
+
+.order-box {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333; /* Default color */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-top: -12px;
+}
+
+.order-box:hover {
+    background-color:#aeaeae; /* Light grey background on hover */
+    border-color: #888; /* Darker border on hover */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.order-box.checked i {
+    color: black; /* Change color when checked */
+}
+
+.lne {
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: rotate(0.08deg);
+    margin-top: 40px; /* Space above the line */
+}
+
+.gt{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 11px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 157px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order-ds {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.o-id {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.s-details {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgb(56, 56, 56); /* Bootstrap primary color or any color you prefer */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+}
+
+.gray-l {
+    border: 1px solid #ccc; /* Light gray color for the line */
+    margin-top: 10px; /* Space above the line */
+}
+
+/* Order item container */
+.order-item {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Space between image and quantity controls */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: border for visual separation */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Optional: light background */
+    height: 60px;
+    margin-top: 10px;
+}
+
+/* Image styling */
+.order-image {
+    margin-left: 3px;
+    width: 50px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px; /* Optional: rounded image corners */
+}
+
+/* Quantity controls container */
+.quantity-controls {
+    display: flex;
+    align-items: center; /* Vertically align buttons and number */
+    gap: 10px; /* Space between buttons and number */
+    margin-top: 25px;
+}
+
+.quantity-label {
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    color: #000000;
+    margin-bottom: 60px; /* Additional space below the label */
+    margin-left: 10px;
+}
+/* Quantity button styling */
+.quantity-btn {
+    margin-top: 6px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: grey;
+}
+.quantity-btn:active{
+    background-color: grey; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+/* Quantity number styling */
+#quantity-number {
+    margin-top: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* General styling for controls */
+.size-controls {
+    margin-top: -68px; /* Add spacing between sections */
+    margin-left: 180px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Size selector styling */
+.size-controls label {
+    position: relative;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 2px;
+
+    color: #000000;
+}
+
+.size-controls .size-dropdown {
+    margin-top: 7px;
+    width: 95px; /* Width of the dropdown */
+    padding: 5px; /* Padding inside the dropdown */
+    border: 1px solid #ccc; /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 10px; /* Font size for dropdown text */
+}
+
+#selected-size {
+    font-size: 10px;
+    color: #555; /* Medium gray for the selected size text */
+}
+
+.color-controls {
+    margin-top: -46px; /* Add spacing between sections */
+    margin-left: 290px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Color selector styling */
+.color-controls label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: -4px;
+    color: #000000;
+}
+
+.color-controls .color-dropdown {
+    margin-top: 5px;
+    width: 95px; /* Width of the dropdown */
+    padding: 5px; /* Padding inside the dropdown */
+    border: 1px solid #ccc; /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 10px; /* Font size for dropdown text */
+}
+
+#selected-color {
+    font-size: 10px;
+    color: #555; /* Medium gray for the selected color text */
+}
+/* Styling for the Total Price Section */
+.price-display {
+    margin-top: -45px; /* Add spacing between sections */
+    margin-left: 375px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Styling for the Label */
+.price-label {
+   font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: -4px;
+    color: #000000;
+}
+
+/* Styling for the Value */
+.price-value {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+
+/* Delete Button Styling */
+.delete-controls {
+    margin-top: -35px; /* Add space above the button */
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+}
+
+.delete-controls .btn-danger {
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    padding: 1px; /* Add padding for a comfortable click area */
+    background: #FFFFFF;
+    border: 1px solid #828282;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.delete-controls .btn-danger i {
+    margin: 5px; /* Add space between the icon and text */
+}
+
+.delete-controls .btn-danger:hover {
+    background-color: black; /* Darker red on hover */
+    color: whitesmoke; /* Ensure white text on hover */
+    transform: scale(1.05);
+}
+
+
+.delete-controls .btn-danger:active{
+    background-color: black; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+.voucher-delivery-box {
+    background-color: #f9f9f9; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Padding inside the box */
+    width: 507px;
+    height: 20px;
+    margin-top: -58px; /* Space above the box */
+    margin-left: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.voucher-controls {
+    margin-top: -10px; /* Space above each section */
+    font-size: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.delivery-controls {
+    margin-top: -3px;
+    font-size: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.voucher-input {
+    margin-left: 30px; /* Space between label and input */
+    font-size: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: #828282;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.voucher-controls button{
+    font-size: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: #333;
+    border: 1px solid grey; /* Button Shadow */
+    background: #d9d9d9;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.25));
+    margin-left: 10px;
+}
+
+.voucher-controls button:hover {
+    background-color: black; /* Darker red on hover */
+    color: whitesmoke; /* Ensure white text on hover */
+    transform: scale(1.05);
+}
+
+.voucher-controls button:active{
+    background-color: black; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+
+
+.delivery-dropdown {
+    margin-left: 13px; /* Space between label and input */
+    font-size: 9px;
+    width: 115px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: #828282;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.whom {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 10px; /* Space above the white box */
+    height: 205px;
+    border: 1px solid #000000;
+}
+
+.heddr {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+
+.ttled {
+    display: flex; /* Makes children align in a row */
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 8px; /* Adds space between elements */
+    cursor: pointer; /* Makes the whole span clickable */
+    margin-top: -10px;
+}
+
+.ttled a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.ttled i {
+    margin: 5px; /* Spacing between the title and icons */
+    margin-top: 5px;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: black; /* Set default icon color */
+    transition: color 0.3s ease; /* Add hover effect transition */
+}
+
+.titled a:hover, .ttled i:hover {
+    color: grey; /* Set default icon color */
+}
+
+.or-bx {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333; /* Default color */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-top: -12px;
+}
+
+.or-bx:hover {
+    background-color:#aeaeae; /* Light grey background on hover */
+    border-color: #888; /* Darker border on hover */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.or-bx.checked i {
+    color: black; /* Change color when checked */
+}
+
+.thg{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 12px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 150px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.or-ds {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.order-id {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+/* Order item container */
+.or-itm {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Space between image and quantity controls */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: border for visual separation */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Optional: light background */
+    height: 60px;
+    margin-top: 3px;
+}
+
+/* Image styling */
+.or-img {
+    margin-left: 3px;
+    width: 50px;
+    height: 60px;
+    object-fit: cover;  
+    border-radius: 5px; /* Optional: rounded image corners */
+}
+
+.or-details {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+    margin-top: 10px; /* Space above the order details */
+    font-size: 10px; /* Font size */
+}
+
+.or-name-id {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px !important;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+
+    color: black !important;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.or-id-form {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px !important;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    color: black !important;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.or-name-id span, .or-id-form span {
+    font-family: 'Poppins';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: black;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Quantity controls container */
+.qty-controls {
+    display: flex;
+    align-items: center; /* Vertically align buttons and number */
+    gap: 10px; /* Space between buttons and number */
+    margin-top: 25px;
+    margin-left: 45px;
+}
+
+.qty-label {
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    color: #000000;
+    margin-bottom: 60px; /* Additional space below the label */
+    margin-left: 10px;
+}
+/* Quantity button styling */
+.qty-btn {
+    margin-top: 6px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.qty-btn:hover {
+    background-color: grey;
+}
+.qty-btn:active{
+    background-color: grey; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+/* Quantity number styling */
+#quantity-display {
+    margin-top: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.prc-dply {
+    margin-top: -60px; /* Add spacing between sections */
+    margin-left: 350px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Styling for the Label */
+.prc-label {
+   font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: -4px;
+    color: #000000;
+}
+
+/* Styling for the Value */
+.prc-value {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+
+/* Delete Button Styling */
+.dl-controls {
+    margin-top: -35px; /* Add space above the button */
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+}
+
+.dl-controls .btn-dr {
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    padding: 1px; /* Add padding for a comfortable click area */
+    background: #FFFFFF;
+    border: 1px solid #828282;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.dl-controls .btn-dr i {
+    margin: 5px; /* Add space between the icon and text */
+}
+
+.dl-controls .btn-dr:hover {
+    background-color: black; /* Darker red on hover */
+    color: whitesmoke; /* Ensure white text on hover */
+    transform: scale(1.05);
+}
+
+
+.dl-controls .btn-dr:active{
+    background-color: black; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+.total-checkout-box {
+    background-color: #d9d9d9; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    height: 20px;
+    padding: 15px; /* Padding inside the box */
+    margin-top: 10px; /* Space above the box */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.total-info {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Stack items vertically */
+    margin-left: 20px;
+}
+
+.total-label {
+    margin-right: 10px; /* Space between label and value */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.total-label2 {
+    margin-left: 50px; /* Space between label and value */
+    margin-right: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.total-value {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-btn {
+    margin-left: 20px; /* Space between total info and button */
+    padding: 5px; /* Add padding for a comfortable click area */
+    border: 1px solid #333;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #000000;
+    color: white;
+    border-radius: 5px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.checkout-btn:hover {
+    background-color: #333; /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+.checkout-btn:active{
+    transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+/*-----------*/

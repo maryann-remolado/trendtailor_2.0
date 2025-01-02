@@ -1,0 +1,703 @@
+#portfolioSection {
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 10px;
+}
+ /* My Contact Info title styling */
+#portfolioSection h1 {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -40px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+ 
+ /* Manage your contact text styling */
+#portfolioSection p {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 40px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+ /* Gray line divider under "Manage your contact" */
+#portfolioSection .gray-divider {
+    margin: 5px 0; /* Space above and below the line */
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative; /* Enable positioning adjustments */
+    top: -5px; /* Move the line up by 5 pixels */
+}
+ 
+ /* Styling for the Add New Portfolio button */
+.addPortfolio {
+    box-sizing: border-box;
+    position: absolute;
+    width: 610px;
+    height: 27px;
+    background-color: #FFFFFF; /* Button background color */
+    
+    color: #000000; /* Text color */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+     
+    /* Flexbox to center the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid #000000;
+    padding:0 0; /* Padding inside the button */
+    font-size: 14px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+}
+ 
+ /* Hover effect */
+.addPortfolio:hover {
+    background-color: whitesmoke; /* Darker green on hover */
+    transform: scale(1.03);
+}
+ 
+ /* Active button effect (when clicked) */
+.addPortfolio:active {
+    background-color: whitesmoke; /* Even darker blue on click */
+    transform: scale(0.99); /* Slightly shrink on click for a pressed effect */
+}
+/* Styles for the white box */
+.white-box {
+    position: absolute;
+    width: 610px;
+    height:00px;
+    top: 50px;
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+ /* Style for the 'No saved portfolios' text */
+#noPortfoliosText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+    text-align: center;
+    margin: 0;
+}
+
+/* General styling for the portfolio container */
+.portfolio-box {
+    margin-top: 10px;
+}
+.newBox{
+    position: relative;
+    z-index: 10;
+    width: 610px;
+    height: 550px;
+    top: 14px;
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}/* Styling for the white box */
+.gats {
+    position: absolute;
+    width: 500px;
+    height: 480px;
+    margin-left:20px;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+
+/* Styling for Collection Title input */
+.col-t {
+    position: absolute;
+    width: 90% !important;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 05px !important;
+    padding: 20px;
+    font-size: 16px;
+    text-align: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.clt-t:focus {
+    border-color: #585656;
+    outline: none;
+}
+
+/* Styling for Collection Description input */
+.clct-cntr {
+    width: 474px;
+    position: absolute;
+    z-index: 10;
+    margin-left: 39px;
+    margin-top: 85px; /* Adds space between Collection Title and Description */
+}
+
+
+.cl-desc {
+    width: 95%;
+    height: 70px; /* Adjust height for description box */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    resize: none; /* Prevent resizing */
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    color: black;
+}
+
+.cl-desc:focus {
+    border-color: #585656;
+    outline: none;
+}
+
+.btn-c {
+    position:absolute;
+    z-index: 10;
+    display: flex;
+    gap: 20px; /* Adds space between the two buttons */
+    margin-top: 165px;
+    margin-left: 63px;
+}
+
+/* Styling for individual image buttons */
+.ima-btn {
+    position: relative;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+    height: 185px;
+    right: 30px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+}
+
+.ima-btn:hover {
+    background-color: white; /* Light gray background color on hover */
+    border-color: #bbb; /* Slightly darker border color */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+
+.ima-btn:active {
+    background-color: white; /* Darker gray background color when clicked */
+    border-color: #999; /* Even darker border color */
+    transform: translateY(0); /* Reset the hover lift effect */
+    box-shadow: none; /* Remove shadow effect when clicked */
+}
+
+.image-preview-container {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden; /* Ensure any overflowing content is hidden */
+}
+
+
+
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hide the file input */
+    cursor: pointer;
+}
+
+.image-btn input[type="file"] {
+    display: none;
+    
+}
+
+/* Container for the "Type" input boxes, now aligned in a row */
+.t-inputs {
+    display: flex;         /* Use flexbox to align items in a row */
+    gap: 90px;             /* Adds space between the input boxes */
+    position: absolute;
+    z-index: 10;
+    margin-top: 380px;
+    margin-left: 80px;
+}
+
+/* Styling for each "Type" input box */
+.type-box {
+    position: relative;
+    width: 150px !important;          /* Set width of the input boxes */
+    height: 40px;          /* Set height of the input boxes */
+    padding: 8px;          /* Padding inside the input box */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;    
+    color: black;
+    text-align: center;
+    border: 1px solid #ccc; /* Border for the input box */
+    border-radius: 5px;    /* Rounded corners */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width/height */
+    transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+
+/* Focus effect for the input boxes */
+.type-box:focus {
+    border-color: #585656; /* Darker border color when focused */
+    outline: none;          /* Removes the default outline on focus */
+}
+
+/* Container for the "Description" input boxes, aligned in a row */
+.d-inputs {
+    display: flex;           /* Use flexbox to align items in a row */
+    gap: 60px;               /* Adds space between the input boxes */
+    margin-top: 418px;        /* Adds space between the Type and Description boxes */
+    z-index: 10;
+    position: absolute;
+    margin-left: 70px;
+}
+
+/* Styling for each "Description" input box */
+.desc-box {
+    width: 180px;            /* Set width of the description boxes */
+    height: 50px;            /* Set height of the description boxes */
+    padding: 8px;            /* Padding inside the description box */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;        /* Font size of the text */
+    border: 1px solid #ccc;  /* Border for the description box */
+    border-radius: 10px;      /* Rounded corners */
+    box-sizing: border-box;  /* Ensures padding and border are included in the element's total width/height */
+    transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+
+/* Focus effect for the description boxes */
+.desc-box:focus {
+    border-color: #585656 !important;   /* Darker border color when focused */
+}
+
+.desc-box:active {
+    border-color: #585656 !important;   /* Darker border color when focused */
+}
+
+/* Styling for the container holding the pen and delete icons */
+.icons-column {
+    display: flex;                /* Use flexbox to stack the icons vertically */
+    flex-direction: column;       /* Align the items vertically */
+    gap: 10px;                    /* Add space between the icons */
+    margin-top: 400px;             /* Adds space between the description box and the icons */
+    z-index: 10;
+    position: absolute;
+    margin-left: 540px;
+}
+
+/* Styling for the edit (pen) button */
+.edit-btn {
+    margin-top: -130px;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    color: white;
+    background: #000000;
+    border: 1px solid black;  /* Border for the description box */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.save-btn {
+    margin-top: -10px;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    color: white !important;
+    background: #000000;
+    border: 1px solid black;  /* Border for the description box */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+/* Styling for the delete (trash) button */
+.delete-btn {
+    margin-top: -70px;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    color: white;
+    background: #000000;
+    border: 1px solid black;  /* Border for the description box */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+/* Hover effect for the edit button */
+.edit-btn:hover {
+    background-color: black;   /* Darker green on hover */
+    transform: scale(1.05);
+
+}
+
+/* Hover effect for the edit button */
+.edit-btn:active {
+    background-color: black;   /* Darker green on hover */
+    transform: scale(1.08); /* Slightly shrink on click for a pressed effect */
+}
+
+/* Hover effect for the delete button */
+.delete-btn:hover {
+    background-color: black;   /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+.delete-btn:active {
+    background-color: black;   /* Darker red on hover */
+    transform: scale(1.08);
+}
+
+.save-btn:hover {
+    background-color: black;   /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+.save-btn:active {
+    background-color: black;   /* Darker red on hover */
+    transform: scale(1.08) !important;
+}
+
+
+/* Styling for the icons inside the buttons */
+.bi {
+    margin-right: 5px;            /* Space between the icon and text */
+}
+
+
+
+/*..........*/
+
+ 
+
+
+@media (max-width: 768px){
+    .addPortfolio {
+        width: 490px;
+    }
+    /* Styles for the white box */
+    .white-box {
+        width: 490px;
+        height: 410px;
+    }
+    .inner-box {
+        width: 380px;
+        height: 380px;
+     
+    } 
+     /* Title input */
+    .title-input {
+        font-size: 14px;
+        width: 250px; /* Adjusting for padding and margins */
+        height: 60px;
+        margin-bottom: 5px;
+        margin-top: -5px;
+    }
+     
+     /* Description input */
+    .description-input {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+     
+        color: #000000;
+     
+        width: 93%;
+        height: 70px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        margin-left: 15px;
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+    }
+     
+     /* Hover and focus for description input */
+    .description-input:hover {
+        border-color: #585656; /* Changes border color on hover */
+    }
+     
+    .description-input:focus {
+        outline: none;
+        border-color: black; /* Changes the border color when focused */
+        background-color: #f8f9fa; /* Makes the background white on focus */
+    }
+     
+     
+     /* Title input */
+    .type-input {
+        position: relative;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        width: 10%;
+        height: 30px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-left: 18px;
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+        top: 190px;
+        z-index: 1; /* Bring the input boxes above other elements */
+    }  
+     
+     
+    .type-description-input {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5px;
+        line-height: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+     
+        color: #000000;
+     
+        width: 28%;
+        height: 50px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        margin-left: 18px;
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+        position: relative;
+        top: 190px;
+        z-index: 10; /* Bring the input boxes above other elements */
+    }
+     /* Hover effect for both .type-input and .type-description-input */
+    .type-input:hover, 
+    .type-description-input:hover {
+        border-color: #585656; /* Changes border color on hover */
+    }
+     
+     /* Focus effect for both .type-input and .type-description-input */
+    .type-input:focus, 
+    .type-description-input:focus {
+        outline: none;
+        border-color: black; /* Changes the border color when focused */
+        background-color: #f8f9fa; /* Makes the background white on focus */
+    }
+     
+     /* Title input */
+    .type-inpt {
+        position: relative;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin: 10px auto 5px auto; /* Center the element */
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+    }
+    
+    .type-description-inpt {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5px;
+        line-height: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+     
+        color: #000000;
+     
+        width: 28%;
+        height: 50px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 14px;
+        margin: 5px auto 5px auto; /* Center the element */
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+        position: relative;
+        top: -125px;
+    }
+     
+    .type-inpt:hover, 
+    .type-description-inpt:hover {
+        border-color: #585656; /* Changes border color on hover */
+    }
+     
+     /* Focus effect for both .type-input and .type-description-input */
+    .type-inpt:focus, 
+    .type-description-inpt:focus {
+        outline: none;
+        border-color: black; /* Changes the border color when focused */
+        background-color: #f8f9fa; /* Makes the background white on focus */
+    }
+     
+    /* Title input */
+    .type-inp {
+        position: relative;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 10px;
+        resize: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+    }
+     
+    .type-description-inp {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5px;
+        line-height: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+     
+        color: #000000;
+    
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 14px;
+        border-radius: 10px;
+        resize: none;
+        float: right;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover/focus */
+        position: relative;
+    }
+    .type-inp:hover, 
+    .type-description-inp:hover {
+        border-color: #585656; /* Changes border color on hover */
+    }
+     
+     /* Focus effect for both .type-input and .type-description-input */
+     .type-inp:focus, 
+     .type-description-inp:focus {
+        outline: none;
+        border-color: black; /* Changes the border color when focused */
+        background-color: #f8f9fa; /* Makes the background white on focus */
+    }
+      
+}

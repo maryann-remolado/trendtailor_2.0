@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Dashboard</title>
+    <link rel="stylesheet" href="DesignDash.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="ShopInfo.css">
+    <link rel="stylesheet" href="LeftSideBar.css">
+    <link rel="stylesheet" href="rSide.css">
+    <link rel="stylesheet" href="profileSection.css">
+    <link rel="stylesheet" href="contactInfo.css">
+    <link rel="stylesheet" href="changePass.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="SubsDetails.css">
+    <link rel="stylesheet" href="SubsHistory.css">
+    <link rel  ="stylesheet" href="PrdSection.css">
+    <link rel="stylesheet" href="Orders.css">
+    <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="Inventory.css">
+    <link rel="stylesheet" href="footer.css">
+
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font styles from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Integrated Header Section -->
+    <header class="header">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Tailor Center</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <h1>TrendTailor</h1>
+        </div>
+        <div class="flag">
+            <img src="flag.jpg" alt="Flag Icon" width="50">
+        </div>
+        <!-- Divider Line -->
+        <div class="header-divider"></div>
+    </header>
+    <!-- End of Integrated Header Section -->
+
+    <!-- Shop Information Section -->
+    <div class="contr">
+        <div class="shop-info">
+            <img src="av.jpg" class="rounded-circle" alt="Shop Avatar">
+            <h3>Kim Tae-hyung</h3>
+            <a href="#" class="edit-link">
+                <i class="bi bi-pencil"></i> Edit Profile
+            </a>
+        </div>
+    </div>
+    <!-- End of Shop Information Section -->
+
+    <!-- Designer Dashboard Section -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <a href="javascript:void(0)" id="toggleAccountBtn" data-tooltip="My Account">
+                <i class="bi bi-person-vcard-fill"></i> <span>My Account</span>
+            </a>
+            <div class="subMenu" id="accountSubmenu" style="display: none;">
+                <a href="javascript:void(0)" id="showProfileBtn" data-tooltip="Profile">Profile</a>
+                <a href="javascript:void(0)" id="showAddressBtn" data-tooltip="Address">Address</a>
+                <a href="javascript:void(0)" id="showChangePasswordBtn" data-tooltip="Change Password">Change Password</a>
+            </div>
+        
+            <a href="javascript:void(0)" id="toggleMyOrdersBtn" data-tooltip="My Orders">
+                <i class="bi bi-bag-dash-fill"></i> <span>My Orders</span>
+            </a>
+            <div class="subMenu" id="ordersSubmenu" style="display: none;">
+                <a href="javascript:void(0)" id="showBagBtn" data-tooltip="Bag">Bag</a>
+                <a href="javascript:void(0)" id="showStatusBtn" data-tooltip="Status">Status</a>
+            </div>
+        
+            <a href="#" data-tooltip="My Messages">
+                <i class="bi bi-chat-left-text-fill"></i> <span>My Messages</span>
+            </a>
+            <a href="#" data-tooltip="Signout">
+                <i class="bi bi-arrow-right-square-fill"></i> <span>Signout</span>
+            </a>
+        </div>        
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- Profile Section -->
+            <div id="profileSection">
+                <h1>My Profile</h1>
+                <p>Manage and protect your account</p>
+                <hr class="gray-divider">
+                <div class="content">
+                    <div class="row">
+                            <div class="col-md-3">
+                                <h5>Username</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <input type="text" id="username" value="thv_" placeholder="Enter your username">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Full Name</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <input type="text" id="shopname" value="Kim Taehyung" placeholder="Enter your full name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Email Address</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <input type="text" id="email" value="taehyung@gmail.com" placeholder="Enter your email address">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Phone Number</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <input type="text" id="phone" value="123-456-7890" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                    <div class="save-button-container">
+                        <button class="save-button" data-tooltip="save-profile">Save</button>
+                    </div>
+                </div>
+
+                <!-- Profile Image Section -->
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img id="userAvatar" src="user.jpg" class="rounderpcircle" width="70" alt="User Avatar">
+                    </div>
+                    <button class="select-image-button" data-tooltip="uploadAvatar()">Select Image
+                        <input type="file" id="uploadImage" style="display: none;" accept="image/*" onchange="previewImage(event)">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div id="myAddress" style="display:none;">
+                <h1>My Address</h1>
+                <p>Manage your address</p>
+                <hr class="gray-line">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Recipient Name</h5>
+                            <input type="text" id="email" value="threadNneedlebtqPh@gmail.com" class="form-control" placeholder="Enter recipient name">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Phone Number</h5>
+                            <input type="text" id="businessNumber" value="+123 4567 890" class="form-control" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="clientLocation">Region, Province, City, Barangay</label>
+                            <input type="text" id="clientLocation" class="form-control" 
+                                   value="St.123, Brgy. NYC, Cagayan de Oro City, Mis. Or. PH, 9000." 
+                                   placeholder="Enter your Region, Province, City, Barangay">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="clientLocation">Region, Province, City, Barangay</label>
+                            <input type="text" id="clientLocation" class="form-control" 
+                                   value="St.123, Brgy. NYC, Cagayan de Oro City, Mis. Or. PH, 9000." 
+                                   placeholder="Enter your Region, Province, City, Barangay">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" id="postalCode" class="form-control" 
+                                   value="9000" 
+                                   placeholder="Enter your Postal Code">
+                        </div>
+                    </div>
+                    <button class="save-button" data-tooltip="save-address">Save Address</button>
+                </div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div id="changePasswordSection" style="display:none;">
+                <h1>Change Password</h1>
+                <p>Ensure your account is secure</p>
+                <hr class="gray-divider">
+                <div class="content">
+
+                    <!-- Current Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Current Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="currentPassword" class="password-input" placeholder="Enter current password" data-mask="true">
+                                <span class="t-password" data-tooltip="Toggle visibility" data-target="currentPassword">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>New Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="newPassword" class="password-input" placeholder="Enter new password" data-mask="true">
+                                <span class="t-password" data-tooltip="Toggle visibility" data-target="newPassword">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <small class="password-guideline">
+                                Password must be at least 8 characters long and contain at least 1 letter, 1 number, and 1 special character.
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Confirm New Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Confirm New Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" class="password-input" placeholder="Confirm new password" data-mask="true">
+                                <span class="t-password" data-tooltip="Toggle visibility" data-target="confirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <small id="passwordError" class="password-guideline" style="color: red; display: none;">
+                                Incorrect password.
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Save button -->
+                    <button class="save-button" data-tooltip="save-password">Save Password</button>
+                </div>
+           </div>
+        </div>
+
+        <div class="right-side" id="rightSide" style="display: none;">
+            <!-- My Orders Section -->
+            <div id="ordersSection" style="display: none;">
+                <h3>My Bag</h3>
+                <p>Manage your bag</p>
+                <hr class="y">
+                <div class="who">
+                    <div class="hdr">
+                        <span class="ttle">
+                            <i class="bi bi-house-door-fill" data-tooltip="Go to Shop Page" data-action="openShopPage"></i>
+                            <a href="#" class="shop-title" data-tooltip="Go to Shop Page" data-action="openShopPage">Thread and Needle Boutique</a>
+                            <i class="bi bi-chat-dots-fill" data-tooltip="Go to Messages" data-action="navigateToMessagePage"></i>
+                        </span>
+                        <!-- Square box icon for order placement -->
+                        <span class="order-box" data-tooltip="Toggle Order" data-action="toggleOrderBox">
+                            <i class="bi bi-square"></i> <!-- Unchecked box icon -->
+                        </span>
+                    </div>                    
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            // Event delegation for handling clicks based on data-action
+                            document.body.addEventListener("click", (event) => {
+                                const target = event.target.closest("[data-action]");
+                                if (!target) return;
+
+                                const action = target.dataset.action;
+
+                                switch (action) {
+                                    case "openShopPage":
+                                        openShopPage();
+                                        break;
+                                    case "navigateToMessagePage":
+                                        navigateToMessagePage();
+                                        break;
+                                    case "toggleOrderBox":
+                                        toggleOrderBox(target);
+                                        break;
+                                    default:
+                                        console.warn(`No handler defined for action: ${action}`);
+                                }
+                            });
+                        });
+
+                        // Function to open the shop page
+                        function openShopPage() {
+                            window.location.href = "shop-page.html"; // Replace with your shop's URL
+                        }
+
+                        // Function to navigate to the message page
+                        function navigateToMessagePage() {
+                            window.location.href = "message-page.html"; // Replace with your message page's URL
+                        }
+
+                        // Function to toggle the order box icon between checked and unchecked
+                        function toggleOrderBox(element) {
+                            const icon = element.querySelector("i");
+                            if (icon.classList.contains("bi-square")) {
+                                icon.classList.remove("bi-square");
+                                icon.classList.add("bi-check-square-fill"); // Checked box icon
+                                element.classList.add("checked");
+                            } else {
+                                icon.classList.remove("bi-check-square-fill");
+                                icon.classList.add("bi-square"); // Unchecked box icon
+                                element.classList.remove("checked");
+                            }
+                        }
+                    </script>
+
+                    <hr class="lne">
+                    <div class="gt"> 
+                        <div class="order-ds">
+                            <span class="o-id">Ready Made Order:</span>
+                        </div>
+                        <hr class="gray-l">
+                        <div class="order-item">
+                            <!-- Image representing the order -->
+                            <img src="tp.jpg" alt="Order Image" class="order-image">
+                            
+                            <!-- Quantity controls -->
+                            <div class="quantity-controls">
+                                <label for="quantity-number" class="quantity-label">Quantity</label>
+                                <button id="decrease-btn" class="quantity-btn">-</button>
+                                <span id="quantity-number">1</span>
+                                <button id="increase-btn" class="quantity-btn">+</button>
+                            </div>
+                            <script src="bag1.js"></script>
+                        </div>
+                        <!-- Size selector -->
+                        <div class="size-controls">
+                            <label for="size-dropdown">Size</label>
+                            <select id="size-dropdown" class="size-dropdown">
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                                <option value="Extra Large">Extra Large</option>
+                            </select>
+                        </div>
+                        <script src="bag2.js"></script>
+                        <!-- Color selector -->
+                        <div class="color-controls">
+                            <label for="color-dropdown">Color</label>
+                            <select id="color-dropdown" class="color-dropdown">
+                                <option value="Red">Red</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Green">Green</option>
+                                <option value="Black">Black</option>
+                            </select>
+                        </div>
+                        <script src="bag3.js"></script>
+                        <!-- Total Price Display -->
+                        <div class="price-display">
+                            <span class="price-label">Total Price</span>
+                            <span class="price-value" id="total-price">P100.00</span>
+                        </div>
+                       
+                        <!-- Delete button -->
+                        <div class="delete-controls">
+                            <button class="btn btn-danger">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- White Box for Voucher and Delivery -->
+                    <div class="voucher-delivery-box">
+                        <div class="voucher-controls">
+                            <label for="voucher-input" class="voucher-label">
+                                <i class="bi bi-gift"></i> Add Voucher:
+                            </label>
+                            <input type="text" id="voucher-input" class="voucher-input" placeholder="Enter voucher code">
+                            <button class="btn btn-primary">Apply</button>
+                        </div>
+
+                        <div class="delivery-controls">
+                            <label for="delivery-dropdown" class="delivery-label">
+                                <i class="bi bi-truck"></i> Mode of Delivery:
+                            </label>
+                            <select id="delivery-dropdown" class="delivery-dropdown">
+                                <option value="Standard">Standard Delivery</option>
+                                <option value="Express">Express Delivery</option>
+                                <option value="Pickup">Pickup</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="whom">
+                    <div class="heddr">
+                        <span class="ttled">
+                            <i class="bi bi-house-door-fill" data-tooltip="Go to Shop Page" data-action="openShopPage"></i>
+                            <a href="#" class="shop-title" data-tooltip="Go to Shop Page" data-action="openShopPage">A&J Boutique</a>
+                            <i class="bi bi-chat-dots-fill" data-tooltip="Go to Messages" data-action="navigateToMessagePage"></i>
+                        </span>
+                        <!-- Square box icon for order placement -->
+                        <span class="or-bx" data-tooltip="Toggle Order" data-action="toggleOrderBox">
+                            <i class="bi bi-square" data-action="toggleOrderBox"></i> <!-- Unchecked box icon -->
+                        </span>
+                    </div>                                                        
+                    <script>
+                       document.addEventListener("DOMContentLoaded", () => {
+                            // Delegate click events to elements with data-action
+                            document.body.addEventListener("click", (event) => {
+                                const target = event.target.closest("[data-action]");
+                                if (!target) return;
+
+                                const action = target.dataset.action;
+
+                                // Call corresponding function based on data-action
+                                switch (action) {
+                                    case "openShopPage":
+                                        openShopPage();
+                                        break;
+                                    case "navigateToMessagePage":
+                                        navigateToMessagePage();
+                                        break;
+                                    case "toggleOrderBox":
+                                        toggleOrderBox(target.closest(".or-bx"));
+                                        break;
+                                    default:
+                                        console.warn(`No handler defined for action: ${action}`);
+                                }
+                            });
+                        });
+
+                        // Function to open the shop page
+                        function openShopPage() {
+                            window.location.href = "shop-page.html"; // Replace with your shop's URL
+                        }
+
+                        // Function to navigate to the message page
+                        function navigateToMessagePage() {
+                            window.location.href = "message-page.html"; // Replace with your message page's URL
+                        }
+
+                        // Function to toggle the order box icon between checked and unchecked
+                        function toggleOrderBox(element) {
+                            if (!element) return; // Ensure the element exists
+                            const icon = element.querySelector("i");
+                            if (icon.classList.contains("bi-square")) {
+                                icon.classList.remove("bi-square");
+                                icon.classList.add("bi-check-square-fill"); // Checked box icon
+                                element.classList.add("checked");
+                            } else {
+                                icon.classList.remove("bi-check-square-fill");
+                                icon.classList.add("bi-square"); // Unchecked box icon
+                                element.classList.remove("checked");
+                            }
+                        }
+                    </script>
+
+                    <hr class="lne">
+                    <div class="thg"> 
+                        <div class="or-ds">
+                            <span class="order-id">Costumized Order:</span>
+                        </div>
+                        <hr class="gray-l">
+                        <div class="or-itm">
+                            <!-- Image representing the order -->
+                            <img src="tp.jpg" alt="Order Image" class="or-img">
+
+                            <!-- Ordered name and form ID -->
+                            <div class="or-details">
+                                <p class="or-name-id">Order Name: <span id="order-name">My Satin</span></p>
+                                <p class="or-id-form">Order ID: <span id="order-id">1023589</span></p>
+                            </div>
+
+                            <!-- Quantity controls -->
+                            <div class="qty-controls">
+                                <label for="quantity-display" class="qty-label">Quantity</label>
+                                <button id="decrement-btn" class="qty-btn">-</button>
+                                <span id="quantity-display">1</span>
+                                <button id="increment-btn" class="qty-btn">+</button>
+                            </div>
+                            <script src="bag4.js"></script>
+                        </div>
+                        
+                        <!-- Total Price Display -->
+                        <div class="prc-dply">
+                            <span class="prc-label">Total Price:</span>
+                            <span class="prc-value" id="total-price">P100.00</span>
+                        </div>
+                       
+                        <!-- Delete button -->
+                        <div class="dl-controls">
+                            <button class="btn-dr">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- White Box for Voucher and Delivery -->
+                    <div class="voucher-delivery-box">
+                        <div class="voucher-controls">
+                            <label for="voucher-input" class="voucher-label">
+                                <i class="bi bi-gift"></i> Add Voucher:
+                            </label>
+                            <input type="text" id="voucher-input" class="voucher-input" placeholder="Enter voucher code">
+                            <button class="btn btn-primary">Apply</button>
+                        </div>
+
+                        <div class="delivery-controls">
+                            <label for="delivery-dropdown" class="delivery-label">
+                                <i class="bi bi-truck"></i> Mode of Delivery:
+                            </label>
+                            <select id="delivery-dropdown" class="delivery-dropdown">
+                                <option value="Standard">Standard Delivery</option>
+                                <option value="Express">Express Delivery</option>
+                                <option value="Pickup">Pickup</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- White Box for Total Price and Checkout -->
+                <div class="total-checkout-box">
+                    <div class="total-info">
+                        <span class="total-label">Total Price:</span>
+                        <span class="total-value" id="total-price">P200.00</span>
+                        <span class="total-label2">Total Items:</span>
+                        <span class="total-value" id="total-items">2</span>
+                    </div>
+                    <button class="btn btn-success checkout-btn">Check Out</button>
+                </div>
+         </div>
+
+         <div id="statusSection" style="display: none;">
+                <h3>My Status</h3>
+                <p>View you order status</p>
+                <hr class="fy">
+                <div class="stats">
+                    <div class="statsSection" id="statsMenu">
+                        <a href="javascript:void(0)" class="menu-item" data-tooltip="To Stitch">To Stitch</a>
+                        <a href="javascript:void(0)" class="menu-item" data-tooltip="To Ship">To Ship</a>
+                        <a href="javascript:void(0)" class="menu-item" data-tooltip="To Receive">To Receive</a>
+                        <a href="javascript:void(0)" class="menu-item" data-tooltip="Completed">Completed</a>
+                    </div>  
+                    <script>                                                                  
+                        window.onload = function () {
+                            document.getElementById("box-w").style.display = "block";
+                            setActiveMenu('To Stitch'); // Set "To Stitch" as the default active menu
+                        };
+                        
+                        function handleMenuClick(event) {
+                            const tooltip = event.target.getAttribute("data-tooltip");
+                            if (!tooltip) return;
+                        
+                            hideAllBoxes();
+                        
+                            switch (tooltip) {
+                                case "To Stitch":
+                                    document.getElementById("box-w").style.display = "block";
+                                    setActiveMenu('To Stitch');
+                                    break;
+                                case "To Ship":
+                                    document.getElementById("box-r").style.display = "block";
+                                    setActiveMenu('To Ship');
+                                    break;
+                                case "To Receive":
+                                    document.getElementById("box-i").style.display = "block";
+                                    setActiveMenu('To Receive');
+                                    break;
+                                case "Completed":
+                                    document.getElementById("box-s").style.display = "block";
+                                    setActiveMenu('Completed');
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        
+                        // Function to set the active menu item
+                        function setActiveMenu(activeTooltip) {
+                            const menuItems = document.querySelectorAll(".menu-item");
+                            menuItems.forEach(item => {
+                                if (item.getAttribute("data-tooltip") === activeTooltip) {
+                                    item.classList.add("active");
+                                } else {
+                                    item.classList.remove("active");
+                                }
+                            });
+                        }
+                        
+                        // Function to hide all boxes
+                        function hideAllBoxes() {
+                            document.getElementById("box-w").style.display = "none";
+                            document.getElementById("box-r").style.display = "none";
+                            document.getElementById("box-i").style.display = "none";
+                            document.getElementById("box-s").style.display = "none";
+                        }
+                        
+                        // Attach event listener to the menu
+                        document.getElementById("statsMenu").addEventListener("click", handleMenuClick);
+                 </script>  
+
+                    <!-- New White Box Section -->
+                    <div class="w-box" id="box-w">
+                        <div class="white">
+                            <div class="here">
+                                <div class="heads">
+                                    <span class="tlt">
+                                        <i class="bi bi-house-door-fill" data-tooltip="Go to Shop Page" data-action="openShopPage"></i>
+                                        <a href="#" class="s-title" data-tooltip="Go to Shop Page" data-action="openShopPage">A&J Boutique</a>
+                                        <i class="bi bi-chat-dots-fill" data-tooltip="Go to Messages" data-action="navigateToMessagePage"></i>
+                                    </span>
+                                </div>                                
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        // Delegate click events to elements with data-action
+                                        document.body.addEventListener("click", (event) => {
+                                            const target = event.target.closest("[data-action]");
+                                            if (!target) return;
+
+                                            const action = target.dataset.action;
+
+                                            // Call corresponding function based on data-action
+                                            switch (action) {
+                                                case "openShopPage":
+                                                    openShopPage();
+                                                    break;
+                                                case "navigateToMessagePage":
+                                                    navigateToMessagePage();
+                                                    break;
+                                                default:
+                                                    console.warn(`No handler defined for action: ${action}`);
+                                            }
+                                        });
+                                    });
+
+                                    // Function to open the shop page
+                                    function openShopPage() {
+                                        window.location.href = "shop-page.html"; // Replace with your shop's URL
+                                    }
+
+                                    // Function to navigate to the message page
+                                    function navigateToMessagePage() {
+                                        window.location.href = "message-page.html"; // Replace with your message page's URL
+                                    }
+
+                                </script>
+            
+                                <hr class="lne">
+                                <div class="they"> 
+                                    <div class="ors">
+                                        <span class="ors-ID">Costumized Order:</span>
+                                    </div>
+                                    <hr class="gray-l">
+                                    <div class="ors-ITM">
+                                        <!-- Image representing the order -->
+                                        <img src="tp.jpg" alt="Order Image" class="ors-IMG">
+            
+                                        <!-- Ordered name and form ID -->
+                                        <div class="ors-DLT">
+                                            <p class="ors-NAME-id">Order Name: <span id="order-name">My Satin</span></p>
+                                            <p class="ors-ID-form">Order ID: <span id="order-id">1023589</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Total Price Display -->
+                                    <div class="p-DPLY">
+                                        <span class="p-LABEL">Total Price:</span>
+                                        <span class="p-VALUE" id="total-price">P100.00</span>
+                                        <span class="p-X" id="total-ITEM">x1</span>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>         
+                    </div>
+                    
+                    <div class="r-box" id="box-r" style="display: none;">
+                        <div class="grey">
+                            <div class="polt">
+                                <div class="hr-tt">
+                                    <span class="t-s">
+                                        <i class="bi bi-house-door-fill" data-tooltip="Go to Shop Page" data-action="openShopPage"></i>
+                                        <a href="#" class="shop-t" data-tooltip="Go to Shop Page" data-action="openShopPage">Thread and Needle Boutique</a>
+                                        <i class="bi bi-chat-dots-fill" data-tooltip="Go to Messages" data-action="navigateToMessagePage"></i>
+                                    </span>
+                                </div>                                
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        // Delegate click events to elements with data-action
+                                        document.body.addEventListener("click", (event) => {
+                                            const target = event.target.closest("[data-action]");
+                                            if (!target) return;
+
+                                            const action = target.dataset.action;
+
+                                            // Call corresponding function based on data-action
+                                            switch (action) {
+                                                case "openShopPage":
+                                                    openShopPage();
+                                                    break;
+                                                case "navigateToMessagePage":
+                                                    navigateToMessagePage();
+                                                    break;
+                                                default:
+                                                    console.warn(`No handler defined for action: ${action}`);
+                                            }
+                                        });
+                                    });
+
+                                    // Function to open the shop page
+                                    function openShopPage() {
+                                        window.location.href = "shop-page.html"; // Replace with your shop's URL
+                                    }
+
+                                    // Function to navigate to the message page
+                                    function navigateToMessagePage() {
+                                        window.location.href = "message-page.html"; // Replace with your message page's URL
+                                    }
+
+                                </script>
+            
+                                <hr class="lne">
+                                <div class="ui-s"> 
+                                    <div class="or-made">
+                                        <span class="o-ready">Ready Made Order:</span>
+                                    </div>
+                                    <hr class="gray-l">
+                                    <div class="order-it">
+                                        <!-- Image representing the order -->
+                                        <img src="tp.jpg" alt="Order Image" class="order-im">
+                                    </div>
+
+                                    <!-- Ordered name and form ID -->
+                                    <div class="orsTD">
+                                        <p class="ors-NAME-id">Order Name: <span id="order-name">My Satin</span></p>
+                                        <p class="ors-ID-form">Order ID: <span id="order-id">1023589</span></p>
+                                    </div>
+                                    
+                                    <div class="size-con">
+                                        <label for="size-dropdown" class="size-label">Size</label>
+                                        <label for="size-dropdown" class="size-value">M</label>
+                                    </div>
+                                    <!-- Color selector -->
+                                    <div class="color-con">
+                                        <label for="color-dropdown" class="color-label">Color</label>
+                                        <label for="color-dropdown" class="color-value">RED</label>
+                                    </div>
+                                    
+                                    <!-- Total Price Display -->
+                                    <div class="price-dis">
+                                        <span class="price-l">Total Price</span>
+                                        <span class="price-v" id="total-price">P100.00</span>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="i-box" id="box-i" style="display: none;">
+                        <div class="black"></div>
+                    </div>
+                    
+                    <div class="s-box" id="box-s" style="display: none;">
+                        <div class="red"></div>
+                    </div>
+             </div>                    
+         </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Gray Line Divider -->
+        <div class="footer-divider"></div>
+        
+        <!-- Footer Content -->
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                 <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Return and Refund</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Exclusive Vouchers</a></li>
+                    <li><a href="#">Free Shipping</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-colmn">
+                <h4>About TrendTailor</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-clmn">
+                <h5>Follow Us</h5>
+                <ul>
+                    <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i> Twitter X</a></li>
+                </ul>
+            </div>
+
+            <div class="reserved">
+                <h5><i class="bi bi-c-circle"></i> 2024 TrendTailor. All Rights Reserved.</h5>
+            </div>
+        </div>
+    </footer>
+    <!-- End of right side bar-->
+    <!-- JavaScript to toggle the profile section, contact info section, and submenu -->
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+            // Get references to submenus
+            const accountSubmenu = document.getElementById("accountSubmenu");
+            const ordersSubmenu = document.getElementById("ordersSubmenu");
+
+            // Add event listeners for main menu items
+            document.getElementById("toggleAccountBtn").addEventListener("click", () => {
+                toggleSubmenu(accountSubmenu);
+                hideSubmenu(ordersSubmenu);
+            });
+
+            document.getElementById("toggleMyOrdersBtn").addEventListener("click", () => {
+                toggleSubmenu(ordersSubmenu);
+                hideSubmenu(accountSubmenu);
+            });
+
+            // Add event listeners for submenu items
+            document.getElementById("showProfileBtn").addEventListener("click", () => showSection("profileSection"));
+            document.getElementById("showAddressBtn").addEventListener("click", () => showSection("myAddress"));
+            document.getElementById("showChangePasswordBtn").addEventListener("click", () => showSection("changePasswordSection"));
+            document.getElementById("showBagBtn").addEventListener("click", () => showSection("ordersSection"));
+            document.getElementById("showStatusBtn").addEventListener("click", () => showSection("statusSection"));
+
+            // Call showSection to display the profile section by default
+            showSection("profileSection");
+        });
+
+        function toggleSubmenu(submenu) {
+            submenu.style.display = submenu.style.display === "none" || submenu.style.display === "" ? "block" : "none";
+        }
+
+        function hideSubmenu(submenu) {
+            submenu.style.display = "none";
+        }
+
+        // Function to show a specific section and manage visibility of both rightSidebar and rightSide
+        function showSection(sectionId) {
+            const sections = [
+                "profileSection",
+                "myAddress",
+                "changePasswordSection",
+                "ordersSection",
+                "statusSection",
+            ];
+
+            sections.forEach((id) => {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.style.display = id === sectionId ? "block" : "none";
+                }
+            });
+
+            // Ensure both right sidebar and right side are shown/hidden accordingly
+            if (["profileSection", "myAddress", "changePasswordSection"].includes(sectionId)) {
+                document.getElementById("rightSidebar").style.display = "block"; // Show rightSidebar
+                document.getElementById("rightSide").style.display = "none"; // Hide rightSide
+            } else if (sectionId === "ordersSection" || sectionId === "statusSection") {
+                document.getElementById("rightSidebar").style.display = "none"; // Hide rightSidebar
+                document.getElementById("rightSide").style.display = "block"; // Show rightSide
+            } else {
+                document.getElementById("rightSidebar").style.display = "block"; // Show rightSidebar by default
+                document.getElementById("rightSide").style.display = "none"; // Hide rightSide by default
+            }
+        }
+
+        // Select all sidebar links
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+        // Function to set the active menu item
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all links
+                sidebarLinks.forEach(item => item.classList.remove('active'));
+                
+                // Add active class to the clicked link
+                link.classList.add('active');
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('[data-tooltip="save-profile"]').forEach(button => {
+                button.addEventListener("click", function () {
+                    saveProfile();
+                });
+            });
+        });
+
+        function saveProfile() {
+            // Example of a smooth database interaction simulation
+            console.log("Saving profile information...");
+            setTimeout(() => {
+                alert("Profile information saved successfully!");
+            }, 500); // Simulate a delay for database interaction
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('[data-tooltip="save-address"]').forEach(button => {
+                button.addEventListener("click", function () {
+                    saveAddress();
+                });
+            });
+        });
+
+        function saveAddress() {
+            // Simulating a smooth database interaction
+            console.log("Saving address information...");
+            setTimeout(() => {
+                alert("Address information saved successfully!");
+            }, 500); // Simulate a delay for database interaction
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('[data-tooltip="save-password"]').forEach(button => {
+                button.addEventListener("click", function () {
+                    changePassword();
+                });
+            });
+        });
+
+        function changePassword() {
+            // Simulating a smooth database interaction
+            console.log("Processing password change...");
+            setTimeout(() => {
+                alert("Password changed successfully!");
+            }, 500); // Simulate a delay for database interaction
+        }
+
+
+        function uploadAvatar() {
+            alert("Avatar uploaded successfully!");
+        }
+            // Attach event listener to the button for selecting the image
+        document.querySelector('.select-image-button').addEventListener('click', function () {
+            document.getElementById('uploadImage').click(); // Trigger file input
+        });
+
+        // Attach event listener to the file input for previewing the selected image
+        document.getElementById('uploadImage').addEventListener('change', function (event) {
+            const file = event.target.files[0]; // Get the selected file
+            if (file) {
+                const reader = new FileReader(); // Create a FileReader object
+                reader.onload = function (e) {
+                    document.getElementById('userAvatar').src = e.target.result; // Set the src of the image to the selected file
+                };
+                reader.readAsDataURL(file); // Read the file as a Data URL
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButtons = document.querySelectorAll(".t-password");
+
+            toggleButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const targetId = button.dataset.target;
+                    const inputField = document.getElementById(targetId);
+                    const icon = button.querySelector("i");
+
+                    if (inputField.dataset.mask === "true") {
+                        // Show the password
+                        inputField.setAttribute("type", "text");
+                        inputField.dataset.mask = "false"; // Mark password as visible
+                        icon.classList.remove("fa-eye");
+                        icon.classList.add("fa-eye-slash");
+                    } else {
+                        // Hide the password
+                        inputField.setAttribute("type", "password");
+                        inputField.dataset.mask = "true"; // Mark password as hidden
+                        icon.classList.remove("fa-eye-slash");
+                        icon.classList.add("fa-eye");
+                    }
+                });
+            });
+});
+
+
+
+        function changePasswordSection() {
+            // Get the values from the password fields
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Get the error message element
+            const passwordError = document.getElementById('passwordError');
+
+            // Check if passwords match
+            if (newPassword !== confirmPassword) {
+                passwordError.style.display = 'block'; // Show error message
+            } else {
+                passwordError.style.display = 'none'; // Hide error message
+
+                // Continue with saving the password or further actions
+                alert("Password saved successfully!"); // You can replace this with actual save logic
+            }
+        }
+      
+
+        // For the orders submenu
+        function toggleMyOrders() {
+            const ordersSubmenu = document.getElementById("ordersSubmenu");
+            ordersSubmenu.style.display = ordersSubmenu.style.display === "none" ? "block" : "none";
+        }
+
+        // Hides the account submenu when My Orders is clicked
+        function hideAccountSubmenu() {
+            const accountSubmenu = document.getElementById("accountSubmenu");
+            if (accountSubmenu.style.display === "block") {
+                accountSubmenu.style.display = "none";
+            }
+        }
+
+        function hideMyOrdersSubmenu() {
+            const accountSubmenu = document.getElementById("ordersSubmenu");
+            if (ordersSubmenu.style.display === "block") {
+                ordersSubmenu.style.display = "none";
+            }
+        }
+ </script>
+
+</body>
+
+</html>

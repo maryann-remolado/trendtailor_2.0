@@ -1,0 +1,632 @@
+#statusSection{
+    font-family: 'Josefin Sans', sans-serif; /* Set the font for the entire Profile section */
+    padding: 20px;
+    box-shadow: none; /* Remove any shadow if exists */
+    padding-top: 20px;
+}
+
+#statusSection h3 {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: -20px;
+ 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 10px; /* Space below the title */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#statusSection p {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: -5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #767272;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#statusSection hr {
+    width: 100%; /* Full width of the section */
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: -5px; /* Move the line up by 5 pixels */
+}
+
+.statsSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+.statsSection a {
+    position: relative;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 450;
+    font-size: 12px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #d9d9d9;
+    padding: 10px 40px;
+    border-radius: 5px;
+    margin-right: 4px;
+    color: black;
+    width: 130px ;
+    height: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.statsSection a:hover {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    transform: scale(1.02);
+}
+
+.statsSection a:active {
+    transform: scale(1.04);
+}
+
+
+
+.w-box {
+    margin-top: 20px;
+    width: 100%;
+    height: 465px; /* Adjust the height as needed */
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Gray border */
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.r-box {
+    margin-top: 20px;
+    width: 100%;
+    height: 480px; /* Adjust the height as needed */
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Gray border */
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.i-box {
+    margin-top: 20px;
+    width: 100%;
+    height: 480px; /* Adjust the height as needed */
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Gray border */
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.s-box {
+    margin-top: 20px;
+    width: 100%;
+    height: 480px; /* Adjust the height as needed */
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Gray border */
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.here {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 25px; /* Space above the white box */
+    margin-left: 23px;
+    height: 170px;
+    width: 520px;
+    border: 1px solid #000000;
+}
+
+.heads {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+
+.tlt {
+    display: flex; /* Makes children align in a row */
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 8px; /* Adds space between elements */
+    cursor: pointer; /* Makes the whole span clickable */
+    margin-top: -10px;
+}
+
+.tlt a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.tlt i {
+    margin: 5px; /* Spacing between the title and icons */
+    margin-top: 5px;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: black; /* Set default icon color */
+    transition: color 0.3s ease; /* Add hover effect transition */
+}
+
+.tlt a:hover, .tlt i:hover {
+    color: grey; /* Set default icon color */
+}
+
+.they{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 12px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 110px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ors {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.ors-ID {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+/* Order item container */
+.ors-ITM {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Space between image and quantity controls */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: border for visual separation */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Optional: light background */
+    height: 60px;
+    margin-top: 15px;
+}
+
+/* Image styling */
+.ors-IMG{
+    margin-left: 3px;
+    width: 50px;
+    height: 60px;
+    object-fit: cover;  
+    border-radius: 5px; /* Optional: rounded image corners */
+}
+
+.ors-DLT {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+    margin-top: 10px; /* Space above the order details */
+    font-size: 10px; /* Font size */
+}
+
+.ors-NAME-id {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px !important;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+
+    color: black !important;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ors-ID-form {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px !important;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    color: black !important;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.ors-NAME-id span, .ors-ID-form span {
+    font-family: 'Poppins';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: black;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.p-DPLY {
+    margin-top: -60px; /* Add spacing between sections */
+    margin-left: 350px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Styling for the Label */
+.p-LABEL {
+   font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: -4px;
+    color: #000000;
+}
+
+/* Styling for the Value */
+.p-VALUE {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 35px;
+    margin-top: 2px;
+}
+
+.p-X {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 100px;
+    margin-top: -26px;
+}
+
+.polt {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 25px; /* Space above the white box */
+    margin-left: 23px;
+    height: 170px;
+    width: 520px;
+    border: 1px solid #000000;
+}
+
+.wth {
+    background-color: whitesmoke; /* White background */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the white box */
+    height: 50px;
+    border: 1px solid #000000;
+}
+
+.hr-tt {
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between title and "See All" */
+    align-items: center; /* Center items vertically */
+}
+
+.shop-t{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.t-s {
+    display: flex; /* Makes children align in a row */
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 8px; /* Adds space between elements */
+    cursor: pointer; /* Makes the whole span clickable */
+    margin-top: -10px;
+}
+
+.t-s a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2px ;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+
+}
+
+.t-s i {
+    margin: 5px; /* Spacing between the title and icons */
+    margin-top: 5px;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: black; /* Set default icon color */
+    transition: color 0.3s ease; /* Add hover effect transition */
+}
+
+.t-s a:hover, .t-s i:hover {
+    color: grey; /* Set default icon color */
+}
+
+
+.ui-s{
+    border: 1px solid #ccc; /* Gray border */
+    padding: 15px; /* Padding for inner content */
+    margin-top: 12px; /* Space above the gray box */
+    border-radius: 10px; /* Rounded corners */
+    height: 110px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.or-made {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the two spans */
+    align-items: center; /* Center items vertically */
+    padding: 5px 0; /* Padding for top and bottom */
+    margin-top: -10px; /* Adjust this value to decrease the space above */
+
+}
+
+.o-ready {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* Order item container */
+.order-it {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Space between image and quantity controls */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: border for visual separation */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Optional: light background */
+    height: 60px;
+    margin-top: 10px;
+}
+
+/* Image styling */
+.order-im {
+    margin-left: 3px;
+    width: 50px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px; /* Optional: rounded image corners */
+}
+
+.orsTD {
+    position: absolute;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+    margin-left: 75px;
+    margin-top: -70px; /* Space above the order details */
+    font-size: 10px; /* Font size */
+}
+
+/* General styling for controls */
+.size-con {
+    margin-top: -64px; /* Add spacing between sections */
+    margin-left: 180px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Size selector styling */
+.size-label {
+    position: relative;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 2px;
+
+    color: #000000;
+}
+
+.size-value {
+    position: relative;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 2px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+    color: #000000;
+}
+
+
+.color-con {
+    margin-top: -32px; /* Add spacing between sections */
+    margin-left: 290px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+.color-label {
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 27px;
+    margin-top: -5px;
+
+    color: #000000;
+}
+
+/* Color selector styling */
+.color-value {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 16px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Styling for the Total Price Section */
+.price-dis {
+    position: absolute;
+    margin-top: -25px; /* Add spacing between sections */
+    margin-left: 375px;
+    display: flex;
+    flex-direction: column; /* Stack label, dropdown, and paragraph vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Space between elements */
+}
+
+/* Styling for the Label */
+.price-l {
+   position: absolute;
+   font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: -12px;
+    color: #000000;
+}
+
+/* Styling for the Value */
+.price-v {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+
+
+

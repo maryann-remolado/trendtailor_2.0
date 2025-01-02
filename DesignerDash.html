@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Dashboard</title>
+    <link rel="stylesheet" href="DesignerDash.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="ShopInformation.css">
+    <link rel="stylesheet" href="leftBar.css">
+    <link rel="stylesheet" href="rightBar.css">
+    <link rel="stylesheet" href="prSection.css">
+    <link rel="stylesheet" href="contactInformation.css">
+    <link rel="stylesheet" href="chPassword.css">
+    <link rel="stylesheet" href="portfolioMenu.css">
+    <link rel="stylesheet" href="SubsDetails.css">
+    <link rel="stylesheet" href="SubsHistory.css">
+    <link rel ="stylesheet" href="ProductS.css">
+    <link rel="stylesheet" href="OrdersMenu.css">
+    <link rel="stylesheet" href="InventoryMenu.css">
+    <link rel="stylesheet" href="footerSide.css">
+
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font styles from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for eye icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Integrated Header Section -->
+    <header class="header">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Tailor Center</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <h1>TrendTailor</h1>
+        </div>
+        <div class="flag">
+            <img src="flag.jpg" alt="Flag Icon" width="50">
+        </div>
+        <!-- Divider Line -->
+        <div class="header-divider"></div>
+    </header>
+    <!-- End of Integrated Header Section -->
+
+    <!-- Shop Information Section -->
+    <div class="cont">
+        <div class="shop-info">
+            <img src="avatar.jpg" class="rounded-circle" width="100" alt="Shop Avatar">
+            <h3>Thread and Needle Boutique</h3>
+            <div class="shop-stats">
+                <span>Following</span> |
+                <span>Followers</span> |
+                <span>Home</span>
+            </div>
+        </div>
+    </div>
+    <!-- End of Shop Information Section -->
+
+    <!-- Designer Dashboard Section -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <a href="javascript:void(0)" id="toggleAccountBtn" data-tooltip="My Account">
+                <i class="bi bi-person-vcard-fill"></i> <span>My Account</span>
+            </a>
+            <div class="subMenu" id="accountSubmenu" style="display: none;">
+                <a href="javascript:void(0)" id="showProfileBtn">Profile</a>
+                <a href="javascript:void(0)" id="showContactInfoBtn">Contact Info</a>
+                <a href="javascript:void(0)" id="showChangePasswordBtn">Change Password</a>
+                <a href="javascript:void(0)" id="showPortfolioBtn">Portfolio</a>
+                <a href="javascript:void(0)" id="showDetailsBtn">Subscription Details</a>
+                <a href="javascript:void(0)" id="showHistoryBtn">Subscription History</a>
+            </div>
+            <a href="javascript:void(0)" id="showProductsContentBtn" data-tooltip="My Products">
+                <i class="bi bi-basket3-fill"></i> <span>My Products</span>
+            </a>
+            <a href="javascript:void(0)" id="showMyOrdersBtn" data-tooltip="My Orders">
+                <i class="bi bi-bag-dash-fill"></i> <span>My Orders</span>
+            </a>
+            <a href="#" data-tooltip="My Messages">
+                <i class="bi bi-chat-left-text-fill"></i> <span>My Messages</span>
+            </a>
+            <a href="javascript:void(0)" id="showMyInventoryBtn" data-tooltip="My Inventory">
+                <i class="bi bi-archive-fill"></i> <span>My Inventory</span>
+            </a>
+            <a href="#" data-tooltip="Signout">
+                <i class="bi bi-arrow-right-square-fill"></i> <span>Signout</span>
+            </a>
+        </div>        
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- Profile Section -->
+            <div id="profileSection">
+                <h1>My Profile</h1>
+                <p>Manage and protect your account</p>
+                <hr class="gray-divider">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Username</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" id="username" value="thread&needleboutique">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Shop Name</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" id="shopname" value="Thread and Needle Boutique">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Bio</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <textarea id="bio" placeholder="Enter your bio...">Welcome to our store......</textarea>
+                        </div>
+                    </div>
+                    <div class="save-button-container">
+                        <button class="save-button" data-tooltip="saveProfile">Save</button>
+                    </div>                    
+                </div>
+
+                <!-- Profile Image Section -->
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img id="userAvatar" src="user.jpg" class="rounderpcircle" width="70" alt="User Avatar">
+                    </div>
+                    <button class="select-image-button" data-tooltip="uploadAvatar">Select Image
+                        <input type="file" id="uploadImage" style="display: none;" accept="image/*" onchange="previewImage(event)">
+                    </button>                  
+                </div>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div id="contactInfoSection" style="display:none;">
+                <h1>My Contact Info</h1>
+                <p>Manage your contact information</p>
+                <hr class="gray-line">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Email Address</h5>
+                            <input type="text" id="email" value="threadNneedlebtqPh@gmail.com">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Business Number</h5>
+                            <input type="text" id="businessNumber" value="+123 4567 890">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="shopLocation">Shop Location</label>
+                            <input type="text" id="shopLocation" value="St.123, Brgy. NYC, Cagayan de Oro City, Mis. Or. PH, 9000.">
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="url">URL</label>
+                            <div class="url-box">
+                                <a href="http://www.threadandneedle.com" target="_blank">www.threadandneedle.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save-button" data-tooltip="saveContactInfo">Save Contact</button>
+                </div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div id="changePasswordSection" style="display:none;">
+                <h1>Change Password</h1>
+                <p>Ensure your account is secure</p>
+                <hr class="gray-divider">
+                <div class="content">
+                    <!-- Current Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Current Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="currentPassword" class="password-input" placeholder="Enter current password" data-tooltip="currentPassword">
+                                <span class="toggle-password" data-tooltip="togglePasswordVisibility">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <!-- New Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>New Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="newPassword" class="password-input" placeholder="Enter new password" data-tooltip="newPassword" data-masked="true">
+                                <span class="toggle-password" data-tooltip="togglePasswordVisibility">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>                        
+                            <small class="password-guideline">
+                                Password must be at least 8 characters long and contain at least 1 letter, 1 number, and 1 special character.
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Confirm New Password Field -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Confirm New Password</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" class="password-input" placeholder="Confirm new password">
+                                <span class="toggle-password" data-tooltip="togglePasswordVisibility('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <small id="passwordError" class="password-guideline" style="color: red; display: none;">
+                                Incorrect password.
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Save button -->
+                    <button class="save-button" data-tooltip="changePasswordSection">Save Password</button>
+                </div>
+           </div>
+
+            <!-- Portfolio Section -->
+            <div id="portfolioSection">
+                <h1>My Portfolio</h1>
+                <p>Manage your portfolio and projects</p>
+                <hr class="gray-divider">
+                <div class="content">
+                    <button class="addPortfolio" id="addPortfolioBtn">Add New Portfolio</button>
+                    <!-- Container for saved portfolios -->
+                    <div class="portfolio-box" id="savedPortfolioBox">
+                        <div class="white-box" id="savedPortfolioContainer">
+                            <!-- Placeholder for saved portfolios -->
+                            <p id="noPortfoliosText">No saved portfolios.</p>
+                        </div>
+                    </div>
+
+                    <!-- New Portfolio Container (Initially Hidden) -->
+                    <div class="newBox" style="display: none;">
+                        <!-- New White Box with Collection Title Input -->
+                        <div class="gats">
+                            <!-- Collection Title Input -->
+                            <input type="text" class="col-t" placeholder="Collection Title">
+                        </div>
+
+                        <!-- Collection Description Input outside the 'gats' class -->
+                        <div class="clct-cntr">
+                            <textarea class="cl-desc" placeholder="Collection Description"></textarea>
+                        </div>
+
+                        <!-- Buttons for Image Upload -->
+                        <div class="btn-c">
+                            <div class="ima-btn">
+                                
+                                <input type="file" id="fileInput1" class="file-input" accept="image/*" />
+                                <div class="image-preview-container"></div> <!-- Container for the image preview -->
+                            </div>
+                            <div class="ima-btn">
+                                
+                                <input type="file" id="fileInput2" class="file-input" accept="image/*" />
+                                <div class="image-preview-container"></div> <!-- Container for the image preview -->
+                            </div>                                                      
+                        </div>
+
+                        <!-- New container for the two "Type" input boxes -->
+                        <div class="t-inputs">
+                            <input type="text" class="type-box" placeholder="Type">
+                            <input type="text" class="type-box" placeholder="Type">
+                        </div>
+
+                        <!-- Container for the "Description" input boxes -->
+                        <div class="d-inputs">
+                            <input class="desc-box" placeholder="Description"></input>
+                            <input class="desc-box" placeholder="Description"></input>
+                        </div>
+
+                        <!-- Container for the icons (pen and delete) in a column -->
+                        <div class="icons-column">
+                            <button class="edit-btn" id="editBtn">
+                                <i class="bi bi-pen"></i> <!-- Pen icon for editing -->
+                            </button>
+
+                            <button class="save-btn" id="saveBtn">
+                                <i class="bi bi-box-arrow-down"></i> <!-- Pen icon for editing -->
+                            </button>
+
+                            <button class="delete-btn" id="deleteBtn">
+                                <i class="bi bi-trash"></i> <!-- Trash icon for deleting -->
+                            </button>
+                        </div>
+                    </div>
+                    <script>
+                        // Get the "Add New Portfolio" button
+                        const addPortfolioBtn = document.getElementById('addPortfolioBtn');
+                    
+                        // Get the "New Portfolio Box" container
+                        const newPortfolioBox = document.querySelector('.newBox');
+                    
+                        // Add event listener to the button
+                        addPortfolioBtn.addEventListener('click', function () {
+                            // Toggle visibility of the new portfolio box
+                            if (newPortfolioBox.style.display === 'none' || newPortfolioBox.style.display === '') {
+                                newPortfolioBox.style.display = 'block'; // Show the box
+                            } else {
+                                newPortfolioBox.style.display = 'none'; // Hide the box
+                            }
+                        });
+                     // Handle image file input change for fileInput1
+                    document.getElementById('fileInput1').addEventListener('change', function (event) {
+                        const container = this.nextElementSibling; // Select the adjacent image-preview-container
+                        displaySelectedImage(event, container);
+                    });
+
+                    // Handle image file input change for fileInput2
+                    document.getElementById('fileInput2').addEventListener('change', function (event) {
+                        const container = this.nextElementSibling; // Select the adjacent image-preview-container
+                        displaySelectedImage(event, container);
+                    });
+
+                    // Function to display the selected image inside the container
+                    function displaySelectedImage(event, container) {
+                        const files = event.target.files;
+                        container.innerHTML = ''; // Clear any existing previews
+
+                        if (files && files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.style.width = '100%'; // Make the image fit the container
+                                img.style.height = '100%'; // Maintain container's aspect ratio
+                                img.style.objectFit = 'cover'; // Ensure it covers the area without distortion
+                                container.appendChild(img); // Append the image to the container
+                            };
+                            reader.readAsDataURL(files[0]);
+                        }
+                    }
+
+
+                       // Get the necessary elements
+                        const colTitleInput = document.querySelector('.col-t');
+                        const collectionDescTextarea = document.querySelector('.cl-desc');
+                        const fileInputs = document.querySelectorAll('.file-input');
+                        const typeInputs = document.querySelectorAll('.type-box');
+                        const descInputs = document.querySelectorAll('.desc-box');
+                        const saveBtn = document.getElementById('saveBtn');
+                        const editBtn = document.getElementById('editBtn');
+                        const deleteBtn = document.getElementById('deleteBtn');
+                        const addBtn = document.getElementById('addPortfolioBtn');
+                        const newBox = document.querySelector('.newBox');
+                        const savedPortfolioBox = document.getElementById('savedPortfolioBox');
+                        const noPortfoliosText = document.getElementById('noPortfoliosText');
+
+                        // Initially show "Save" and "Delete" buttons
+                        saveBtn.style.display = 'block';
+                        editBtn.style.display = 'none';
+
+                        // Function to handle the "Save" button click
+                        saveBtn.addEventListener('click', function () {
+                            saveBtn.style.display = 'none';
+                            editBtn.style.display = 'block';
+
+                            // Disable the input fields
+                            colTitleInput.disabled = true;
+                            collectionDescTextarea.disabled = true;
+                            fileInputs.forEach(input => input.disabled = true);
+                            typeInputs.forEach(input => input.disabled = true);
+                            descInputs.forEach(input => input.disabled = true);
+                        });
+
+                        // Function to handle the "Edit" button click
+                        editBtn.addEventListener('click', function () {
+                            saveBtn.style.display = 'block';
+                            editBtn.style.display = 'none';
+
+                            // Enable the input fields
+                            colTitleInput.disabled = false;
+                            collectionDescTextarea.disabled = false;
+                            fileInputs.forEach(input => input.disabled = false);
+                            typeInputs.forEach(input => input.disabled = false);
+                            descInputs.forEach(input => input.disabled = false);
+                        });
+
+                        // Function to handle the "Delete" button click
+                        deleteBtn.addEventListener('click', function () {
+                            // Remove the portfolio container
+                            newBox.style.display = 'none';
+
+                            // Show the "No saved portfolios" text
+                            noPortfoliosText.style.display = 'block';
+
+                            // Reset inputs and previews
+                            colTitleInput.value = '';
+                            collectionDescTextarea.value = '';
+                            typeInputs.forEach(input => input.value = '');
+                            descInputs.forEach(input => input.value = '');
+                            document.querySelectorAll('.image-preview-container').forEach(container => (container.innerHTML = ''));
+
+                            // Reset the "Add New Portfolio" button
+                            addBtn.style.display = 'block';
+                        });
+
+                        // Function to show the new portfolio box
+                        addBtn.addEventListener('click', function () {
+                            newBox.style.display = 'block';
+                            addBtn.style.display = 'none';
+                            noPortfoliosText.style.display = 'none'; // Hide the "No saved portfolios" text
+                        });
+                 </script>
+                    
+                </div>
+          </div>
+            
+          <!-- Subscription Details Section -->
+          <div id="subscriptionDetails" style="display:none;" class="subscription-details">
+                <h1 class="subscription-title">Subscription Details</h1>
+                <p class="subscription-subtitle">View your subscription activity</p> <!-- Subtitle added here -->
+                <hr class="gray"> 
+                <div class="whitBx">
+                    <div class="detail-item">
+                        <div class="gray-box">
+                            <div class="item-left">Status</div>
+                            <div class="divider"></div>
+                            <div class="item-right">Active</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="gray-box">
+                            <div class="item-left">Plan</div>
+                            <div class="divider"></div>
+                            <div class="item-right">Premium</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="gray-box">
+                            <div class="item-left">Billing Cycle</div>
+                            <div class="divider"></div>
+                            <div class="item-right">Monthly</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="gray-box">
+                            <div class="item-left">Next Billing Date</div>
+                            <div class="divider"></div>
+                            <div class="item-right">October 30, 2024</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="gray-box">
+                            <div class="item-left">Payment Method:</div>
+                            <div class="divider"></div>
+                            <div class="item-right">Credit Card</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Action Buttons Section -->
+                <div class="button-container">
+                    <div class="horizontal-buttons">
+                        <button class="action-button upgrade-button">Upgrade Plan</button>
+                        <button class="action-button downgrade-button">Downgrade Plan</button>
+                    </div>
+                    <button class="action-button cancel-button">Cancel Subscription</button>
+                </div>
+            </div>
+
+           <!-- Subscription History Section -->
+            <div id="subscriptionHistory" class="subscription-history" style="display:none;">
+                <h1 class="subscription-title">Subscription History</h1>
+                <p class="subscription-description">View your past subscriptions</p>
+                <hr class="gr">
+                <div class="wbox">
+                    <div class="gry"> <!-- New gray box -->
+                        <div class="rw">
+                            <div class="label">Transaction ID</div>
+                            <div class="label">Subscription Date</div>
+                            <div class="label">Subscription Plan</div>
+                            <div class="label">Amount</div>
+                            <div class="label">Status</div>
+                        </div>
+                        <hr class="dv">
+                        <div class="rw">
+                            <div class="data">243056</div>
+                            <div class="data">03/24/2024</div>
+                            <div class="data">Premium</div>
+                            <div class="data">₱1,500.00</div>
+                            <div class="data">Paid</div>
+                        </div>
+                        <hr class="dv">
+                        <div class="rw">
+                            <div class="data">223344</div>
+                            <div class="data">02/09/2024</div>
+                            <div class="data">Premium</div>
+                            <div class="data">₱1,500.00</div>
+                            <div class="data">Paid</div>
+                        </div>
+                        <hr class="dv">
+                        <div class="rw">
+                            <div class="data">262077</div>
+                            <div class="data">01/15/2024</div>
+                            <div class="data">Premium</div>
+                            <div class="data">₱1,500.00</div>
+                            <div class="data">Paid</div>
+                        </div>
+                        <hr class="dv">
+                        <div class="rw">
+                            <div class="data">212098</div>
+                            <div class="data">12/09/2023</div>
+                            <div class="data">Premium</div>
+                            <div class="data">₱1,500.00</div>
+                            <div class="data">Paid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="r-side" id="rSide" style="display: none;">
+            <!-- Products Section -->
+            <div id="productSection" style="display: none;">
+                <h2>Products</h2>
+                <p>Manage your product</p>
+                <hr class="gy">
+                <button type="button" class="add-prdct-btn">Add New Product</button>
+
+                <div class="wht" style="display: none;">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" id="productName" placeholder="Enter product name">
+                        </div>
+                        <div class="input-group">
+                            <label for="productDescription">Description</label>
+                            <input type="text" id="productDescription" placeholder="Enter product description">
+                        </div>
+                    </div>
+                    <div class="input-images">
+                        <div id="imagePreviewFrame" class="image-frame" >
+                            <label for="productImages">Upload Product Images</label>
+                            <input type="file" id="productImages" name="productImages" accept="image/*" multiple>
+                        </div>
+                    </div>
+                    <div class="input-rw">
+                        <div class="input-grp">
+                            <label for="productPrice">Price</label>
+                            <input type="text" id="productPrice" placeholder="Enter product price">
+                        </div>
+                        <div class="input-ctgry">
+                            <label for="productCategory">Category</label>
+                            <select id="productCategory">
+                                <option value="" disabled selected>Select a category</option>
+                                <optgroup label="Women">
+                                    <option value="Women-Tops">Tops</option>
+                                    <option value="Women-Dresses">Dresses</option>
+                                    <option value="Women-Bottoms">Bottoms</option>
+                                </optgroup>
+                                <optgroup label="Men">
+                                    <option value="Men-Tops">Tops</option>
+                                    <option value="Men-Bottoms">Bottoms</option>
+                                </optgroup>
+                                <optgroup label="Fabric">
+                                    <option value="Fabric-Silk">Silk</option>
+                                    <option value="Fabric-Cotton">Cotton</option>
+                                    <option value="Fabric-Polyester">Polyester</option>
+                                </optgroup>
+                            </select>
+                      </div>
+                    </div>
+                    
+                    <div class="input-stock">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" placeholder="Stock quantity">
+                    </div>
+
+                    <div class="input-button">
+                        <button type="submit" id="updateProductButton">Save</button>
+                        <button type="button" id="cancelButton">Cancel</button>
+                    </div>
+               </div>
+               <script src="inputProduct.js"></script>
+                 <!-- Second White Box (New) -->
+                <div class="wy">
+                    <span class="left-text">All Product</span>
+                    <!-- Right side: Check icon from Bootstrap -->
+                    <span class="right-icon">check<i class="bi bi-check-square-fill"></i></span>
+                </div>
+            </div>
+            <!-- My Orders Section -->
+            <div id="ordersSection" style="display: none;">
+                <h3>My Orders</h3>
+                <p>Manage your client's orders.</p>
+                <hr class="y">
+                <div class="who">
+                    <div class="hdr">
+                        <span class="ttle">Order Confirmation</span>
+                        <span class="see-all">See All <i class="bi bi-caret-down-fill"></i></span>
+                    </div>
+                    <hr class="lne">
+                    <div class="gt"> 
+                        <div class="order-ds">
+                            <span class="o-id">Order ID:</span>
+                            <span class="s-details">See Details</span>
+                        </div>
+                        <hr class="gray-l">
+                        <div class="product-rw">
+                            <span class="p-name">Product Name: Bespoke Linen Nightgown</span>
+                            <span class="t-price">Total Price: $120</span>
+                            <span class="c-icon">
+                                <span class="confirm-text">Confirm</span>
+                                <i class="bi bi-check-square-fill"></i> <!-- Box icon for confirming order -->
+                            </span>
+                        </div>
+                        <div class="p-rw">
+                            <span class="o-date">Order Date: 06/05/24</span>
+                       </div>
+                  </div>
+                </div>
+
+                <div class="wth">
+                    <div class="white-x">
+                        <span class="u-status">Update Order Status</span>
+                        <span class="s-all">See All <i class="bi bi-caret-down-fill"></i></span>
+                    </div>
+                    <hr class="ey">
+                    <div class="gri">
+                        <div class="ord">
+                            <span class="order">Order ID:</span>
+                            <span class="see">See Details</span>
+                        </div>
+                        <hr class="gray-1">
+                        <div class="product-row">
+                            <span class="product-n">Product Name: Bespoke Linen Nightgown</span>
+                            <span class="total-p">Total Price: $120</span>
+                        </div>
+                        <div class="p-row">
+                            <span class="order-d">Order Date: 08/06/21</span>
+                            <div class="status-dropdown">
+                                <label for="orderStatus">Status: </label>
+                                <select id="orderStatus" name="orderStatus">
+                                    <option value="" disabled selected>Select Status</option>
+                                    <option value="FabricSelected">Fabric Selected</option>
+                                    <option value="PatternCutting">Pattern Cutting</option>
+                                    <option value="StitchingStarted">Stitching Started</option>
+                                    <option value="FirstFittingSchedule">First Fitting Schedule</option>
+                                    <option value="AdjustmentsMade">Adjustments Made</option>
+                                    <option value="FinalFittingSchedule">Final Fitting Schedule</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Shipped">Shipped</option>
+                                </select>
+                            </div>                        
+                       </div>
+                       <div class="up-btn-container">
+                            <button type="button" class="up-btn">Update</button>
+                        </div>
+                    </div>
+             </div>
+         </div>
+         <!-- My Inventory Section -->
+         <div id="inventorySection" style="display: none;">
+                <h4>My Inventory</h4>
+                <p>Manage your inventory</p>
+                <hr class="g-gr">
+                <div class="container-wrapper">
+                    <div class="container">
+                        <div class="w-wt">
+                            <i class="bi bi-archive-fill"></i> <!-- Inventory Icon -->
+                            <span class="inventory-text">Total Products</span>
+                            <i class="bi bi-arrow-up-right"></i> <!-- Arrow Up Icon -->
+                            <span class="item-count">30 items</span> <!-- Underlined text -->
+                        </div>
+                        <div class="ww-t">
+                            <i class="bi bi-archive-fill"></i> <!-- Inventory Icon -->
+                            <span class="inventory-text">Total Products</span>
+                            <i class="bi bi-arrow-up-right"></i> <!-- Arrow Up Icon -->
+                            <span class="item-count">30 items</span> <!-- Underlined text -->
+                        </div>
+                        <div class="wwt">
+                            <i class="bi bi-archive-fill"></i> <!-- Inventory Icon -->
+                            <span class="inventory-text">Total Products</span>
+                            <i class="bi bi-arrow-up-right"></i> <!-- Arrow Up Icon -->
+                            <span class="item-count">30 items</span> <!-- Underlined text -->
+                        </div>
+                    </div>
+                
+                    <div class="rt-box">
+                        <!-- Content for the right white box -->
+                        <h5>Value of Stock</h5>
+                        <p></i>P 10,000</p>
+                        <hr class="gui">
+                        <h5>Payments</h5> <!-- Heading for Payments -->
+                        <div class="payment-row">
+                            <span>Received</span>
+                            <span>P 3,000</span>
+                        </div>
+                        <div class="payment-row">
+                            <span>Received</span>
+                            <span>P 6,000</span>
+                        </div>
+                        <div class="payment-row">
+                            <span>Pending</span>
+                            <span>P 2,000</span>
+                        </div>
+                        <div class="download-row">
+                            <span><i class="bi bi-box-arrow-down"></i><u>Restock Report</u></span>
+                            <span><i class="bi bi-box-arrow-down"></i><u>Sales Report</u></span>
+                        </div>
+                    </div>
+                </div>                
+         </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Gray Line Divider -->
+        <div class="footer-divider"></div>
+        
+        <!-- Footer Content -->
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                 <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Return and Refund</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Exclusive Vouchers</a></li>
+                    <li><a href="#">Free Shipping</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-colmn">
+                <h4>About TrendTailor</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-clmn">
+                <h5>Follow Us</h5>
+                <ul>
+                    <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i> Twitter X</a></li>
+                </ul>
+            </div>
+
+            <div class="reserved">
+                <h5><i class="bi bi-c-circle"></i> 2024 TrendTailor. All Rights Reserved.</h5>
+            </div>
+        </div>
+    </footer>
+    <!-- End of right side bar-->
+    <!-- JavaScript to toggle the profile section, contact info section, and submenu -->
+    <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const accountSubmenu = document.getElementById("accountSubmenu");
+
+            // Toggle Account Submenu
+            document.getElementById("toggleAccountBtn").addEventListener("click", () => {
+                accountSubmenu.style.display = accountSubmenu.style.display === "none" ? "block" : "none";
+            });
+
+            // Show Profile section by default
+            showProfile();
+
+            // Individual Menu Actions
+            document.getElementById("showProfileBtn").addEventListener("click", showProfile);
+            document.getElementById("showContactInfoBtn").addEventListener("click", showContactInfo);
+            document.getElementById("showChangePasswordBtn").addEventListener("click", showChangePassword);
+            document.getElementById("showPortfolioBtn").addEventListener("click", showPortfolio);
+            document.getElementById("showDetailsBtn").addEventListener("click", showDetails);
+            document.getElementById("showHistoryBtn").addEventListener("click", showHistory);
+
+            // Other menu buttons
+            document.getElementById("showProductsContentBtn").addEventListener("click", () => {
+                showProductsContent();
+                hideSubmenu();
+            });
+
+            document.getElementById("showMyOrdersBtn").addEventListener("click", () => {
+                showMyOrders();
+                hideSubmenu();
+            });
+
+            document.getElementById("showMyInventoryBtn").addEventListener("click", () => {
+                showMyInventory();
+                hideSubmenu();
+            });
+        });
+
+        // Functions
+        function showProfile() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "block";
+            document.getElementById("contactInfoSection").style.display = "none";
+            document.getElementById("changePasswordSection").style.display = "none";
+            document.getElementById("portfolioSection").style.display = "none";
+            document.getElementById("subscriptionDetails").style.display = "none";
+            document.getElementById("subscriptionHistory").style.display = "none";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function showContactInfo() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("contactInfoSection").style.display = "block";
+            document.getElementById("changePasswordSection").style.display = "none";
+            document.getElementById("portfolioSection").style.display = "none";
+            document.getElementById("subscriptionDetails").style.display = "none";
+            document.getElementById("subscriptionHistory").style.display = "none";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function showChangePassword() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("contactInfoSection").style.display = "none";
+            document.getElementById("changePasswordSection").style.display = "block";
+            document.getElementById("portfolioSection").style.display = "none";
+            document.getElementById("subscriptionDetails").style.display = "none";
+            document.getElementById("subscriptionHistory").style.display = "none";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function showPortfolio() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("contactInfoSection").style.display = "none";
+            document.getElementById("changePasswordSection").style.display = "none";
+            document.getElementById("portfolioSection").style.display = "block";
+            document.getElementById("subscriptionDetails").style.display = "none";
+            document.getElementById("subscriptionHistory").style.display = "none";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function showDetails() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("contactInfoSection").style.display = "none";
+            document.getElementById("changePasswordSection").style.display = "none";
+            document.getElementById("portfolioSection").style.display = "none";
+            document.getElementById("subscriptionDetails").style.display = "block";
+            document.getElementById("subscriptionHistory").style.display = "none";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function showHistory() {
+            document.getElementById("rightSidebar").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("contactInfoSection").style.display = "none";
+            document.getElementById("changePasswordSection").style.display = "none";
+            document.getElementById("portfolioSection").style.display = "none";
+            document.getElementById("subscriptionDetails").style.display = "none";
+            document.getElementById("subscriptionHistory").style.display = "block";
+            document.getElementById("rSide").style.display = "none";
+            document.getElementById("productSection").style.display = "none";
+            document.getElementById("ordersSection").style.display = "none";
+        }
+
+        function hideSubmenu() {
+            const submenu = document.getElementById("accountSubmenu");
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            }
+        }
+
+       
+        function showProductsContent() {
+            // Get the right sidebar and product section elements
+            var rightSide = document.getElementById("rSide");
+            var productSection = document.getElementById("productSection");
+            var ordersSection = document.getElementById("ordersSection");
+            var inventorySection = document.getElementById("inventorySection"); // Reference to inventory section
+
+            // Make the right sidebar visible
+            rightSide.style.display = "block";
+
+            // Hide other sections
+            ordersSection.style.display = "none";
+            inventorySection.style.display = "none";
+
+            // Show the product section content
+            productSection.style.display = "block";
+        }
+
+        function showMyOrders() {
+            // Get the right sidebar and orders section elements
+            var rightSide = document.getElementById("rSide");
+            var productSection = document.getElementById("productSection");
+            var ordersSection = document.getElementById("ordersSection");
+            var inventorySection = document.getElementById("inventorySection"); // Reference to inventory section
+
+            // Make the right sidebar visible
+            rightSide.style.display = "block";
+
+            // Hide other sections
+            productSection.style.display = "none";
+            inventorySection.style.display = "none";
+
+            // Show the orders section content
+            ordersSection.style.display = "block";
+        }
+
+        function showMyInventory() {
+            // Get the right sidebar and inventory section elements
+            var rightSide = document.getElementById("rSide");
+            var productSection = document.getElementById("productSection");
+            var ordersSection = document.getElementById("ordersSection");
+            var inventorySection = document.getElementById("inventorySection"); // Reference to inventory section
+
+            // Make the right sidebar visible
+            rightSide.style.display = "block";
+
+            // Hide other sections
+            productSection.style.display = "none";
+            ordersSection.style.display = "none";
+
+            // Show the inventory section content
+            inventorySection.style.display = "block";
+        }
+
+
+       const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+        // Function to set the active menu item
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all links
+                sidebarLinks.forEach(item => item.classList.remove('active'));
+                
+                // Add active class to the clicked link
+                link.classList.add('active');
+            });
+        });
+
+        // Add an event listener to handle the save button click
+        document.addEventListener("DOMContentLoaded", () => {
+            const saveButton = document.querySelector('.save-button');
+
+            if (saveButton) {
+                saveButton.addEventListener('click', () => {
+                    const tooltip = saveButton.getAttribute('data-tooltip');
+                    if (tooltip === 'saveProfile') {
+                        saveProfile();
+                    }
+                });
+            }
+        });
+
+        // Updated saveProfile function
+        function saveProfile() {
+            alert("Profile information saved successfully!");
+            // Add your database connection logic here
+        }
+
+        // Ensure the DOM is fully loaded before adding event listeners
+        document.addEventListener("DOMContentLoaded", () => {
+            // Select the button with the data-tooltip attribute
+            const saveButton = document.querySelector('.save-button[data-tooltip="saveContactInfo"]');
+
+            // Check if the button exists
+            if (saveButton) {
+                saveButton.addEventListener('click', () => {
+                    saveContactInfo(); // Call the saveContactInfo function
+                });
+            }
+        });
+
+        // Function to save contact information
+        function saveContactInfo() {
+            alert("Contact information saved successfully!");
+            // Add your database connection logic here
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Add event listener for all elements with a data-tooltip attribute
+            const elementsWithTooltip = document.querySelectorAll('[data-tooltip="changePasswordSection"]');
+
+            elementsWithTooltip.forEach((element) => {
+                element.addEventListener('click', () => {
+                    // Call the function associated with the data-tooltip value
+                    const tooltipAction = element.getAttribute('data-tooltip');
+                    if (tooltipAction === "changePasswordSection") {
+                        changePasswordSection();
+                    }
+                });
+            });
+        });
+
+        // Function to change the password
+        function changePasswordSection() {
+            alert("Password changed successfully!");
+            // Add your logic here to handle the password change process
+        }
+
+
+
+        function uploadAvatar() {
+            alert("Avatar uploaded successfully!");
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            // Add event listener to the button
+            const selectImageButton = document.querySelector('.select-image-button');
+
+            if (selectImageButton) {
+                selectImageButton.addEventListener('click', () => {
+                    const tooltip = selectImageButton.getAttribute('data-tooltip');
+                    if (tooltip === 'uploadAvatar') {
+                        uploadAvatar();
+                    }
+                });
+            }
+        });
+
+        // Function to trigger file input when the button is clicked
+        function uploadAvatar() {
+            document.getElementById('uploadImage').click();
+        }
+
+        // Function to preview the selected image
+        function previewImage(event) {
+            const file = event.target.files[0]; // Get the selected file
+            if (file) {
+                const reader = new FileReader(); // Create a FileReader object
+                reader.onload = function (e) {
+                    document.getElementById('userAvatar').src = e.target.result; // Set the src of the image to the selected file
+                };
+                reader.readAsDataURL(file); // Read the file as a Data URL
+            }
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            // Add event listener for toggling password visibility
+            const togglePasswordElements = document.querySelectorAll('.toggle-password');
+
+            togglePasswordElements.forEach(togglePassword => {
+                togglePassword.addEventListener('click', () => {
+                    // Get the associated input field
+                    const inputField = togglePassword.previousElementSibling;
+                    const icon = togglePassword.querySelector('i');
+
+                    // Toggle password visibility
+                    togglePasswordVisibility(inputField, icon);
+                });
+            });
+        });
+
+
+        // Function to toggle password visibility
+        function togglePasswordVisibility(inputField, icon) {
+            if (inputField.type === "password") {
+                // Show the password
+                inputField.setAttribute("type", "text");
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                // Hide the password
+                inputField.setAttribute("type", "password");
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+    
+        function changePasswordSection() {
+            // Get the values from the password fields
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Get the error message element
+            const passwordError = document.getElementById('passwordError');
+
+            // Check if passwords match
+            if (newPassword !== confirmPassword) {
+                passwordError.style.display = 'block'; // Show error message
+            } else {
+                passwordError.style.display = 'none'; // Hide error message
+
+                // Continue with saving the password or further actions
+                alert("Password saved successfully!"); // You can replace this with actual save logic
+            }
+        }  
+ </script>
+
+</body>
+
+</html>
