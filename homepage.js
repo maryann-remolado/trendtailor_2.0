@@ -1,3 +1,73 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+
+// Your Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBYg9Ic5NYxj6mGncEk9prXd7OlPMUz5f8",
+authDomain: "cs-pn-f5ac0.firebaseapp.com",
+databaseURL: "https://cs-pn-f5ac0-default-rtdb.firebaseio.com",
+projectId: "cs-pn-f5ac0",
+storageBucket: "cs-pn-f5ac0.appspot.com",
+messagingSenderId: "29471816373",
+appId: "1:29471816373:web:d3d963245930f8ba399cfc",
+measurementId: "G-NCVC43YGCG"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth(app);
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth(); // Initialize Firebase Authentication
+
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const userId = user.uid; // Get the authenticated user's UID
+            const userRef = ref(database, `users/${userId}`);
+
+            // Fetch user's shopAvatar
+            get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const userData = snapshot.val();
+                        const profilePicture = userData.shopAvatar || "default-avatar.png"; // Fallback to default image
+
+                        // Update profile picture on the dashboard
+                        const profileImageElement = document.querySelector(".user-profile img"); // Adjust selector based on your HTML
+                        if (profileImageElement) {
+                            profileImageElement.src = profilePicture;
+                        }
+                    } else {
+                        console.log("No user data found.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching user data: ", error);
+                });
+        } else {
+            console.log("No user is logged in.");
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Add click event listener to the user profile div
+    const userProfile = document.querySelector(".user-profile");
+
+    if (userProfile) {
+        userProfile.addEventListener("click", function () {
+            // Redirect to the dashboard
+            window.location.href = "ClientDash.html"; // Replace with your actual dashboard URL
+        });
+    } else {
+        console.error("User profile element not found.");
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
     const searchInput = document.querySelector("#search-input");
