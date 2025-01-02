@@ -832,7 +832,7 @@
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
         import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
         // Your Firebase configuration
@@ -1059,12 +1059,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const userRef = ref(database, `users/${userId}`);
             const addressRef = ref(database, `users/${userId}/address`);
 
-            // Fetch and populate user and address information on page load
+            // Fetch and populate user phone number on page load
             get(userRef)
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         const userData = snapshot.val();
-                        document.getElementById("businessNumber").value = userData.phoneNumber || ""; // Fetch phone number from user's database
+                        document.getElementById("businessNumber").value = userData.phoneNumber || ""; // Populate phone number
                     } else {
                         console.log("No user data found!");
                     }
@@ -1073,17 +1073,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Error fetching user data: ", error);
                 });
 
+            // Fetch and populate address information on page load
             get(addressRef)
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         const addressData = snapshot.val();
-                        document.getElementById("name").value = addressData.recipientName || ""; // Default to empty string
-                        document.getElementById("clientLocation").value = addressData.location || ""; // Default to empty string
-                        document.getElementById("clientLocationTwo").value = addressData.streetDetails || ""; // Default to empty string
-                        document.getElementById("postalCode").value = addressData.postalCode || ""; // Default to empty string
+                        document.getElementById("name").value = addressData.recipientName || ""; // Populate recipient name
+                        document.getElementById("clientLocation").value = addressData.location || ""; // Populate location
+                        document.getElementById("clientLocationTwo").value = addressData.streetDetails || ""; // Populate street details
+                        document.getElementById("postalCode").value = addressData.postalCode || ""; // Populate postal code
                     } else {
                         console.log("No address data found!");
-                        // Default to null if no address exists
+                        // Initialize address fields to null if not found
                         update(addressRef, {
                             recipientName: null,
                             location: null,
@@ -1110,17 +1111,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function saveAddress(userId) {
-    const recipientName = document.getElementById("name").value || null; // Default to null if empty
-    const phoneNumber = document.getElementById("businessNumber").value || null; // Already fetched from the database
-    const location = document.getElementById("clientLocation").value || null; // Default to null if empty
-    const streetDetails = document.getElementById("clientLocationTwo").value || null; // Default to null if empty
-    const postalCode = document.getElementById("postalCode").value || null; // Default to null if empty
+    const recipientName = document.getElementById("name").value || null; // Get recipient name
+    const phoneNumber = document.getElementById("businessNumber").value || null; // Get phone number
+    const location = document.getElementById("clientLocation").value || null; // Get location
+    const streetDetails = document.getElementById("clientLocationTwo").value || null; // Get street details
+    const postalCode = document.getElementById("postalCode").value || null; // Get postal code
 
-    // Save address to Realtime Database
+    // Save phone number to user's root node (not address)
+    const userRef = ref(database, `users/${userId}`);
+    update(userRef, {
+        phoneNumber: phoneNumber, // Save updated phone number
+    })
+        .then(() => {
+            console.log("Phone number updated successfully!");
+        })
+        .catch((error) => {
+            console.error("Error updating phone number: ", error);
+        });
+
+    // Save address details to address node
     const addressRef = ref(database, `users/${userId}/address`);
     update(addressRef, {
         recipientName: recipientName,
-        phoneNumber: phoneNumber,
         location: location,
         streetDetails: streetDetails,
         postalCode: postalCode,
@@ -1136,21 +1148,105 @@ function saveAddress(userId) {
 
 
 
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll('[data-tooltip="save-password"]').forEach(button => {
-                button.addEventListener("click", function () {
-                    changePassword();
-                });
-            });
-        });
 
-        function changePassword() {
-            // Simulating a smooth database interaction
-            console.log("Processing password change...");
-            setTimeout(() => {
+document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth(); // Initialize Firebase Authentication
+
+    // Add event listener for the Save Password button
+    const savePasswordButton = document.querySelector('[data-tooltip="save-password"]');
+    if (savePasswordButton) {
+        savePasswordButton.addEventListener("click", function () {
+            changePassword(auth); // Pass auth instance
+        });
+    } else {
+        console.error("Save Password button not found. Check your HTML.");
+    }
+});
+
+function changePassword(auth) {
+    const currentPassword = document.getElementById("currentPassword").value;
+    const newPassword = document.getElementById("newPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const passwordError = document.getElementById("passwordError");
+
+    // Clear error messages
+    passwordError.style.display = "none";
+
+    // Validate new password
+    if (!validatePassword(newPassword)) {
+        passwordError.textContent = "Password must be at least 8 characters long and contain at least 1 letter, 1 number, and 1 special character.";
+        passwordError.style.display = "block";
+        return;
+    }
+
+    // Check if new password matches confirmation
+    if (newPassword !== confirmPassword) {
+        passwordError.textContent = "New passwords do not match.";
+        passwordError.style.display = "block";
+        return;
+    }
+
+    const user = auth.currentUser;
+
+    if (user) {
+        // Reauthenticate user with current password
+        const credential = EmailAuthProvider.credential(user.email, currentPassword);
+        reauthenticateWithCredential(user, credential)
+            .then(() => {
+                // Update password
+                return updatePassword(user, newPassword);
+            })
+            .then(() => {
                 alert("Password changed successfully!");
-            }, 500); // Simulate a delay for database interaction
+                // Optionally clear the form
+                document.getElementById("currentPassword").value = "";
+                document.getElementById("newPassword").value = "";
+                document.getElementById("confirmPassword").value = "";
+            })
+            .catch((error) => {
+                console.error("Error changing password:", error);
+                passwordError.textContent = getErrorMessage(error.code);
+                passwordError.style.display = "block";
+            });
+    } else {
+        alert("You must be logged in to change your password.");
+    }
+}
+
+// Helper function to validate password
+function validatePassword(password) {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+}
+
+// Helper function to get friendly error messages
+function getErrorMessage(errorCode) {
+    switch (errorCode) {
+        case "auth/wrong-password":
+            return "Current password is incorrect.";
+        case "auth/weak-password":
+            return "The new password is too weak.";
+        default:
+            return "An error occurred. Please try again.";
+    }
+}
+
+// Toggle password visibility
+document.querySelectorAll(".t-password").forEach(toggle => {
+    toggle.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
+        const targetInput = document.getElementById(targetId);
+        if (targetInput.type === "password") {
+            targetInput.type = "text";
+            this.querySelector("i").classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            targetInput.type = "password";
+            this.querySelector("i").classList.replace("fa-eye-slash", "fa-eye");
         }
+    });
+});
+
+
 
 
         function uploadAvatar() {
