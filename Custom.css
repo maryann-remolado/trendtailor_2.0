@@ -528,9 +528,9 @@ h1, h2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 20px;
-  width: 1100px; /* Full width for smaller screens */
+  width: 1000px; /* Full width for smaller screens */
   max-width: 1200px; /* Maximum width */
-  margin-left: 60px;
+  margin-left: 100px;
   margin-bottom: 30px;
 }
 
@@ -596,10 +596,10 @@ h1, h2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   width: 490px;
-  height: 530px;
+  height: 537px;
   position: relative;
   overflow: hidden;
-  margin-top: -435px;
+  margin-top: -550px;
   margin-left: 15px;
 }
 .preview img {
@@ -659,13 +659,13 @@ h1, h2 {
 
   padding: 10px;
   width: 200px;
-  height: 120px; /* Adjust as needed */
+  height: 110px; /* Adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-left: -380px;
-  margin-top: -10px;
+  margin-left: -300px;
+  margin-top: -20px;
 }
 
 .fabric-preview-frame img {
