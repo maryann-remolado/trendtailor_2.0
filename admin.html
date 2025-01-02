@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="#users">Manage Users</a></li>
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="#fabrics">Fabric Library</a></li>
+            <li><a href="#styles">Garment Style Library</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Header -->
+        <header>
+            <h1>Welcome, Admin!</h1>
+        </header>
+
+        <!-- Manage Users Section -->
+        <section id="users">
+            <h2>Manage Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                        <button id="add-user-btn" onclick="document.getElementById('addUserModal').style.display='block'">Add User</button>
+
+                    </tr>
+                </thead>
+                <tbody id="user-table">
+                    <!-- User rows will be dynamically populated here -->
+                </tbody>
+                
+            </table>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders">
+            <h2>Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Client</th>
+                        <th>Fabric</th>
+                        <th>Status</th>
+                        <th>Revenue</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="order-table">
+                    <!-- Order rows will be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Fabric Library Section -->
+        <section id="fabrics">
+            <h2>Fabric Library</h2>
+            <button id="add-fabric-btn">Add New Fabric</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fabric ID</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="fabric-table">
+                    <!-- Fabric rows will be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+
+         <!-- style Library Section -->
+         <section id="styles">
+            <h2>Garment Style Library</h2>
+            <button id="add-styles-btn">Add New Style</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Garment Style ID</th>
+                        <th>Description</th>
+                        <th>Apparel Type</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="styles-table">
+                    <!-- styles rows will be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics">
+            <h2>Analytics</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p id="total-users">0</p>
+                </div>
+                <div class="card">
+                    <h3>Orders This Month</h3>
+                    <p id="total-orders">0</p>
+                </div>
+                <div class="card">
+                    <h3>Total Revenue</h3>
+                    <p id="total-revenue">$0</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getDatabase, ref, set, update, remove, get, onValue } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+        import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+        
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBYg9Ic5NYxj6mGncEk9prXd7OlPMUz5f8",
+            authDomain: "cs-pn-f5ac0.firebaseapp.com",
+            databaseURL: "https://cs-pn-f5ac0-default-rtdb.firebaseio.com",
+            projectId: "cs-pn-f5ac0",
+            storageBucket: "cs-pn-f5ac0.appspot.com",
+            messagingSenderId: "29471816373",
+            appId: "1:29471816373:web:d3d963245930f8ba399cfc",
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+    
+        // Ensure user is admin
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const adminRef = ref(database, `admins/${user.uid}`);
+                const snapshot = await get(adminRef);
+    
+                if (!snapshot.exists()) {
+                    alert("Unauthorized access. Redirecting...");
+                    window.location.href = "index.html";
+                }
+            } else {
+                alert("No user logged in. Redirecting...");
+                window.location.href = "index.html";
+            }
+        });
+    
+        async function fetchUsers() {
+    try {
+        const usersRef = ref(database, "users");
+        const snapshot = await get(usersRef);
+
+        const userTable = document.getElementById("user-table");
+        userTable.innerHTML = ""; // Clear the table first
+
+        if (snapshot.exists()) {
+            const users = snapshot.val();
+            Object.keys(users).forEach((userId) => {
+                const user = users[userId];
+                const fullName = `${user.firstName || ""} ${user.lastName || ""}`.trim();
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${userId}</td>
+                    <td>${fullName || "N/A"}</td>
+                    <td>${user.email || "N/A"}</td>
+                    <td>${user.role || "N/A"}</td>
+                    <td>
+                        <button class="edit-user" data-id="${userId}">Edit</button>
+                        <button class="delete-user" data-id="${userId}">Delete</button>
+                    </td>
+                `;
+                userTable.appendChild(row);
+            });
+
+            // Attach event listeners after rendering rows
+            attachUserEventListeners();
+        } else {
+            userTable.innerHTML = "<tr><td colspan='5'>No users found.</td></tr>";
+        }
+    } catch (error) {
+        console.error("Error fetching users:", error);
+    }
+}
+
+
+function attachUserEventListeners() {
+    // Edit user
+    document.querySelectorAll(".edit-user").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const userId = e.target.dataset.id;
+
+            // Fetch current user data
+            try {
+                const userRef = ref(database, `users/${userId}`);
+                const snapshot = await get(userRef);
+
+                if (snapshot.exists()) {
+                    const user = snapshot.val();
+
+                    // Prompt for new values
+                    const newFirstName = prompt("Enter new first name:", user.firstName || "");
+                    const newLastName = prompt("Enter new last name:", user.lastName || "");
+                    const newEmail = prompt("Enter new email:", user.email || "");
+                    const newRole = prompt("Enter new role (admin/designer/client):", user.role || "");
+                    const newPassword = prompt("Enter new password (leave blank to keep current):");
+
+                    // Validate inputs
+                    if (!newFirstName || !newLastName || !newEmail || !newRole) {
+                        alert("All fields except password are required.");
+                        return;
+                    }
+
+                    // Update user data in Realtime Database
+                    const updatedData = {
+                        firstName: newFirstName,
+                        lastName: newLastName,
+                        email: newEmail,
+                        role: newRole,
+                    };
+
+                    await update(userRef, updatedData);
+
+                    // Update password in Firebase Authentication if provided
+                    if (newPassword) {
+                        try {
+                            const user = auth.currentUser;
+                            await user.updatePassword(newPassword);
+                            alert("Password updated successfully!");
+                        } catch (error) {
+                            console.error("Error updating password:", error);
+                            alert("Error updating password: " + error.message);
+                        }
+                    }
+
+                    alert("User updated successfully!");
+                    fetchUsers(); // Refresh user table
+                } else {
+                    alert("User not found!");
+                }
+            } catch (error) {
+                console.error("Error fetching user:", error);
+            }
+        });
+    });
+
+    // Delete user
+    document.querySelectorAll(".delete-user").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const userId = e.target.dataset.id;
+            if (confirm("Are you sure you want to delete this user?")) {
+                try {
+                    const userRef = ref(database, `users/${userId}`);
+                    await remove(userRef);
+                    alert("User deleted successfully!");
+                    fetchUsers(); // Refresh user table
+                } catch (error) {
+                    console.error("Error deleting user:", error);
+                }
+            }
+        });
+    });
+}
+
+
+
+document.getElementById("add-user-btn").addEventListener("click", addUser);
+
+async function addUser() {
+    // Prompt for new user details
+    const firstName = prompt("Enter first name:");
+    const lastName = prompt("Enter last name:");
+    const email = prompt("Enter email:");
+    const role = prompt("Enter role (admin/designer/client):");
+
+    // Validate input
+    if (!firstName || !lastName || !email || !role) {
+        alert("All fields are required!");
+        return;
+    }
+
+    try {
+        // Create user in Firebase Authentication
+        const userCredential = await createUserWithEmailAndPassword(auth, email);
+        const user = userCredential.user;
+
+        // Save user details in Firebase Realtime Database
+        const userData = {
+            firstName,
+            lastName,
+            email,
+            role,
+        };
+
+        await set(ref(database, `users/${user.uid}`), userData);
+
+        alert("User added successfully!");
+        fetchUsers(); // Refresh the user table
+    } catch (error) {
+        console.error("Error adding user:", error.message);
+        alert("Error adding user: " + error.message);
+    }
+}
+
+// Call fetchUsers to initialize the table
+fetchUsers();
+
+// Function to fetch total users and update analytics
+async function fetchTotalUsers() {
+    const usersRef = ref(database, 'users/');
+    onValue(usersRef, (snapshot) => {
+        if (snapshot.exists()) {
+            const users = snapshot.val();
+            const totalUsers = Object.keys(users).length; // Count the number of users
+            document.getElementById('total-users').textContent = totalUsers;
+        } else {
+            document.getElementById('total-users').textContent = 0; // No users found
+        }
+    });
+}
+
+// Call this function to fetch and update the total users count
+fetchTotalUsers();
+
+
+document.getElementById("add-fabric-btn").addEventListener("click", addFabric);
+
+async function addFabric() {
+    const fabricName = prompt("Enter fabric name:");
+    const fabricImageUrl = prompt("Enter fabric image URL (Base64 or valid image URL):");
+
+    if (!fabricName || !fabricImageUrl) {
+        alert("Both fields are required!");
+        return;
+    }
+
+    try {
+        const fabricId = Date.now().toString();
+
+        const fabricData = {
+            id: fabricId,
+            name: fabricName,
+            image: fabricImageUrl,
+        };
+
+        await set(ref(database, `fabrics/${fabricId}`), fabricData);
+
+        alert("Fabric added successfully!");
+        fetchFabrics();
+    } catch (error) {
+        console.error("Error adding fabric:", error.message);
+        alert("Error adding fabric: " + error.message);
+    }
+}
+
+// Fetch and display fabrics
+async function fetchFabrics() {
+    const fabricRef = ref(database, "fabrics/");
+    onValue(fabricRef, (snapshot) => {
+        const fabricTable = document.getElementById("fabric-table");
+        fabricTable.innerHTML = ""; // Clear existing rows
+
+        if (snapshot.exists()) {
+            const fabrics = snapshot.val();
+            Object.values(fabrics).forEach((fabric) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${fabric.id}</td>
+                    <td>${fabric.name}</td>
+                    <td><img src="${fabric.image}" alt="${fabric.name}" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #ddd; "/></td>
+                    <td>
+                        <button class="edit-fabric" data-id="${fabric.id}">Edit</button>
+                        <button class="delete-fabric" data-id="${fabric.id}">Delete</button>
+                    </td>
+                `;
+                fabricTable.appendChild(row);
+            });
+
+            attachFabricEventListeners(); // Add event listeners for buttons
+        } else {
+            fabricTable.innerHTML = '<tr><td colspan="4">No fabrics found.</td></tr>';
+        }
+    });
+}
+
+// Attach event listeners for Edit and Delete buttons
+function attachFabricEventListeners() {
+    document.querySelectorAll(".edit-fabric").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const fabricId = e.target.dataset.id;
+
+            try {
+                const fabricRef = ref(database, `fabrics/${fabricId}`);
+                const snapshot = await get(fabricRef);
+
+                if (snapshot.exists()) {
+                    const fabric = snapshot.val();
+
+                    const newName = prompt("Enter new fabric name:", fabric.name || "");
+                    const newImageUrl = prompt(
+                        "Enter new fabric image URL (Base64 or valid image URL):",
+                        fabric.image || ""
+                    );
+
+                    if (!newName || !newImageUrl) {
+                        alert("Both fields are required!");
+                        return;
+                    }
+
+                    const updatedData = {
+                        name: newName,
+                        image: newImageUrl,
+                    };
+
+                    await update(fabricRef, updatedData);
+                    alert("Fabric updated successfully!");
+                    fetchFabrics();
+                } else {
+                    alert("Fabric not found!");
+                }
+            } catch (error) {
+                console.error("Error editing fabric:", error);
+            }
+        });
+    });
+
+    document.querySelectorAll(".delete-fabric").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const fabricId = e.target.dataset.id;
+
+            if (confirm("Are you sure you want to delete this fabric?")) {
+                try {
+                    const fabricRef = ref(database, `fabrics/${fabricId}`);
+                    await remove(fabricRef);
+                    alert("Fabric deleted successfully!");
+                    fetchFabrics();
+                } catch (error) {
+                    console.error("Error deleting fabric:", error);
+                }
+            }
+        });
+    });
+}
+
+// Initial fetch
+fetchFabrics();
+
+
+document.getElementById("add-styles-btn").addEventListener("click", addStyle);
+
+async function addStyle() {
+    // Prompt for style details
+    const styleDescription = prompt("Enter style description:");
+    const apparelType = prompt("Enter apparel type:");
+    const styleImageUrl = prompt("Enter style image URL (Base64 or valid image URL):");
+
+    // Validate description and apparel type
+    if (!styleDescription || !apparelType  || !styleImageUrl) {
+        alert("All fields are required!");
+        return;
+    }
+
+    try{
+        const styleId = Date.now().toString();
+
+        const styleData = {
+            id: styleId,
+            description: styleDescription,
+            type: apparelType,
+            image: styleImageUrl
+        };
+
+        await set(ref(database, `styles/${styleId}`), styleData);
+
+        alert("Style added successfully!");
+        fetchStyles();
+    } catch (error) {
+        console.error("Error adding fabric:", error, message);
+        alert("Error adding fabric: " +error.message);
+    }
+}
+
+// Fetch and Display Styles
+async function fetchStyles() {
+    const stylesRef = ref(database, "styles/");
+    onValue(stylesRef, (snapshot) => {
+        const stylesTable = document.getElementById("styles-table");
+        stylesTable.innerHTML = ""; // Clear the table
+
+        if (snapshot.exists()) {
+            const styles = snapshot.val();
+
+            Object.values(styles).forEach((style) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${style.id}</td>
+                    <td>${style.description}</td>
+                    <td>${style.apparelType}</td>
+                    <td>
+                        <img src="${style.image}" alt="${style.description}" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #ddd; " />
+                    </td>
+                    <td>
+                        <button class="edit-style" data-id="${style.id}">Edit</button>
+                        <button class="delete-style" data-id="${style.id}">Delete</button>
+                    </td>
+                `;
+                stylesTable.appendChild(row);
+            });
+
+            attachStyleEventListeners(); // Attach event listeners for edit/delete
+        } else {
+            stylesTable.innerHTML = "<tr><td colspan='5'>No styles found.</td></tr>";
+        }
+    });
+}
+
+// Attach Event Listeners for Edit and Delete Buttons
+function attachStyleEventListeners() {
+    document.querySelectorAll(".edit-style").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const styleId = e.target.dataset.id;
+
+            try {
+                const styleRef = ref(database, `styles/${styleId}`);
+                const snapshot = await get(styleRef);
+
+                if (snapshot.exists()) {
+                    const style = snapshot.val();
+
+                    const newDescription = prompt("Enter new description:", style.description || "");
+                    const newApparelType = prompt("Enter new apparel type:", style.apparelType || "");
+                    const updatedPng = prompt(
+                        "Enter new style image URL (Base64 or valid image URL):",
+                        style.image || ""
+                    );
+
+                    if (!newDescription || !newApparelType || !updatedPng) {
+                        alert("All fields are required!");
+                        return;
+                    }
+
+                            const updatedData = {
+                                description: newDescription,
+                                apparelType: newApparelType,
+                                image: updatedPng,
+                            };
+
+                            await update(styleRef, updatedData);
+                            alert("Style updated successfully!");
+                            fetchStyles();
+                } else {
+                    alert("Style not found!");
+                }
+            } catch (error) {
+                console.error("Error editing style:", error);
+            }
+        });
+    });
+
+    document.querySelectorAll(".delete-style").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const styleId = e.target.dataset.id;
+
+            if (confirm("Are you sure you want to delete this style?")) {
+                try {
+                    const styleRef = ref(database, `styles/${styleId}`);
+                    await remove(styleRef);
+                    alert("Style deleted successfully!");
+                    fetchStyles();
+                } catch (error) {
+                    console.error("Error deleting style:", error);
+                }
+            }
+        });
+    });
+}
+
+// Call fetchStyles on Page Load
+fetchStyles();
+
+
+
+
+
+
+
+async function placeOrder() {
+    const userId = auth.currentUser?.uid; // Ensure a user is logged in
+    if (!userId) {
+        alert("Please log in to place an order.");
+        return;
+    }
+
+    const orderId = Date.now().toString(); // Generate a unique ID for the order
+    const orderData = {
+        fabric: {
+            type: "Satin", // Replace with selected type
+            color: document.getElementById("color-select").value || "Brown",
+        },
+        garmentStyle: {
+            topStyle: "Cropped-Boat", // Replace with selected top style
+            sleeves: "Long Sleeve",  // Replace with selected sleeve style
+            bottomStyle: "None",    // Replace with selected bottom style
+        },
+        cost: {
+            designerLabor: 150, // Replace with actual input value
+            fabricCost: 202,    // Replace with actual fabric cost
+            revenue: 20,        // System revenue
+            shipping: document.getElementById("shipping-select").value === "cod" ? 80 : 0,
+        },
+        status: "Pending",
+        tailorInfo: {
+            username: "@threadneedlebtq.ph", // Replace with actual input value
+            address: "Mangga St., Downtown Subdivision, New York City", // Replace with actual input value
+        },
+    };
+
+    try {
+        const ordersRef = ref(database, `users/${userId}/orders/${orderId}`);
+        await set(ordersRef, orderData);
+        alert("Order placed successfully!");
+        fetchOrders(); // Refresh orders table
+    } catch (error) {
+        console.error("Error placing order:", error);
+        alert("Failed to place order. Please try again.");
+    }
+}
+
+document.getElementById("place-order-btn").addEventListener("click", placeOrder);
+
+async function fetchOrders() {
+    const ordersTable = document.getElementById("orders-table").querySelector("tbody");
+    ordersTable.innerHTML = ""; // Clear existing table rows
+
+    try {
+        const usersRef = ref(database, "users");
+        const snapshot = await get(usersRef);
+
+        if (snapshot.exists()) {
+            const users = snapshot.val();
+
+            Object.keys(users).forEach((userId) => {
+                const user = users[userId];
+                if (user.orders) {
+                    Object.keys(user.orders).forEach((orderId) => {
+                        const order = user.orders[orderId];
+
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${orderId}</td>
+                            <td>${user.firstName || "N/A"} ${user.lastName || "N/A"}</td>
+                            <td>${order.fabric?.type || "N/A"} - ${order.fabric?.color || "N/A"}</td>
+                            <td>${order.status || "Pending"}</td>
+                            <td>₱${order.cost?.revenue || 0}</td>
+                            <td>
+                                <button class="edit-order" data-user-id="${userId}" data-order-id="${orderId}">Edit</button>
+                                <button class="delete-order" data-user-id="${userId}" data-order-id="${orderId}">Delete</button>
+                            </td>
+                        `;
+                        ordersTable.appendChild(row);
+                    });
+                }
+            });
+
+            attachOrderEventListeners();
+        } else {
+            ordersTable.innerHTML = "<tr><td colspan='6'>No orders found.</td></tr>";
+        }
+    } catch (error) {
+        console.error("Error fetching orders:", error);
+        alert("Failed to fetch orders.");
+    }
+}
+document.addEventListener("DOMContentLoaded", fetchOrders);
+
+function attachOrderEventListeners() {
+    document.querySelectorAll(".edit-order").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const userId = e.target.dataset.userId;
+            const orderId = e.target.dataset.orderId;
+            const orderRef = ref(database, `users/${userId}/orders/${orderId}`);
+            const snapshot = await get(orderRef);
+
+            if (snapshot.exists()) {
+                const order = snapshot.val();
+                const newStatus = prompt("Enter new status (Pending/Completed):", order.status || "Pending");
+                if (newStatus) {
+                    await update(orderRef, { status: newStatus });
+                    alert("Order updated successfully!");
+                    fetchOrders();
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll(".delete-order").forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const userId = e.target.dataset.userId;
+            const orderId = e.target.dataset.orderId;
+
+            if (confirm("Are you sure you want to delete this order?")) {
+                const orderRef = ref(database, `users/${userId}/orders/${orderId}`);
+                await remove(orderRef);
+                alert("Order deleted successfully!");
+                fetchOrders();
+            }
+        });
+    });
+}
+
+
+
+
+
+    </script>
+    
+</html>

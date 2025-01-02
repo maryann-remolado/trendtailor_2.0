@@ -1,0 +1,380 @@
+
+
+body {
+    background: #E0E0E0;
+    margin: 0;
+    padding: 0; 
+  }
+
+  /* Header and Navigation */
+.header {
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.title {
+    position: absolute; 
+    margin-left: 800px; 
+    margin-top: 10px;
+    top: 3px; 
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 23px; 
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    color: #000;
+}
+
+.title h1 {
+    font-size: 22px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000;
+}
+
+.shopping-bag {
+    position: absolute;
+    left: 1195px;
+    top: 10px;
+}
+
+.shopping-bag img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* Style the input field */
+input[type="text"] {
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 8px 12px; /* Add padding for better spacing */
+    position: absolute;
+    width: 459px;
+    height: 25px;
+    background: rgba(190, 184, 184, 0.35);
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+/* Style the placeholder text */
+input[type="text"]::placeholder {
+    color: #888; /* Light gray color */
+    opacity: 1; /* Ensure placeholder is fully visible */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 12px;
+}
+
+/* Input focus styles */
+input[type="text"]:focus {
+    border-color: #555; /* Darker border on focus */
+}
+
+input[type="text"]:hover {
+    border-color: #555; /* Darker border on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Highlight effect */
+}
+/*----------*/
+
+.banner {
+    width: 95%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;   
+    margin-left: 20px; 
+    border-radius: 10px;
+  }
+.arrow {
+    display: inline-block; /* Makes the div fit the content */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    margin: 20px; /* Adds spacing around the arrow */
+    text-align: center; /* Centers the icon inside the div */
+  }
+  
+.arrow i {
+    font-size: 1.4rem; /* Adjusts the icon size */
+    color: #000; /* Sets the icon color to Bootstrap's primary blue */
+    transition: transform 0.3s ease, color 0.3s ease; /* Adds smooth hover effect */
+  }
+  
+.arrow i:hover {
+    color: grey; /* Changes icon color on hover */
+    transform: scale(1.2); /* Slightly enlarges the icon on hover */
+  }
+  
+.home-button {
+    margin-top: -52px; /* Adds space above the button */
+    margin-left: -1130px;
+    text-align: center; /* Centers the button horizontally */
+  }
+  
+.home-button h1 {
+    display: inline-flex; /* Ensures elements align properly */
+    align-items: center; /* Vertically centers text and icon */
+    color: #000; /* Sets text and icon color to black */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    cursor: pointer;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+.home-button a:hover {
+    background-color: #e2e6ea; /* Slightly darker gray on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+    color: #000; /* Keeps text and icon color black */
+}
+
+
+  /* Product Section */
+.product-container {
+    display: flex;
+    width: 80%;
+    margin-top: 5px;
+    gap: 20px;
+  }
+
+  .product-image img {
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    margin-left: 25px;
+  }
+
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-details h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 72px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: -10px;
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .product-details h2 {
+    margin-top: -50px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .product-details h3 {
+    margin-top: -30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .rating-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the component to the right */
+    align-items: center; /* Centers stars and text vertically */
+    gap: 12px; /* Adds space between stars and text */
+    padding: 15px; /* Adds padding around the container */
+    margin-left: 470px;
+    margin-top: -90px;
+  }
+
+  .rating-container p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    width: 50px;
+    white-space: nowrap; /* Prevents text wrapping */
+
+  }
+  
+  .stars {
+    display: flex; /* Aligns the stars in a row */
+    gap: 6px; /* Adds space between each star */
+  }
+  
+  .stars i {
+    color: black; /* Sets a different gold tone for the stars */
+    font-size: 1.4rem; /* Adjusts star size */
+  }
+  
+  .rating-text {
+    font-size: 1rem; /* Adjusts the size of the text */
+    color: #555; /* Sets a medium gray tone for the text */
+    font-weight: 500; /* Makes the text slightly bolder */
+  }
+  
+  .product-description {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    color: #000000;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 230px;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 2px solid black;
+  }
+
+
+
+.grey-l{   
+    position: absolute;
+    width: 700px;
+    height: 1.75px;
+    left: 609.04px;
+    top: 474.87px;
+    margin-left: -105px;
+    margin-top: -30px;
+    border: 1px solid #F0F0F0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: matrix(1, 0, 0.01, 1, 0, 0);
+}
+
+.prt {
+    display: flex;
+    justify-content: center; /* Center align the content */
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .price {
+    /* Price Varies */
+
+    position: absolute;
+    width: 153.92px;
+    height: 12.49px;
+    left: 1000.36px;
+    margin-top: 10px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  }
+  
+  #price-label {
+    font-weight: bold;
+  }
+  
+  #price-value {
+    margin-left: 20px;    
+    color: black;/* Green color for price */
+  }
+
+  .grey-l{   
+    position: absolute;
+    width: 700px;
+    height: 1.75px;
+    left: 609.04px;
+    top: 530px;
+    margin-left: -105px;
+    margin-top: -30px;
+    border: 1px solid #F0F0F0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: matrix(1, 0, 0.01, 1, 0, 0);
+   }
+
+    #add-to-design{
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 60px;
+        margin-left: 480px;
+        width: 230px;
+        transition: background-color 0.3s;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border: 2px solid black;
+    }
+    #add-to-design:hover {
+        background-color: black;
+        color: white;
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    
+    }
+    
+    #add-to-design:active {
+        background-color: black;
+        transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+
+  
+

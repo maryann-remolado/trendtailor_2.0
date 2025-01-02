@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="head.css">
+  <link rel="stylesheet" href="Custom.css">
+  <link rel="stylesheet" href="foot.css">
+  <link rel="stylesheet" href="preview.css">
+  <link rel="stylesheet" href="cost.css">
+  <link rel="stylesheet" href="order_place.css">
+
+
+  <!-- Font styles from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Integrated Header Section -->
+  <header class="header">
+      <nav>
+          <ul class="nav-links">
+              <li><a href="#">Tailor Center</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">About</a></li>
+          </ul>
+      </nav>
+      <div class="title">
+          <h1>TrendTailor</h1>
+      </div>
+      <div class="flag">
+          <img src="flag.jpg" alt="Flag Icon" width="50">
+      </div>
+  </header>
+  <!-- End of Integrated Header Section -->
+    <!-- Banner -->
+  <div class="banner">
+      Use code TrendTailor for 10% off custom creations
+  </div>
+
+  <!-- Steps -->
+  <body>
+    <div class="steps" id="stepsMenu">
+      <div class="step-container" id="browseStep">
+        <a href="#" class="step-link">
+          <div class="step">1</div>
+          <div class="label">Browse</div>
+        </a>
+      </div>
+      <div class="step-container" id="customizationStep">
+        <a href="#" class="step-link">
+          <div class="step">2</div>
+          <div class="label">Customization</div>
+        </a>
+      </div>
+      <div class="step-container" id="previewStep">
+        <a href="#" class="step-link">
+          <div class="step">3</div>
+          <div class="label">Preview</div>
+        </a>
+      </div>
+      <div class="step-container" id="costStep">
+        <a href="#" class="step-link">
+          <div class="step">4</div>
+          <div class="label">Cost</div>
+        </a>
+      </div>
+      <div class="step-container" id="orderStep">
+        <a href="#" class="step-link">
+          <div class="step">5</div>
+          <div class="label">Order Placement</div>
+        </a>
+      </div>
+    </div>
+    
+  </body>
+
+  <!-- Fabric Selection -->
+  <div class="fabric-section">
+    <div class="Fsection">
+    <h3>Fabric Type</h3>
+      <div class="fabric-box">
+      Satin
+      </div>
+    <img id="fabric-image" src="visual1.png" alt="Fabric Sample">
+    <div class="fabric-info">
+      <p>Length Price</p>
+      <div class="price">₱ 101.00/meter</div>
+      <div class="drop">
+        <label for="color-select">Color</label>
+        <select id="color-select">
+          <option value="brown" data-img="visual1.png">Brown</option>
+          <option value="old-rose" data-img="visual4.jpg">Old Rose</option>
+        </select>
+          <label>Pattern</label>
+          <select>
+            <option>None</option>
+            <option>Plain</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Body Measurement -->
+    <div class="body-section">
+      <h3>Body Measurement</h3>
+      <div class="dropdowns">
+        <!-- Gender Selection -->
+        <select id="gender-select">
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+        </select>
+
+        <!-- Size Selection -->
+        <select id="size-select">
+          <option value="">None</option>
+          <option value="add-manually">Add Manually</option>
+          <option value="extra-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="extra-large">X-Large</option>
+          <option value="xxl">X-X-L</option>
+        </select>
+      </div>
+
+      <!-- Size Guide Image -->
+      <div id="size-guide">
+        <img id="size-guide-image" src="assets/women.png" alt="Size Guide">
+      </div>
+
+      <!-- Manual Measurements -->
+      <div id="manual-measurements" style="display: none;">
+        <div class="measurements">
+          <div class="input-section">
+            <h4>Upper Body</h4>
+            <div class="input-group">
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Neck Size</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Bust</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Shoulder</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Length</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-section">
+            <h4>Lower Body</h4>
+            <div class="input-group">
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Waist</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Hip</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+                <label>Thigh</label>
+              </div>
+              <div class="input-row">
+                <input type="text" placeholder="Input">
+                <span>cm</span>
+              <label>Length</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview Model Section -->
+  <div class="preview-container" style="display: none;">
+    <div class="controls">
+      <div class="control">
+        <label for="mannequin">Select Mannequin</label>
+        <select id="mannequin">
+          <option value="woman">Woman</option>
+          <option value="man">Man</option>
+        </select>
+      </div>
+  
+      <div class="control">
+        <label for="top-style">Select Top Style</label>
+        <select id="top-style">
+          <option value="">None</option>
+        </select>
+      </div>
+  
+      <div class="control" id="sleeve-control" style="display: none;">
+        <label for="sleeve-style">Select Sleeve</label>
+        <select id="sleeve-style">
+          <option value="">None</option>
+          <option value="Bishop">Bishop</option>
+          <option value="Cap">Cap</option>
+          <option value="Long sleeve">Long Sleeve</option>
+          <option value="Puff">Puff</option>
+        </select>
+      </div>
+  
+      <div class="control">
+        <label for="bottom-style">Select Bottom Style</label>
+        <select id="bottom-style">
+          <option value="">None</option>
+        </select>
+      </div>
+  
+      <div class="control">
+        <label for="color">Select Color Outline</label>
+        <input type="color" id="color" value="#ff0000">
+      </div>
+    </div>
+  
+    <div class="preview" id="preview">
+      <img id="mannequin-layer" src="assets/man.png" alt="Mannequin">
+    </div>
+
+        <!-- New Fabric Preview Section -->
+    <div class="fabric-preview-section">
+      <h3>Fabric Preview</h3>
+      <div class="fabric-preview-frame">
+        <img id="fabric-preview" src="visual1.jpg" alt="Fabric Preview">
+      </div>
+    </div>
+
+    <!-- Customization Details -->
+    <div class="customization-details">
+      <h3>Customization Details</h3>
+      <label>Customized Order Name</label>
+      <input type="text" value="My Satin" readonly>
+      <label>Customization Form ID</label>
+      <input type="text" value="10203040" readonly>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="bns">
+      <button class="btn-add">Add Customizations</button>
+      <button class="btn-share">Share</button>
+      <button class="btn-export">Export</button>
+    </div>
+  </div>
+
+  <!-- Cost Section -->
+  <div class="cost" style="display: none;">
+    <!-- Left Section -->
+    <div class="box-i">
+      <div class="cost-estimation">
+        <h3>Cost Estimation</h3>
+        <label for="designer-labor"><b>Designer Labor</b></label>
+        <div>
+          <p>₱ 150.00</p>
+        </div>
+        <p><em>In seven-days deadline.</em></p>
+        <button>Chat with the Designer</button>
+        <h3>Fabric Selection</h3>
+        <p>₱ 101.00 / m</p>
+        <p>101 x2 (Fabric Used)</p>
+      </div>
+      <div class="tailor-info">
+        <h3>Tailor's Information</h3>
+        <label for="tailor-username">Username</label>
+        <input type="text" id="tailor-username" value="@threadneedlebtq.ph" readonly>
+        <label for="tailor-url">URL</label>
+        <input type="url" id="tailor-url" value="https://www.sample.com" readonly>
+      </div>      
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div class="order" style="display: none;">
+    <div class="box-w">
+      <div class="address">
+        <h3>Place your Order</h3>
+        <label for="delivery-address">Address</label>
+        <textarea id="delivery-address" rows="4">
+        Juan Dela Cruz
+        +123 456 6789
+        Mangga St., Downtown Subdivision, New York City
+        </textarea>
+      </div>
+      <div class="payment-details">
+        <div class="label">Designer Labor</div>
+        <input type="number" id="designer-cost" value="150" />
+      </div>
+      <div class="payment-details">
+        <div class="label">Fabric Cost</div>
+        <input type="number" id="fabric-cost" value="202" />
+      </div>
+      <div class="payment-details">
+        <div class="label">Platform Fee</div>
+        <input type="number" id="system-revenue" value="20" readonly />
+      </div>
+      <div class="payment-details">
+        <div class="label">Shipping Method</div>
+        <select id="shipping-method">
+          <option value="0">Pick Up (Free)</option>
+          <option value="80">Cash on Delivery (₱80)</option>
+        </select>
+      </div>
+      <div class="payment-details">
+        <div class="label">Total Payment</div>
+        <div id="total-payment">₱ 0</div>
+      </div>
+      <button id="calculate-total">Calculate Total Payment</button>
+      </div>
+        <!-- Add to Bag Button -->
+        <button class="add-to-bag">Place Order</button>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <!-- Gray Line Divider -->
+    <div class="footer-divider"></div>
+    
+    <!-- Footer Content -->
+    <div class="footer-content">
+      <div class="footer-column">
+       <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">Help Centre</a></li>
+          <li><a href="#">Payment Methods</a></li>
+          <li><a href="#">Return and Refund</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">Exclusive Vouchers</a></li>
+          <li><a href="#">Free Shipping</a></li>
+          <li><a href="#">Contact Us</a></li>
+      </ul>
+      </div>
+      
+      <div class="footer-colmn">
+        <h4>About TrendTailor</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-clmn">
+        <h5>Follow Us</h5>
+        <ul>
+          <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="bi bi-twitter"></i> Twitter X</a></li>
+        </ul>
+      </div>
+
+      <div class="reserved">
+        <h5><i class="bi bi-c-circle"></i> 2024 TrendTailor. All Rights Reserved.</h5>
+      </div>
+    </div>
+ </footer>
+
+ <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+  import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+
+  // Your Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyBYg9Ic5NYxj6mGncEk9prXd7OlPMUz5f8",
+  authDomain: "cs-pn-f5ac0.firebaseapp.com",
+  databaseURL: "https://cs-pn-f5ac0-default-rtdb.firebaseio.com",
+  projectId: "cs-pn-f5ac0",
+  storageBucket: "cs-pn-f5ac0.appspot.com",
+  messagingSenderId: "29471816373",
+  appId: "1:29471816373:web:d3d963245930f8ba399cfc",
+  measurementId: "G-NCVC43YGCG"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth(app);
+
+  // Function to show the selected section
+function showSection(sectionClass) {
+  // Hide all sections
+  document.querySelectorAll('.fabric-section, .preview-container, .cost, .order').forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Show the selected section
+  const targetSection = document.querySelector(`.${sectionClass}`);
+  if (targetSection) {
+    targetSection.style.display = 'block';
+  }
+}
+
+// Add event listeners to step containers
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('browseStep').addEventListener('click', () => {
+    window.location.href = 'FabricSelection.html';
+  });
+
+  document.getElementById('customizationStep').addEventListener('click', () => {
+    showSection('fabric-section');
+  });
+
+  document.getElementById('previewStep').addEventListener('click', () => {
+    showSection('preview-container');
+  });
+
+  document.getElementById('costStep').addEventListener('click', () => {
+    showSection('cost');
+  });
+
+  document.getElementById('orderStep').addEventListener('click', () => {
+    showSection('order');
+  });
+
+  // Initialize by showing the first section (optional)
+  showSection('fabric-section');
+});
+
+
+    const mannequinSelect = document.getElementById('mannequin');
+    const topStyleSelect = document.getElementById('top-style');
+    const sleeveStyleSelect = document.getElementById('sleeve-style');
+    const bottomStyleSelect = document.getElementById('bottom-style');
+    const sleeveControl = document.getElementById('sleeve-control');
+    const colorPicker = document.getElementById('color');
+    const preview = document.getElementById('preview');
+
+    // Define styles for each mannequin
+    const styles = {
+      man: {
+        tops: [
+          { value: 'long-sleeve', text: 'Long Sleeve' },
+          { value: 'polo', text: 'Polo' },
+          { value: 'sleeveless', text: 'Sleeveless' },
+          { value: 'sweater', text: 'Sweater' },
+          { value: 't-shirt', text: 'T-Shirt' }
+        ],
+        bottoms: [
+          { value: 'cargo-pants', text: 'Cargo Pants' },
+          { value: 'long-pants', text: 'Long Pants' },
+          { value: 'mid-shorts', text: 'Short Pants' },
+          { value: 'shorts2', text: 'Short Pants (2)' },
+          { value: 'sweat-pants', text: 'Sweat Pants' }
+        ]
+      },
+      woman: {
+        tops: [
+          { value: 'cropped_boat', text: 'Cropped-Boat' },
+          { value: 'cropped_round', text: 'Cropped-Round' },
+          { value: 'cropped_square', text: 'Cropped-Square' },
+          { value: 'cropped_sweetheart', text: 'Cropped-Sweetheart' },
+          { value: 'fitted_boat', text: 'Fitted-Boat' },
+          { value: 'fitted_round', text: 'Fitted-Round' },
+          { value: 'fitted_square', text: 'Fitted-Square' },
+          { value: 'fitted_sweetheart', text: 'Fitted-Sweetheart' },
+          { value: 'peplum_boat', text: 'Peplum-Boat' },
+          { value: 'peplum_round', text: 'Peplum-Round' },
+          { value: 'peplum_square', text: 'Peplum-Square' },
+          { value: 'peplum_sweetheart', text: 'Peplum-Sweetheart' }
+        ],
+        bottoms: [
+          { value: 'skirt', text: 'Skirt' },
+          { value: 'leggings', text: 'Leggings' },
+          { value: 'shorts', text: 'Short Pants' }
+        ]
+      }
+    };
+
+    // Function to load SVGs dynamically
+    function loadSvg(url, layerId) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load ${url}`);
+          return response.text();
+        })
+        .then(svg => {
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(svg, 'image/svg+xml');
+          const existingLayer = document.getElementById(layerId);
+
+          // Remove existing layer if present
+          if (existingLayer) preview.removeChild(existingLayer);
+
+          // Add the new layer
+          const newLayer = svgDoc.documentElement;
+          newLayer.id = layerId;
+          newLayer.classList.add('garment-layer');
+          preview.appendChild(newLayer);
+
+          // Update color (if applicable)
+          updateColor();
+        })
+        .catch(error => console.error(error));
+    }
+
+    // Update the mannequin (PNG)
+    function updateMannequin() {
+      const mannequinType = mannequinSelect.value;
+      const mannequinLayer = document.getElementById('mannequin-layer');
+      mannequinLayer.src = `assets/${mannequinType}.svg`;
+
+      // Clear existing layers when mannequin changes
+      const topLayer = document.getElementById('top-layer');
+      const bottomLayer = document.getElementById('bottom-layer');
+      const sleeveLayer = document.getElementById('sleeve-layer');
+      if (topLayer) preview.removeChild(topLayer);
+      if (bottomLayer) preview.removeChild(bottomLayer);
+      if (sleeveLayer) preview.removeChild(sleeveLayer);
+
+      // Update top styles and sleeve visibility based on mannequin
+      populateTopStyles(mannequinType);
+      populateBottomStyles(mannequinType);
+      sleeveControl.style.display = mannequinType === 'woman' ? 'block' : 'none';
+    }
+
+    // Populate the top styles dropdown based on mannequin
+    function populateTopStyles(mannequinType) {
+      topStyleSelect.innerHTML = '<option value="">None</option>'; // Reset options
+      styles[mannequinType].tops.forEach(style => {
+        const option = document.createElement('option');
+        option.value = style.value;
+        option.textContent = style.text;
+        topStyleSelect.appendChild(option);
+      });
+    }
+
+    // Populate the bottom styles dropdown based on mannequin
+    function populateBottomStyles(mannequinType) {
+      bottomStyleSelect.innerHTML = '<option value="">None</option>'; // Reset options
+      styles[mannequinType].bottoms.forEach(style => {
+        const option = document.createElement('option');
+        option.value = style.value;
+        option.textContent = style.text;
+        bottomStyleSelect.appendChild(option);
+      });
+    }
+
+    // Update the selected top style
+    function updateTopStyle() {
+      const topStyle = topStyleSelect.value;
+      if (topStyle) {
+        loadSvg(`assets/top/${topStyle}.svg`, 'top-layer');
+      } else {
+        const topLayer = document.getElementById('top-layer');
+        if (topLayer) preview.removeChild(topLayer);
+      }
+    }
+
+    // Update the selected sleeve style
+function updateSleeveStyle() {
+  const sleeveStyle = sleeveStyleSelect.value; // Get the selected sleeve value
+  if (sleeveStyle) {
+    loadSvg(`assets/sleeves/${sleeveStyle}.svg`, 'sleeve-layer');
+  } else {
+    const sleeveLayer = document.getElementById('sleeve-layer');
+    if (sleeveLayer) preview.removeChild(sleeveLayer);
+  }
+}
+
+
+    // Update the selected bottom style
+    function updateBottomStyle() {
+      const bottomStyle = bottomStyleSelect.value;
+      if (bottomStyle) {
+        loadSvg(`assets/bottoms/${bottomStyle}.svg`, 'bottom-layer');
+      } else {
+        const bottomLayer = document.getElementById('bottom-layer');
+        if (bottomLayer) preview.removeChild(bottomLayer);
+      }
+    }
+
+    // Update the color for all layers
+    function updateColor() {
+      const color = colorPicker.value;
+
+      document.querySelectorAll('.garment-layer').forEach(layer => {
+        layer.querySelectorAll('path').forEach(path => {
+          path.setAttribute('fill', color);
+        });
+      });
+    }
+
+    // Event Listeners
+    mannequinSelect.addEventListener('change', () => {
+      updateMannequin();
+      updateTopStyle();
+      updateBottomStyle();
+      updateSleeveStyle();
+    });
+
+    topStyleSelect.addEventListener('change', updateTopStyle);
+    bottomStyleSelect.addEventListener('change', updateBottomStyle);
+    sleeveStyleSelect.addEventListener('change', updateSleeveStyle);
+    colorPicker.addEventListener('input', updateColor);
+
+    // Initial Load
+    updateMannequin();
+
+
+document.getElementById("calculate-total").addEventListener("click", calculateTotal);
+
+function calculateTotal() {
+  // Get input values
+  const designerCost = parseFloat(document.getElementById("designer-cost").value) || 0;
+  const fabricCost = parseFloat(document.getElementById("fabric-cost").value) || 0;
+  const systemRevenue = parseFloat(document.getElementById("system-revenue").value) || 0;
+  const shippingCost = parseFloat(document.getElementById("shipping-method").value) || 0;
+
+  // Calculate total payment
+  const totalPayment = designerCost + fabricCost + systemRevenue + shippingCost;
+
+  // Update total payment display
+  document.getElementById("total-payment").textContent = `₱ ${totalPayment.toFixed(2)}`;
+}
+
+document.getElementById("color-select").addEventListener("change", function () {
+  // Get the selected option
+  const selectedOption = this.options[this.selectedIndex];
+
+  // Retrieve the data-img attribute value
+  const newImageSrc = selectedOption.getAttribute("data-img");
+
+  // Update the fabric image
+  document.getElementById("fabric-image").src = newImageSrc;
+});
+
+// Get elements
+const genderSelect = document.getElementById("gender-select");
+const sizeSelect = document.getElementById("size-select");
+const sizeGuide = document.getElementById("size-guide");
+const sizeGuideImage = document.getElementById("size-guide-image");
+const manualMeasurements = document.getElementById("manual-measurements");
+
+// Event listener for gender selection
+genderSelect.addEventListener("change", () => {
+  const gender = genderSelect.value;
+
+  // Update the size guide image based on gender
+  sizeGuideImage.src = `assets/${gender}.png`;
+});
+
+// Event listener for size selection
+sizeSelect.addEventListener("change", () => {
+  const selectedSize = sizeSelect.value;
+
+  if (selectedSize === "add-manually") {
+    // Show manual measurements and hide size guide
+    manualMeasurements.style.display = "block";
+    sizeGuide.style.display = "none";
+  } else {
+    // Show size guide and hide manual measurements
+    manualMeasurements.style.display = "none";
+    sizeGuide.style.display = "block";
+  }
+});
+
+
+
+// Function to update the fabric image and preview dynamically
+function updateFabricPreview() {
+  const colorSelect = document.getElementById('color-select');
+  const fabricImage = document.getElementById('fabric-image');
+  const fabricPreview = document.getElementById('fabric-preview');
+
+  // Get the selected option and its associated image
+  const selectedOption = colorSelect.options[colorSelect.selectedIndex];
+  const newImageSrc = selectedOption.dataset.img;
+
+  // Update both the fabric image and the preview
+  fabricImage.src = newImageSrc;
+  fabricPreview.src = newImageSrc;
+}
+
+// Add event listener for the color select dropdown
+document.getElementById('color-select').addEventListener('change', updateFabricPreview);
+
+
+
+
+let userId;
+
+// Check if user is logged in
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userId = user.uid;
+    console.log("User logged in:", userId);
+  } else {
+    alert("Please log in to place an order.");
+    window.location.href = "index.html";
+  }
+});
+
+// Place Order
+const placeOrderButton = document.querySelector(".add-to-bag");
+
+placeOrderButton.addEventListener("click", async () => {
+  if (!userId) {
+    alert("Please log in to place an order.");
+    return;
+  }
+
+  const fabricType = document.querySelector(".fabric-box").textContent;
+  const fabricColor = document.getElementById("color-select").value;
+  const fabricPattern = document.querySelector(".drop select:nth-of-type(2)").value;
+  const gender = document.getElementById("gender-select").value;
+  const size = document.getElementById("size-select").value;
+  const manualMeasurements = Array.from(document.querySelectorAll("#manual-measurements input")).map(input => ({
+    label: input.nextElementSibling.textContent,
+    value: input.value || "N/A",
+  }));
+
+  const topStyle = document.getElementById("top-style").value;
+  const sleeveStyle = document.getElementById("sleeve-style").value;
+  const bottomStyle = document.getElementById("bottom-style").value;
+
+  const designerCost = parseInt(document.getElementById("designer-cost").value) || 0;
+  const fabricCost = parseInt(document.getElementById("fabric-cost").value) || 0;
+  const platformFee = parseInt(document.getElementById("system-revenue").value) || 0;
+  const shippingCost = parseInt(document.getElementById("shipping-method").value) || 0;
+  const totalPayment = designerCost + fabricCost + platformFee + shippingCost;
+
+  const tailorUsername = document.getElementById("tailor-username").value;
+  const deliveryAddress = document.getElementById("delivery-address").value;
+
+  const orderData = {
+    fabric: {
+      type: fabricType,
+      color: fabricColor,
+      pattern: fabricPattern,
+    },
+    bodyMeasurement: {
+      gender,
+      size,
+      manualMeasurements,
+    },
+    garmentStyle: {
+      topStyle,
+      sleeveStyle,
+      bottomStyle,
+    },
+    cost: {
+      designerCost,
+      fabricCost,
+      platformFee,
+      shippingCost,
+      totalPayment,
+    },
+    tailorInfo: {
+      username: tailorUsername,
+    },
+    address: deliveryAddress,
+    timestamp: Date.now(),
+  };
+
+  try {
+    const orderRef = push(ref(database, `users/${userId}/orders`));
+    await set(orderRef, orderData);
+    alert("Order placed successfully!");
+    window.location.reload();
+  } catch (error) {
+    console.error("Error placing order:", error);
+    alert("Failed to place the order. Please try again.");
+  }
+});
+
+
+
+</script>
+</body>
+</html>
