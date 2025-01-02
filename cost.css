@@ -1,0 +1,287 @@
+.cost {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+  
+.box-i {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  width: 1000px;
+  margin-left: 90px;
+  margin-top: -10px;
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.cost-estimation {
+  background-color: #fff; /* White background for the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px; /* Inner padding */
+  width: 800px; /* Limit the box width */
+  margin: 20px auto; /* Center align with space above and below */
+  color: #333; /* Dark text for readability */
+  font-family: Arial, sans-serif; /* Clean font */
+}
+
+.cost-estimation h3 {
+  font-size: 18px; /* Adjust heading size */
+  color: #555; /* Slightly lighter text color for headings */
+  margin-bottom: 10px; /* Space below headings */
+}
+
+.cost-estimation label {
+  font-size: 14px; /* Label font size */
+  font-weight: bold; /* Bold labels */
+  color: #333;
+}
+
+.cost-estimation div p {
+  font-size: 14px; /* Text size for cost details */
+  color: #444;
+  margin: 5px 0; /* Space around the text */
+}
+
+.cost-estimation em {
+  font-size: 12px; /* Smaller italicized text */
+  color: #666; /* Subtle color for notes */
+}
+
+.cost-estimation button {
+  display: block; /* Ensure button spans the width of its content */
+  width: 100%; /* Full-width button */
+  padding: 10px; /* Add padding */
+  margin-top: 15px; /* Space above the button */
+  font-size: 14px; /* Button text size */
+  color: #fff; /* White text */
+  background-color: #007bff; /* Blue background */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.cost-estimation button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Tailor's Information Container */
+.tailor-info {
+  background-color: #fff; /* White background for the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px; /* Inner padding */
+  width: 800px; /* Limit the box width */
+  margin: 20px auto; /* Center align with space above and below */
+  color: #333; /* Dark text for readability */
+  font-family: Arial, sans-serif; /* Clean font */
+}
+
+/* Heading Styling */
+.tailor-info h3 {
+  font-size: 18px; /* Adjust heading size */
+  color: #555; /* Slightly lighter text color for headings */
+  margin-bottom: 15px; /* Space below headings */
+}
+
+/* Label Styling */
+.tailor-info label {
+  display: block; /* Make labels appear above inputs */
+  font-size: 14px; /* Label font size */
+  font-weight: bold; /* Bold labels */
+  color: #333;
+  margin-top: 10px; /* Add space above each label */
+}
+
+/* Input Fields Styling */
+.tailor-info input[type="text"],
+.tailor-info input[type="url"] {
+  width: 100%; /* Full width */
+  padding: 10px; /* Inner padding */
+  font-size: 14px; /* Adjust font size */
+  color: #444; /* Text color */
+  background-color: #f9f9f9; /* Light background for input fields */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px; /* Space between label and input */
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+}
+
+.tailor-info input[readonly] {
+  color: #666; /* Slightly dimmed color for readonly fields */
+}
+
+
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:first-of-type {
+  background-color: #007bff;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+button:first-of-type:hover {
+  background-color: #0056b3;
+}
+
+button:last-of-type {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+button:last-of-type:hover {
+  background-color: #ddd;
+}
+
+.box-w {
+  background-color: #d9d9d9 !important;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  width: 950px;
+  position: relative; /* Ensure it moves relative to its current position */
+  margin-top: -10px; /* Move upwards by 50px */
+  margin-left: 100px; /* Push the box to the right */
+}
+
+/* Section Headings */
+.box-w h3 {
+  margin-bottom: 15px; /* Space below headings */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000 !important;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 350px;
+
+}
+
+/* Labels */
+.box-w label {
+  font-size: 14px; /* Adjust label size */
+  font-weight: bold; /* Bold labels */
+  margin-bottom: 5px; /* Add space below labels */
+  display: block; /* Ensure labels are above inputs */
+}
+
+/* Textarea Styling */
+.box-w textarea {
+  width: 100%; /* Full width */
+  padding: 10px; /* Add padding */
+  font-size: 14px; /* Adjust font size */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  resize: none; /* Disable resizing */
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+  margin-top: 5px; /* Space above textarea */
+  color: #444; /* Text color */
+}
+
+/* Input Fields */
+.box-w input[type="number"] {
+  width: 100%; /* Full width */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Readonly Inputs */
+.box-w input[readonly] {
+  background-color: #f5f5f5; /* Light background for readonly fields */
+  color: #666; /* Subtle text color */
+}
+
+/* Dropdown Menu */
+.box-w select {
+  width: 100%; /* Full width */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  background-color: #fff; /* White background */
+  color: #333; /* Text color */
+}
+
+/* Total Payment Display */
+#total-payment {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff; /* Blue text for emphasis */
+  margin-top: 5px;
+}
+
+/* Buttons */
+.box-w button,
+.add-to-bag {
+  display: block;
+  width: 100%; /* Full-width buttons */
+  padding: 10px 15px; /* Inner padding */
+  margin-top: 15px; /* Space above buttons */
+  font-size: 14px;
+  color: #fff; /* White text */
+  background-color: #007bff; /* Blue background */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box-w button:hover,
+.add-to-bag:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.add-to-bag {
+  background-color: #28a745; /* Green for place order */
+}
+
+.add-to-bag:hover {
+  background-color: #218838; /* Darker green on hover */
+}
