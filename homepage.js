@@ -78,25 +78,54 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Handle fabric item click
+    function setupFabricClick() {
+        fabricItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                const fabricName = item.querySelector(".fabric-name").innerText;
+                alert(`You selected: ${fabricName}`);
+            });
+        });
+    }
+
     /**
      * Error Handling for Template Loading
      */
 
-    // Simulate a failure to load templates (You can modify this based on real error conditions)
+    // Simulate a failure to load templates (Modify this based on real conditions)
     function loadTemplates() {
         const success = false; // Set to `true` to simulate success
 
         if (!success) {
-            styleFailContainer.classList.remove("hidden"); // Show the error container
+            displayError("Templates failed to load. Please refresh or try again later.");
         }
+    }
+
+    // Function to display an error message dynamically
+    function displayError(message) {
+        const errorContainer = document.getElementById("style-fail");
+        const errorMessage = errorContainer.querySelector(".style-fail-description");
+
+        errorMessage.innerText = message;
+        errorContainer.classList.remove("hidden"); // Show the error container
+    }
+
+    // Function to hide the error message
+    function hideError() {
+        const errorContainer = document.getElementById("style-fail");
+        errorContainer.classList.add("hidden");
     }
 
     // Hide the error message when clicking outside
     document.addEventListener("click", (event) => {
-        if (!event.target.closest("#style-fail") && !event.target.closest("#search-input")) {
-            styleFailContainer.classList.add("hidden");
+        const isClickInside = event.target.closest("#style-fail");
+        if (!isClickInside) {
+            hideError();
         }
     });
+
+    // Call loadTemplates to simulate error handling
+    loadTemplates();
 
     // Simulate template loading
     loadTemplates();
@@ -144,4 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdownSection.style.width = `${searchInput.offsetWidth}px`;
     });
 
+    // Set up click functionality for fabric items
+    setupFabricClick();
 });
