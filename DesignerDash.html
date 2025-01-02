@@ -319,7 +319,30 @@
                             </button>
                         </div>
                     </div>
-                    <script>
+                    
+                    <script type="module">
+                        // Import the functions you need from the SDKs you need
+                        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+                        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+                        import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+                
+                        // Your Firebase configuration
+                        const firebaseConfig = {
+                        apiKey: "AIzaSyBYg9Ic5NYxj6mGncEk9prXd7OlPMUz5f8",
+                        authDomain: "cs-pn-f5ac0.firebaseapp.com",
+                        databaseURL: "https://cs-pn-f5ac0-default-rtdb.firebaseio.com",
+                        projectId: "cs-pn-f5ac0",
+                        storageBucket: "cs-pn-f5ac0.appspot.com",
+                        messagingSenderId: "29471816373",
+                        appId: "1:29471816373:web:d3d963245930f8ba399cfc",
+                        measurementId: "G-NCVC43YGCG"
+                        };
+                    
+                        // Initialize Firebase
+                        const app = initializeApp(firebaseConfig);
+                        const database = getDatabase(app);
+                        const auth = getAuth(app);
+
                         // Get the "Add New Portfolio" button
                         const addPortfolioBtn = document.getElementById('addPortfolioBtn');
                     
