@@ -186,6 +186,42 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* Stronger shadow when focused */
 }
 
+/* Styling for shop name input field */
+#myAddress input[type="text"]#clientLocationTwo {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 8px;
+   
+    
+    width: 550px;
+    height: 30px;
+    
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* Button Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+    transition: border-color 0.3s ease; /* Smooth transition on hover */
+}
+ #myAddress input[type="text"]#clientLocationTwo:hover{
+    border-color: #888; /* Change border color when hovered */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow on hover */
+}
+#myAddress input[type="text"]#clientLocationTwon:focus{
+    outline: none; /* Remove default outline */
+    border-color:black; /* Blue border when focused */
+    background-color: #f8f9fa; /* Slightly lighter background on focus */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* Stronger shadow when focused */
+}
+
 #myAddress input[type="text"]#postalCode {
     display: flex;
     flex-direction: row;

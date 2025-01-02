@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designer Dashboard</title>
+    <title>Client Dashboard</title>
     <link rel="stylesheet" href="DesignDash.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="ShopInfo.css">
@@ -58,14 +58,15 @@
     <!-- Shop Information Section -->
     <div class="contr">
         <div class="shop-info">
-            <img src="av.jpg" class="rounded-circle" alt="Shop Avatar">
-            <h3>Kim Tae-hyung</h3>
+            <img id="shopAvatar" src="user.jpg" class="rounded-circle" alt="Shop Avatar">
+            <h3 id="shopName">Your Name</h3>
             <a href="#" class="edit-link">
                 <i class="bi bi-pencil"></i> Edit Profile
             </a>
         </div>
     </div>
     <!-- End of Shop Information Section -->
+
 
     <!-- Designer Dashboard Section -->
     <div class="container">
@@ -109,7 +110,7 @@
                                 <h5>Username</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <input type="text" id="username" value="thv_" placeholder="Enter your username">
+                                <input type="text" id="username" value="" placeholder="Enter your username">
                             </div>
                         </div>
                         <div class="row">
@@ -117,7 +118,7 @@
                                 <h5>Full Name</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <input type="text" id="shopname" value="Kim Taehyung" placeholder="Enter your full name">
+                                <input type="text" id="shopname" value="" placeholder="Enter your full name">
                             </div>
                         </div>
                         <div class="row">
@@ -125,7 +126,7 @@
                                 <h5>Email Address</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <input type="text" id="email" value="taehyung@gmail.com" placeholder="Enter your email address">
+                                <input type="text" id="email" value="" placeholder="Enter your email address">
                             </div>
                         </div>
                         <div class="row">
@@ -133,12 +134,10 @@
                                 <h5>Phone Number</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <input type="text" id="phone" value="123-456-7890" placeholder="Enter your phone number">
+                                <input type="text" id="phone" value="" placeholder="Enter your phone number">
                             </div>
                         </div>
-                    <div class="save-button-container">
-                        <button class="save-button" data-tooltip="save-profile">Save</button>
-                    </div>
+                    
                 </div>
 
                 <!-- Profile Image Section -->
@@ -151,6 +150,10 @@
                     </button>
                 </div>
             </div>
+            
+            <div class="save-button-container">
+                <button class="save-button" data-tooltip="save-profile">Save</button>
+            </div>
 
             <!-- Contact Info Section -->
             <div id="myAddress" style="display:none;">
@@ -161,34 +164,34 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h5>Recipient Name</h5>
-                            <input type="text" id="email" value="threadNneedlebtqPh@gmail.com" class="form-control" placeholder="Enter recipient name">
+                            <input type="text" id="name" value="" class="form-control" placeholder="Enter recipient name">
                         </div>
                         <div class="col-md-6">
                             <h5>Phone Number</h5>
-                            <input type="text" id="businessNumber" value="+123 4567 890" class="form-control" placeholder="Enter phone number">
+                            <input type="text" id="businessNumber" value="" class="form-control" placeholder="Enter phone number">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="clientLocation">Region, Province, City, Barangay</label>
                             <input type="text" id="clientLocation" class="form-control" 
-                                   value="St.123, Brgy. NYC, Cagayan de Oro City, Mis. Or. PH, 9000." 
+                                   value="" 
                                    placeholder="Enter your Region, Province, City, Barangay">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="clientLocation">Region, Province, City, Barangay</label>
-                            <input type="text" id="clientLocation" class="form-control" 
-                                   value="St.123, Brgy. NYC, Cagayan de Oro City, Mis. Or. PH, 9000." 
-                                   placeholder="Enter your Region, Province, City, Barangay">
+                            <label for="clientLocation">Street Name, Building, House Number</label>
+                            <input type="text" id="clientLocationTwo" class="form-control" 
+                                   value="" 
+                                   placeholder="Enter your Street Name, Building, House Number">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="postalCode">Postal Code</label>
                             <input type="text" id="postalCode" class="form-control" 
-                                   value="9000" 
+                                   value="" 
                                    placeholder="Enter your Postal Code">
                         </div>
                     </div>
@@ -930,36 +933,207 @@
 
 
         document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth(); // Initialize Firebase Authentication
+
+    // Check if the user is logged in
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const userId = user.uid; // Get the authenticated user's UID
+            const userRef = ref(database, `users/${userId}`);
+
+            // Fetch and populate user profile information on page load
+            get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const userData = snapshot.val();
+                        document.getElementById("username").value = userData.username || "";
+                        document.getElementById("shopname").value = `${userData.firstName || ""} ${userData.lastName || ""}`.trim();
+                        document.getElementById("email").value = user.email; // Use email from authenticated user
+                        document.getElementById("phone").value = userData.phoneNumber || "";
+
+                        const avatarUrl = userData.profileImage || "default-avatar.png";
+                        document.getElementById("userAvatar").src = avatarUrl;
+                        document.getElementById("shopAvatar").src = avatarUrl; // Update the Shop Avatar
+
+                        // Update Shop Information Section
+                        document.getElementById("shopName").innerText = `${userData.firstName || ""} ${userData.lastName || ""}`.trim();
+                    } else {
+                        console.log("No user data found!");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching user data: ", error);
+                });
+
+            // Save profile information on button click
             document.querySelectorAll('[data-tooltip="save-profile"]').forEach(button => {
                 button.addEventListener("click", function () {
-                    saveProfile();
+                    saveProfile(userId);
                 });
             });
-        });
-
-        function saveProfile() {
-            // Example of a smooth database interaction simulation
-            console.log("Saving profile information...");
-            setTimeout(() => {
-                alert("Profile information saved successfully!");
-            }, 500); // Simulate a delay for database interaction
+        } else {
+            // No user is logged in, redirect to login page or show an error
+            alert("You must be logged in to view your profile.");
+            window.location.href = "index.html"; // Redirect to your login page
         }
+    });
+});
 
-        document.addEventListener("DOMContentLoaded", function () {
+function saveProfile(userId) {
+    const username = document.getElementById("username").value;
+    const fullName = document.getElementById("shopname").value.split(" ");
+    const email = document.getElementById("email").value;
+    const phoneNumber = document.getElementById("phone").value;
+    const firstName = fullName[0] || "";
+    const lastName = fullName.slice(1).join(" ") || "";
+
+    const userAvatar = document.getElementById("userAvatar").src; // Get the current profile image
+
+    // Update user profile in Realtime Database
+    const userRef = ref(database, `users/${userId}`);
+    update(userRef, {
+        username: username || null,
+        firstName: firstName || null,
+        lastName: lastName || null,
+        email: email || null,
+        phoneNumber: phoneNumber || null,
+        profileImage: userAvatar || null // Save the current profile image
+    })
+        .then(() => {
+            // Update Shop Information Section
+            document.getElementById("shopName").innerText = `${firstName} ${lastName}`.trim();
+            document.getElementById("shopAvatar").src = userAvatar; // Update Shop Avatar with the saved profile image
+            alert("Profile information saved successfully!");
+        })
+        .catch((error) => {
+            console.error("Error saving profile information: ", error);
+            alert("Error saving profile information. Please try again.");
+        });
+}
+
+function previewImage(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const imageUrl = e.target.result;
+
+        // Update preview dynamically for both profile and shop avatars
+        document.getElementById("userAvatar").src = imageUrl;
+        document.getElementById("shopAvatar").src = imageUrl;
+
+        // Save the image data to Realtime Database
+        const auth = getAuth();
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                const userId = user.uid; // Get authenticated user's UID
+                const userRef = ref(database, `users/${userId}`);
+                update(userRef, {
+                    profileImage: imageUrl // Save the updated image URL
+                })
+                    .then(() => {
+                        console.log("Profile image updated successfully!");
+                    })
+                    .catch((error) => {
+                        console.error("Error updating profile image: ", error);
+                    });
+            } else {
+                console.log("User not logged in, cannot save profile image.");
+            }
+        });
+    };
+
+    reader.readAsDataURL(file);
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth(); // Initialize Firebase Authentication
+
+    // Check if the user is logged in
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const userId = user.uid; // Get the authenticated user's UID
+            const userRef = ref(database, `users/${userId}`);
+            const addressRef = ref(database, `users/${userId}/address`);
+
+            // Fetch and populate user and address information on page load
+            get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const userData = snapshot.val();
+                        document.getElementById("businessNumber").value = userData.phoneNumber || ""; // Fetch phone number from user's database
+                    } else {
+                        console.log("No user data found!");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching user data: ", error);
+                });
+
+            get(addressRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const addressData = snapshot.val();
+                        document.getElementById("name").value = addressData.recipientName || ""; // Default to empty string
+                        document.getElementById("clientLocation").value = addressData.location || ""; // Default to empty string
+                        document.getElementById("clientLocationTwo").value = addressData.streetDetails || ""; // Default to empty string
+                        document.getElementById("postalCode").value = addressData.postalCode || ""; // Default to empty string
+                    } else {
+                        console.log("No address data found!");
+                        // Default to null if no address exists
+                        update(addressRef, {
+                            recipientName: null,
+                            location: null,
+                            streetDetails: null,
+                            postalCode: null,
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching address data: ", error);
+                });
+
+            // Add save button functionality
             document.querySelectorAll('[data-tooltip="save-address"]').forEach(button => {
                 button.addEventListener("click", function () {
-                    saveAddress();
+                    saveAddress(userId);
                 });
             });
-        });
-
-        function saveAddress() {
-            // Simulating a smooth database interaction
-            console.log("Saving address information...");
-            setTimeout(() => {
-                alert("Address information saved successfully!");
-            }, 500); // Simulate a delay for database interaction
+        } else {
+            alert("You must be logged in to manage your address.");
+            window.location.href = "index.html"; // Redirect to login page
         }
+    });
+});
+
+function saveAddress(userId) {
+    const recipientName = document.getElementById("name").value || null; // Default to null if empty
+    const phoneNumber = document.getElementById("businessNumber").value || null; // Already fetched from the database
+    const location = document.getElementById("clientLocation").value || null; // Default to null if empty
+    const streetDetails = document.getElementById("clientLocationTwo").value || null; // Default to null if empty
+    const postalCode = document.getElementById("postalCode").value || null; // Default to null if empty
+
+    // Save address to Realtime Database
+    const addressRef = ref(database, `users/${userId}/address`);
+    update(addressRef, {
+        recipientName: recipientName,
+        phoneNumber: phoneNumber,
+        location: location,
+        streetDetails: streetDetails,
+        postalCode: postalCode,
+    })
+        .then(() => {
+            alert("Address information saved successfully!");
+        })
+        .catch((error) => {
+            console.error("Error saving address information: ", error);
+            alert("Error saving address information. Please try again.");
+        });
+}
+
 
 
         document.addEventListener("DOMContentLoaded", function () {
