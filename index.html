@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendTailor</title>
+    <link rel="stylesheet" href="style2.css"> 
+    <!-- Include Font Awesome for the spinner -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <nav>
+            <ul>
+                <li class="shop"><button id="shopBtn">Shop</a></li>
+                <li class="sale"><button id="saleBtn">Sale</a></li>
+                <li class="about"><button id="aboutBtn">About</a></li>
+                <li class="sign-in"><button id="signInBtn">Sign In</button></li>
+                <li class="line"></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <h1>TrendTailor</h1>
+        </div>
+        <div class="shopping-bag">
+            <img src="shopbag.png" alt="Shopping Bag Icon">
+        </div>
+        <div class="flag">
+            <img src="flag1.png" alt="Flag Icon">
+        </div>
+    </div>
+
+    <!-- Main Visual Section -->
+    <section class="main-visual">
+        <div class="visual1">
+            <img src="visual1.jpg" alt="Visual 1" style="width: 350px; height: 220px;">
+        </div>
+        <div class="visual2">
+            <img src="visual2.jpg" alt="Visual 2" style="width: 280px; height: 230px;">
+        </div>
+        <div class="visual3">
+            <img src="visual3.jpg" alt="Visual 3" style="width: 320px; height: 180px; ">
+        </div>
+        <div class="title h2" style="left: -130px; top: 120px;">
+        <h2>Craft your style,</h2>
+        </div>
+        <div class="title h3" style="left: -130px; top: 180px;">
+        <h3>stitch your story.</h3>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <hr>
+        <div class="footer-content">
+            <div class="customer-service">
+                <h3>Customer Service</h3>
+                <ul class="customer-service" style="list-style-type: none; margin: 0; padding: 0;">
+                    <li class="help-centre"><a href="#">Help Centre</a></li>
+                    <li class="payment-methods"><a href="#">Payment Methods</a></li>
+                    <li class="return-n-refund"><a href="#">Return & Refund</a></li>
+                    <li class="order-tracking"><a href="#">Order Tracking</a></li>
+                </ul>
+            </div>
+            <div class="about-us">
+                <h3>About TrendTailor</h3>
+                <ul class="about-us" style="list-style-type: none; margin: 0; padding: 0;">
+                    <li class="about-uss"><a href="#">About Us</a></li>
+                    <li class="privacy-policy"><a href="#">Privacy Policy</a></li>
+                    <li class="flash-deals"><a href="#">Flash Deals</a></li>
+                    <li class="media-contact"><a href="#">Media Contact</a></li>
+                </ul>
+            </div>
+            <div class="follow-us">
+                <h3>Follow Us</h3>
+                <!-- Social media icons or links -->
+            </div>
+        </div>
+        <div class="footer-rights">
+            2024 TrendTailor. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Sign-Up Modal with role selection -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+
+        <h4>
+            <span class="join-us">JOIN US!</span><br>
+            <span class="subtext">Start stitching your story.</span>
+        </h4>
+
+        <!-- Add error message element -->
+        <p id="passwordErrorMsg" class="error-msg"></p>
+
+        <span class="close" id="closeSignup">&times;</span>
+        <form id="signupForm">
+
+            <div class="name-container">
+                <div class="name-field">
+                    <label for="fName">First Name</label>
+                    <input type="text" id="fName" name="fName" placeholder="Enter your first name" required>
+                </div>
+                <div class="name-field">
+                    <label for="lName">Last Name</label>
+                    <input type="text" id="lName" name="lName" placeholder="Enter your last name" required>
+                </div>
+            </div>
+
+            <label for="newEmail">Email</label>
+            <input type="email" id="newEmail" name="email" placeholder="Enter your email" required>
+
+            <!-- Dropdown for selecting role -->
+            <label for="roleDropdown">Select Role</label>
+            <select id="roleDropdown" name="role" required>
+                <option value="select">--Select Role--</option>
+                <option value="client">Client</option>
+                <option value="designer">Designer</option>
+                <option value="admin">Admin</option>
+            </select>
+            
+            <label for="newPassword">Password</label>
+            <div class="password-container">
+                <input type="password" id="newPassword" name="password" placeholder="Create a password" required>
+                <span id="toggleNewPassword" class="toggle-password">👁</span>
+            </div>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                <span id="toggleConfirmPassword" class="toggle-password">👁</span>
+            </div>
+
+
+            <button id="signupSubmit" class="submit-btn">Sign Up</button>
+            <p class="login-text">Already have an account? <a href="#" id="openLogin">Sign In.</a></p>
+        </form>
+    </div>
+</div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+        
+        <h5>
+        <span class="welcome-text">WELCOME BACK!</span><br>
+        <span class="subtext">Keep stitching your story.</span>
+        </h5>
+       
+            <p id="loginErrorMsg" class="error-msg"></p>
+
+            <span class="close" id="closeLogin">&times;</span>
+            <form id="loginForm">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="togglePassword" class="toggle-password">👁</span>
+                </div>
+
+                
+                <div class="forgot-password">
+                    <span>Forgot Password?</span> <a href="#" id="openResetPassword">Get Help.</a> 
+                </div>
+                <button id="loginSubmit" class="submit-btn" type="submit">Sign In</button>
+                <p class="signup-text">Don't have an account? <a href="#" id="openSignup">Sign Up.</a></p>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <!-- Reset Password Modal -->
+    <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeResetPassword">&times;</span>
+            <form action="/reset-password" method="post">
+                <label for="resetEmail">Email</label>
+                <input type="email" id="resetEmail" name="resetEmail" placeholder="Enter your email" required>
+                <button id="resetSubmit" class="submit-btn">Send Verification Code</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+        import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyBYg9Ic5NYxj6mGncEk9prXd7OlPMUz5f8",
+        authDomain: "cs-pn-f5ac0.firebaseapp.com",
+        databaseURL: "https://cs-pn-f5ac0-default-rtdb.firebaseio.com",
+        projectId: "cs-pn-f5ac0",
+        storageBucket: "cs-pn-f5ac0.appspot.com",
+        messagingSenderId: "29471816373",
+        appId: "1:29471816373:web:d3d963245930f8ba399cfc",
+        measurementId: "G-NCVC43YGCG"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth(app);
+        
+        // Function to save additional data to Realtime Database
+        function saveToDatabase(userId, data) {
+            const userRef = ref(database, 'users/' + userId + '/additionalData');
+            push(userRef, data)
+                .then(() => {
+                    console.log("Data saved successfully to 'additionalData' node.");
+                })
+                .catch((error) => {
+                    console.error("Error saving data to 'additionalData' node:", error);
+                });
+        }
+
+        // Function to save registration data to a new node
+        function saveRegistrationData(userId, registrationData) {
+            const registrationRef = ref(database, 'registration/' + userId);
+            set(registrationRef, registrationData)
+                .then(() => {
+                    console.log("Registration data saved successfully to 'registration' node.");
+                })
+                .catch((error) => {
+                    console.error("Error saving registration data to 'registration' node:", error);
+                });
+        }
+
+        // Sign Up Functionality
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const firstName = document.getElementById('fName').value;
+            const lastName = document.getElementById('lName').value;
+            const email = document.getElementById('newEmail').value;
+            const role = document.getElementById('roleDropdown').value;
+            const password = document.getElementById('newPassword').value;
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                console.log("User registered successfully with UID:", user.uid);
+
+                if (role === 'admin') {
+                    // Store admin data in /admins
+                    await set(ref(database, `admins/${user.uid}`), {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                    });
+                    console.log("Admin data saved successfully in /admins.");
+                } else {
+                    // Store regular user data in /users
+                    await set(ref(database, `users/${user.uid}`), {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        role: role,
+                    });
+                    console.log("User data saved successfully in /users.");
+                }
+
+                alert('Sign up successful! Redirecting you to the Login Page.');
+                signupForm.reset();
+            } catch (error) {
+                console.error("Error during sign up:", error);
+                alert(error.message);
+            }
+        });
+
+            
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent form's default submission behavior
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Sign in the user
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Check if the user is an admin
+        const adminRef = ref(database, `admins/${user.uid}`);
+        const adminSnapshot = await get(adminRef);
+
+        if (adminSnapshot.exists()) {
+            console.log("Admin detected.");
+            window.location.href = 'admin.html'; // Redirect to Admin Dashboard
+            return;
+        }
+
+        // Check for regular user data
+        const userRef = ref(database, `users/${user.uid}`);
+        const userSnapshot = await get(userRef);
+
+        if (userSnapshot.exists()) {
+            const { role } = userSnapshot.val();
+
+            // Redirect based on user role
+            if (role === 'client') {
+                console.log("Client detected.");
+                window.location.href = 'ClientDash.html'; // Redirect to Client Dashboard
+            } else if (role === 'designer') {
+                console.log("Designer detected.");
+                window.location.href = 'DesignerDash.html'; // Redirect to Designer Dashboard
+            } else {
+                console.error('Invalid role detected!');
+                alert('Invalid role detected!');
+            }
+        } else {
+            console.error('User data not found in database.');
+            alert('User data not found!');
+        }
+    } catch (error) {
+        console.error('Error during login:', error.message);
+        alert(error.message);
+    }
+});
+
+    
+            // Get the modal elements
+            const loginModal = document.getElementById("loginModal");
+            const signupModal = document.getElementById("signupModal");
+            const resetPasswordModal = document.getElementById("resetPasswordModal");
+
+            // Get the buttons that open the modals
+            const signInBtn = document.getElementById("signInBtn");
+            const openSignupBtn = document.getElementById("openSignup");
+            const openLoginBtn = document.getElementById("openLogin");
+            const openResetPasswordBtn = document.getElementById("openResetPassword");
+
+            // Get the <span> elements that close the modals
+            const closeLogin = document.getElementById("closeLogin");
+            const closeSignup = document.getElementById("closeSignup");
+            const closeResetPassword = document.getElementById("closeResetPassword");
+
+            // Open login modal when "Sign In" is clicked
+            signInBtn.addEventListener("click", () => {
+                loginModal.style.display = "block";
+            });
+
+            // Open sign-up modal
+            openSignupBtn.addEventListener("click", () => {
+                loginModal.style.display = "none"; // Close login modal
+                signupModal.style.display = "block"; // Open sign-up modal
+            });
+
+            // Open login modal from sign-up modal
+            openLoginBtn.addEventListener("click", () => {
+                loginModal.style.display = "block"; // Open login modal
+                signupModal.style.display = "none"; // Close sign-up modal
+            });
+
+            // Open reset password modal
+            openResetPasswordBtn.addEventListener("click", () => {
+                loginModal.style.display = "none"; // Close login modal
+                resetPasswordModal.style.display = "block"; // Open reset password modal
+            });
+
+            // Close login modal
+            closeLogin.addEventListener("click", () => {
+                loginModal.style.display = "none";
+            });
+
+            // Close sign-up modal
+            closeSignup.addEventListener("click", () => {
+                signupModal.style.display = "none";
+            });
+
+            // Close reset password modal
+            closeResetPassword.addEventListener("click", () => {
+                resetPasswordModal.style.display = "none";
+            });
+
+            // Close modals when clicking outside of them
+            window.addEventListener("click", (event) => {
+                if (event.target === loginModal) {
+                    loginModal.style.display = "none";
+                }
+                if (event.target === signupModal) {
+                    signupModal.style.display = "none";
+                }
+                if (event.target === resetPasswordModal) {
+                    resetPasswordModal.style.display = "none";
+                }
+            });
+
+
+            // Add an event listener for toggling the password visibility
+            document.addEventListener("DOMContentLoaded", () => {
+                const passwordInput = document.getElementById("password");
+                const togglePassword = document.getElementById("togglePassword");
+
+                togglePassword.addEventListener("click", () => {
+                    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                    passwordInput.setAttribute("type", type);
+
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                // Password toggle for "New Password"
+                const newPasswordInput = document.getElementById("newPassword");
+                const toggleNewPassword = document.getElementById("toggleNewPassword");
+
+                toggleNewPassword.addEventListener("click", () => {
+                    const type = newPasswordInput.getAttribute("type") === "password" ? "text" : "password";
+                    newPasswordInput.setAttribute("type", type);
+                });
+
+                // Password toggle for "Confirm Password"
+                const confirmPasswordInput = document.getElementById("confirmPassword");
+                const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+                toggleConfirmPassword.addEventListener("click", () => {
+                    const type = confirmPasswordInput.getAttribute("type") === "password" ? "text" : "password";
+                    confirmPasswordInput.setAttribute("type", type);
+                });
+            });
+
+        
+    </script>
+    
+</body>
+</html>
