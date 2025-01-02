@@ -25,7 +25,7 @@
                 <div class="header-icons">
                     <img class="flag" src="Flag_of_the_Philippines.svg.png" alt="Philippines Flag">
                     <div class="user-profile" title="User Profile">
-                        <img id="profilePicture" src="default-avatar.png" alt="" />
+                        <img id="profilePicture" src="user.jpg" alt="" />
                     </div>
                     
                     
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         const userData = snapshot.val();
-                        const profilePicture = userData.profileImage || "default-avatar.png"; // Fallback to default image
+                        const profilePicture = userData.profileImage || "user.jpg"; // Fallback to default image
 
                         // Update profile picture in user profile
                         const profileImageElement = document.getElementById("profilePicture");
@@ -482,6 +482,28 @@ function setupFabricClick() {
     setupFabricClick();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const designerShopsSection = document.getElementById("designer-shops");
+    const designerShops = Array.from(designerShopsSection.querySelectorAll(".designer-shop"));
+
+    // Shuffle function
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Shuffle the designer shops
+    const shuffledShops = shuffle(designerShops);
+
+    // Clear the section and append shuffled shops
+    designerShopsSection.innerHTML = "";
+    shuffledShops.forEach(shop => {
+        designerShopsSection.appendChild(shop);
+    });
+});
 
 </script>
     </body>
