@@ -1,0 +1,598 @@
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Reset margin */
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.slide-down {
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Center Content and Add Margins */
+.container {
+    max-width: 1200px; 
+    margin: 20px auto; /* Center horizontally */
+    padding: 0 20px;
+}
+
+       /* Header Section */
+       .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 63px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 1px solid #D9D9D9;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: #ffffff;
+        z-index: 10;
+    }
+    
+
+.header-logo {
+    font-family: 'Caslon Graphique D', serif;
+    font-weight: 1000;
+    font-size: 25px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Main Content Spacing */
+main {
+    margin-top: 80px; /* Add space for fixed header */
+}
+
+        /* Search Input Placeholder */
+.search-bar input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #000000;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: #0000000e;
+    text-align: left;
+}
+
+        .flag {
+            width: 35px;
+            height: auto;
+            cursor: pointer;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .user-profile {
+            width: 34px;
+            height: 34px;
+            background: url('pic1.png') no-repeat center center/cover;
+            border-radius: 50%;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+      
+
+        .cart-button img:hover {
+            height: 5px;
+            width: 5px;
+            filter: drop-shadow(0px 6px 6px rgb(197, 197, 197));
+        }
+
+
+/* Search Bar */
+.search-bar {
+    width: 418px; 
+    margin: 100px; /* Centered horizontally */
+    height: 39px;
+    background: rgba(217, 217, 217, 0.35);
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: run-in;
+    align-items: left;
+    padding: 0 15px;
+    position: relative;
+}
+
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: #000000;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    z-index: 2; /* Keep on top */
+}
+
+
+.search-bar {
+    position: relative; /* Ensure dropdown is aligned relative to this container */
+}
+
+.recent-searches {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.recent-searches h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.recent-searches ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recent-searches li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #555;
+}
+
+.recent-searches li:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: grid;
+}
+
+/* Dropdown Section */
+#dropdown-section {
+    position: absolute;
+    width: 550px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+    top: 10%; /* Position it directly below the search bar */
+    margin-left: 120px; /* Align it with the left edge of the search bar */
+    transform: none; /* Remove any previous transform */
+}
+
+/* Dropdown content - this will hold the options */
+.dropdown-content {
+    position: absolute;
+    top: 100%; /* Position below the dropdown */
+    right: 50px;
+    background-color: #6b5252;
+    width: 500px;
+    border-radius: 1px;
+    box-shadow: 0px 4px 4px rgba(228, 228, 228, 0.25);
+    padding: 10px;
+    z-index: 5;
+}
+
+.dropdown-content a:hover {
+    background-color: #eb0505;
+}
+
+.dropdown-content a {
+    display: flex;
+    padding: 4px 8px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #dddddd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fix Overlapping Sections */
+#featuredFabrics,
+#categories,
+.recents-box {
+    position: relative;
+    margin: 20px auto;
+    max-width: 800px;
+    z-index: 1; /* Layer them properly */
+}
+
+
+/* Dropdown content items */
+.dropdown-content a {
+    display: grid;
+    padding: 4px 8px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #dddddd;
+}
+
+/* Show dropdown when button is clicked */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
+}
+
+.no-results-container {
+    position: absolute;
+    top: 50%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+    width: 470px;
+    background: #F0F0F0;
+    border-radius: 1px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(2, 1, 1, 0.25);
+    z-index: 1000;
+}
+
+
+/* Hidden State */
+.hidden {
+    display: none;
+}
+
+/* No Results Title */
+.no-results-title {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: absolute;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+/* No Results Description */
+.no-results-description {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: top;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* Unhappy Result Image */
+.no-results-image {
+    width: 100px;
+    height: 300px;
+    background: url('unhappy-result.png') no-repeat center center;
+    background-size: contain;
+}
+/* Overlay Background (optional to dim the background) */
+.overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Behind the No Results box but above the page */
+    display: none; /* Hidden initially */
+}
+
+/* Image for Unhappy Result */
+.no-results-image {
+    position: absolute;
+    width: 166px;
+    height: 172px;
+    top: 50px; /* Adjust to position it correctly */
+    background: url('unhappy-result.png') no-repeat center center;
+    background-size: contain;
+}
+
+
+
+.section-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+        
+/* Recents Dropdown Box */
+.recents-box {
+    position: absolute;
+    width: 594px;
+    height: 440px;
+    left: 116px;
+    top: 84px;
+    background: #7a7777;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.dropdown-section h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+
+/* Gray Box Container */
+.gray-box {
+    position: relative;
+    margin: 20px auto; /* Add spacing to prevent overlaps */
+    width: 594px;
+    height: auto;
+    background: #dbdbdb;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Featured Fabrics Section */
+.featured-fabrics {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fabric-item {
+    width: 150px;
+    text-align: center;
+}
+
+.fabric-image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.fabric-name {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Categories Section */
+.position-categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.category-button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.category-button:hover {
+    background-color: #ddd;
+}
+
+/* Recent Items */
+.recent-items {
+    margin-top: 30px;
+}
+  
+  .recent-items p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .item-image {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+
+/* Designer Shops Section */
+#designer-shops {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 50px auto; /* Top and bottom margin */
+    margin-left: 100px; /* Left margin */
+    margin-right: 10px; /* Right margin */
+    gap: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    position: relative; /* Ensure correct stacking */
+    z-index: 1;
+}
+
+
+.designer-shop {
+    
+    width: 200px;
+    padding: 20px;
+    background-color: #f0f0f0; /* Set background to #f0f0f0 */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ddd; /* Border with light color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.designer-shop:hover {
+    transform: scale(1.05); /* Slight scaling on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.designer-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px auto;
+    display: block;
+}
+
+.designer-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin: 10px 0 5px;
+}
+
+.designer-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 10px;
+}
+
+        /* Ensure Footer does not overlap */
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+    
+/* Style Templates Load Fail Message */
+.style-fail-container {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: #ffdddd;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+.style-fail-container.hidden {
+    display: none;
+}
+
+.style-fail-content {
+    text-align: center;
+}
+
+.style-fail-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.style-fail-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.style-fail-close-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d8000c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.style-fail-close-btn:hover {
+    background-color: #a30000;
+}
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thread and Needle Boutique - Luxury Sleepwear</title>
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="TrendTailor4.css">
+    <link href="collection.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="Search...">
+        <div class="trend-tailor">TrendTailor</div>
+        <div class="header-icons">
+            <img src="flag.jpg" alt="Flag">
+            <div class="profile-pic"></div>
+            <i class="bi bi-bag"></i>
+        </div>
+        </div>
+        <div class="header-icons">
+            <div class="profile-pic"></div>
+            <i class="bi bi-bag"></i>
+        </div>
+    </div>
+
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        Use code TrendTailor for 10% off custom creations
+    </div>
+
+    <div class="profile-header" id="home">
+        <img src="ntb.jpg" alt="Profile Picture">
+        <div>
+            <h1>Thread and Needle Boutique</h1>
+            <p class="handle">@thread&needlebtq.ph</p>
+            <div class="star-rating">
+                <i class="bi bi-star" onclick="rateStar(this)"></i>
+                <i class="bi bi-star" onclick="rateStar(this)"></i>
+                <i class="bi bi-star" onclick="rateStar(this)"></i>
+                <i class="bi bi-star" onclick="rateStar(this)"></i>
+                <i class="bi bi-star" onclick="rateStar(this)"></i>
+            </div>
+    
+            <!-- Navigation Links Placed Under the Star Rating -->
+            <nav class="profile-navbar">
+                <a href="#projects">Visit Projects</a>
+                <a href="#following">Following</a>
+                <a href="#followers">Followers</a>
+                <a href="#products">Products</a>
+                <a href="#home">Home</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+        </div>
+    </div>
+    
+
+    <!-- Banner Section -->
+    <div class="banner" id="projects">
+        <h2>Luxury Sleepwear Collection</h2>
+        <p>The collection showcases bespoke items designed for maximum comfort and elegance. Each piece is tailored to your measurements, highlighting the craftsmanship and detail that set us apart.
+            
+
+
+            Welcome to our store, where elegance meets comfort in every stitch. Specializing exclusively in bespoke sleepwear for women, our mission is to transform your nightly routine into a luxurious experience. Our tailor shop is dedicated to crafting personalized, high-quality sleepwear that reflects the unique style and sophistication of each of our clients.
+        </p>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="product-card">
+            <img src="pjs.jpg" alt="Elegant Silk Pajamas">
+            <h3>Elegant Silk Pajamas</h3>
+            <p>A luxurious set of silk pajamas tailored to provide ultimate comfort and style.</p>
+        </div>
+        <div class="product-card">
+            <img src="bln.jpg" alt="Bespoke Linen Nightgown">
+            <h3>Bespoke Linen Nightgown</h3>
+            <p>A tailored linen nightgown designed for comfort and breathability, perfect for warmer climates.</p>
+        </div>
+        <div class="product-card">
+            <img src="ccr.jpg" alt="Custom Cotton Robe">
+            <h3>Custom Cotton Robe</h3>
+            <p>A versatile cotton robe tailored for both comfort and functionality, suitable for lounging at home.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="banner" id="contact">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out via email or follow us on social media for the latest updates.</p>
+    </div>
+<!-- Random Contact Info -->
+    <div class="contact-info">
+        <p>Email: threadandneedle@example.com</p>
+        <p>Phone: +63 987 654 3210</p>
+    </div>
+
+    <script>
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                alert('You are being directed...');
+            }
+        }
+
+        function rateStar(star) {
+            const stars = document.querySelectorAll('.star-rating i');
+            stars.forEach(s => s.classList.remove('active'));
+            let index = Array.from(stars).indexOf(star);
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

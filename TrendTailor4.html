@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Collection</title>
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="collection.css">
+    <link rel="stylesheet" href="footer.css">
+
+</head>
+
+<body>
+    <div id="container">
+        <!-- Header Section -->
+        <header class="header">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input id="search-input" type="text" placeholder="Search fabrics, patterns, styles, and measurements" />
+            </div>
+
+            <div class="header-logo">TrendTailor</div>
+            <div class="header-icons">
+                <div class="user-profile" title="User Profile"></div>
+                <!-- Cart Button -->
+               <div class ="View Cart">
+                    <i class="bi bi-bag"></i>
+               </div>
+            </div>
+        </header>
+
+        <!-- Overlay Background -->
+        <div id="overlay-background" class="overlay-background"></div>
+
+        <!-- No Results Found Message -->
+        <div id="no-results" class="no-results-container hidden">
+            <div class="no-results-image"></div>
+            <div class="no-results-title">No Results Found</div>
+            <div class="no-results-description">
+                We can’t find any item matching your search.
+            </div>
+        </div>
+
+        <!-- Dropdown Section -->
+        <div id="dropdown-section">
+            <!-- Search Results or No Results -->
+            <div id="no-results" class="no-results-container hidden">
+                <div class="no-results-title">No Results Found</div>
+                <div class="no-results-description">
+                    We can’t find any item matching your search.
+                </div>
+            </div>
+            <!-- Style Templates Load Fail Message -->
+            <div id="style-fail" class="style-fail-container hidden">
+                <div class="style-fail-content">
+                    <h3 class="style-fail-title">Error</h3>
+                    <p class="style-fail-description">Sorry, something went wrong.</p>
+                    <button class="style-fail-close-btn">Dismiss</button>
+                </div>
+            </div>
+
+            <!-- Featured Fabrics -->
+            <h2 class="section-title">Featured Fabrics</h2>
+            <div class="featured-fabrics">
+                <div class="fabric-item">
+                    <img class="fabric-image" src="fab1.jpg" alt="Fabric 1">
+                    <div class="fabric-name">Elegant Linen</div>
+                </div>
+                <div class="fabric-item">
+                    <img class="fabric-image" src="fab2.jpg" alt="Fabric 2">
+                    <div class="fabric-name">Classic Cotton</div>
+                </div>
+                <div class="fabric-item">
+                    <img class="fabric-image" src="fab3.jpg" alt="Fabric 3">
+                    <div class="fabric-name">Silky Satin</div>
+                </div>
+                <div class="fabric-item">
+                    <img class="fabric-image" src="fab4.jpg" alt="Fabric 4">
+                    <div class="fabric-name">Printed Polyester</div>
+                </div>
+                <div class="fabric-item">
+                    <img class="fabric-image" src="fab5.jpg" alt="Fabric 5">
+                    <div class="fabric-name">Wool Blend</div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <h2 class="section-title">Categories</h2>
+            <div class="position-categories">
+                <div class="category-button all">All</div>
+                <div class="category-button favorites">Favorites</div>
+                <div class="category-button custom">Custom</div>
+                <div class="category-button popular">Popular</div>
+                <div class="category-button new">New</div>
+                <div class="category-button men">Men</div>
+                <div class="category-button stripe">Stripe</div>
+                <div class="category-button dotted">Dotted</div>
+                <div class="category-button women">Women</div>
+            </div>
+        </div>
+  </div>
+
+   <div class="profile-header" id="home">
+        <img src="bcl.jpg" alt="Logo" class="profile-background">
+   </div>
+   <div>
+        <img src="stn.jpg" alt="Profile Picture" class="profile-picture">
+   </div>
+
+   <div class="pr-details">
+        <h1>Thread and Needle Boutique</h1>
+        <p class="handle">@thread&needlebtq.ph</p>
+        <div class="star-rating">
+            <i class="bi bi-star-fill" ></i>
+            <i class="bi bi-star-fill" ></i>
+            <i class="bi bi-star-fill" ></i>
+            <i class="bi bi-star-fill" ></i>
+            <i class="bi bi-star-fill" ></i>
+        </div>
+        <!-- Navigation Links Placed Under the Star Rating -->
+        <nav class="profile-navbar">
+            <a href="#following">Following |</a>
+            <a href="#followers">Followers |</a>
+            <a href="#home">Home |</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#messages" class="message-icon">
+                <div class="icon-box">
+                    <i class="bi bi-chat"></i>
+                </div>
+            </a>
+        </nav>
+    </div>
+    
+    <div class="store-intro">
+        <p>Welcome to our store, where elegance meets comfort in every stitch. Specializing exclusively in bespoke sleepwear for women, our mission is to transform your nightly routine into a luxurious experience. Our tailor shop is dedicated to crafting personalized, high-quality sleepwear that reflects the unique style and sophistication of each of our clients.</p>
+    </div>    
+
+    <!-- Banner Section -->
+    <div class="banner" id="projects">
+        <h2>Luxury Sleepwear Collection</h2>
+        <p>The collection showcases bespoke items designed for maximum comfort and elegance. Each piece is tailored to your measurements, highlighting the craftsmanship and detail that set us apart.
+            Welcome to our store, where elegance meets comfort in every stitch. Specializing exclusively in bespoke sleepwear for women, our mission is to transform your nightly routine into a luxurious experience. Our tailor shop is dedicated to crafting personalized, high-quality sleepwear that reflects the unique style and sophistication of each of our clients.
+        </p>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="product-card">
+            <img src="pjs.jpg" alt="Elegant Silk Pajamas">
+            <h3>Elegant Silk Pajamas</h3>
+            <p>A luxurious set of silk pajamas tailored to provide ultimate comfort and style.</p>
+        </div>
+        <div class="product-card">
+            <img src="bln.jpg" alt="Bespoke Linen Nightgown">
+            <h3>Bespoke Linen Nightgown</h3>
+            <p>A tailored linen nightgown designed for comfort and breathability, perfect for warmer climates.</p>
+        </div>
+        <div class="product-card">
+            <img src="ccr.jpg" alt="Custom Cotton Robe">
+            <h3>Custom Cotton Robe</h3>
+            <p>A versatile cotton robe tailored for both comfort and functionality, suitable for lounging at home.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Gray Line Divider -->
+        <div class="footer-divider"></div>
+        
+        <!-- Footer Content -->
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                 <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Return and Refund</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Exclusive Vouchers</a></li>
+                    <li><a href="#">Free Shipping</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-colmn">
+                <h4>About TrendTailor</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-clmn">
+                <h5>Follow Us</h5>
+                <ul>
+                    <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bi bi-twitter"></i> Twitter X</a></li>
+                </ul>
+            </div>
+
+            <div class="reserved">
+                <h5><i class="bi bi-c-circle"></i> 2024 TrendTailor. All Rights Reserved.</h5>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                alert('You are being directed...');
+            }
+        }
+
+        function rateStar(star) {
+            const stars = document.querySelectorAll('.star-rating i');
+            stars.forEach(s => s.classList.remove('active'));
+            let index = Array.from(stars).indexOf(star);
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add('active');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // DOM Elements
+            const searchInput = document.querySelector("#search-input");
+            const dropdownSection = document.getElementById("dropdown-section");
+            const recentSearchesContainer = document.createElement("div");
+            const noResults = document.getElementById("no-results");
+            const fabricItems = document.querySelectorAll(".fabric-item");
+            const styleFailContainer = document.getElementById("style-fail");
+
+            // Add a container for recent searches
+            recentSearchesContainer.classList.add("recent-searches");
+            dropdownSection.appendChild(recentSearchesContainer);
+
+            // State
+            let recentSearches = []; // Store recent searches
+
+            /**
+             * Helper Functions
+             */
+
+            // Show dropdown and match width to search input
+            function showDropdown() {
+                dropdownSection.style.width = `${searchInput.offsetWidth}px`;
+                dropdownSection.style.display = "block";
+                renderRecentSearches();
+            }
+
+            // Hide dropdown
+            function hideDropdown() {
+                dropdownSection.style.display = "none";
+            }
+
+            // Perform search and toggle visibility of results
+            function performSearch(query) {
+                let hasResults = false;
+
+                fabricItems.forEach((item) => {
+                    const fabricName = item.querySelector(".fabric-name").innerText.toLowerCase();
+
+                    if (fabricName.includes(query)) {
+                        item.style.display = "block";
+                        hasResults = true;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                // Toggle "No Results Found" message
+                if (!hasResults && query.trim() !== "") {
+                    noResults.classList.remove("hidden");
+                    dropdownSection.style.display = "none";
+                } else {
+                    noResults.classList.add("hidden");
+                    dropdownSection.style.display = "block";
+                }
+            }
+              // Hide dropdown on scroll
+            window.addEventListener("scroll", () => {
+                hideDropdown();
+            });
+         
+            // Add a new recent search
+            function addRecentSearch(searchTerm) {
+                if (searchTerm && !recentSearches.includes(searchTerm)) {
+                    recentSearches.unshift(searchTerm); // Add to the start of the array
+                    if (recentSearches.length > 5) recentSearches.pop(); // Limit to 5 recent searches
+                }
+                renderRecentSearches();
+            }
+
+            // Render recent searches
+            function renderRecentSearches() {
+                if (recentSearches.length === 0) {
+                    recentSearchesContainer.innerHTML = "<p>No recent searches</p>";
+                } else {
+                    recentSearchesContainer.innerHTML = ` 
+                        <h3>Recent Searches</h3>
+                        <ul>
+                            ${recentSearches.map(search => `<li>${search}</li>`).join("")}
+                        </ul>
+                    `;
+                }
+            }
+
+            // Handle fabric item click
+            function setupFabricClick() {
+                fabricItems.forEach((item) => {
+                    item.addEventListener("click", () => {
+                        const fabricName = item.querySelector(".fabric-name").innerText;
+                        alert(`You selected: ${fabricName}`);
+                    });
+                });
+            }
+
+            /**
+             * Error Handling for Template Loading
+             */
+
+            // Simulate a failure to load templates (Modify this based on real conditions)
+            function loadTemplates() {
+                const success = false; // Set to `true` to simulate success
+
+                if (!success) {
+                    displayError("Templates failed to load. Please refresh or try again later.");
+                }
+            }
+
+            // Function to display an error message dynamically
+            function displayError(message) {
+                const errorContainer = document.getElementById("style-fail");
+                const errorMessage = errorContainer.querySelector(".style-fail-description");
+
+                errorMessage.innerText = message;
+                errorContainer.classList.remove("hidden"); // Show the error container
+            }
+
+            // Function to hide the error message
+            function hideError() {
+                const errorContainer = document.getElementById("style-fail");
+                errorContainer.classList.add("hidden");
+            }
+
+            // Hide the error message when clicking outside
+            document.addEventListener("click", (event) => {
+                const isClickInside = event.target.closest("#style-fail");
+                if (!isClickInside) {
+                    hideError();
+                }
+            });
+
+            // Call loadTemplates to simulate error handling
+            loadTemplates();
+
+            // Simulate template loading
+            loadTemplates();
+
+            /**
+             * Event Listeners
+             */
+
+            // Show dropdown on focus
+            searchInput.addEventListener("focus", showDropdown);
+
+            // Live search on input
+            searchInput.addEventListener("input", () => {
+                const query = searchInput.value.toLowerCase();
+                performSearch(query);
+            });
+
+            // Add recent search and perform search on Enter keypress
+            searchInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    const searchTerm = searchInput.value.trim();
+                    if (searchTerm) {
+                        addRecentSearch(searchTerm);
+                        performSearch(searchTerm.toLowerCase());
+                        searchInput.value = ""; // Clear input
+                    }
+                }
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener("click", (event) => {
+                const isClickInside = searchInput.contains(event.target) || dropdownSection.contains(event.target);
+                if (!isClickInside) {
+                    hideDropdown();
+                }
+            });
+
+            // Keep dropdown visible when clicking inside
+            dropdownSection.addEventListener("click", (event) => {
+                event.stopPropagation();
+            });
+
+            // Adjust dropdown width on window resize
+            window.addEventListener("resize", () => {
+                dropdownSection.style.width = `${searchInput.offsetWidth}px`;
+            });
+
+            // Set up click functionality for fabric items
+            setupFabricClick();
+        });
+
+    </script>
+
+</body>
+</html>
