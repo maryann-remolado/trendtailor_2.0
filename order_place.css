@@ -1,116 +1,403 @@
-.order {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .box {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    max-width: 400px;
-  }
-  
-  .image-box img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .cost-section h3, .input-box h3, .address h3, .shipping h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .cost-section p, .address p, .shipping p {
-    font-size: 14px;
-    margin: 5px 0;
-    color: #555;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    margin: 10px 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #333;
-  }
-  
-  .input-box label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  input[type="text"], input[type="url"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
-  }
-  
-  .address, .shipping {
-    margin-bottom: 20px;
-  }
-  
-  .payment-details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .payment-details.total {
-    font-weight: bold;
-    font-size: 16px;
-    color: #000;
-  }
-  
-  select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .add-to-bag {
-    display: block;
-    width: 200px;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-  }
-  
-  .add-to-bag:hover {
-    background-color: #333;
-  }
-  
+.order{
+
+  padding: 20px; /* Inner padding */
+  width: 1000px;
+  margin-left: 90px;
+  border: 2px solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.order h1{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  display: flex;
+  font-size: 30px;
+  color: black;
+  align-items: center;
+  text-align: center;
+  margin-left: 390px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+h3 {
+  text-align: center;
+  color: #444;
+}
+
+/* General Styles for Cost Estimation */
+.cost-te {
+  max-width: 400px;
+  margin-top: 40px;
+  margin-left: 30px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Section Heading */
+.cost-te h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #000000;
+  border-bottom: 2px solid #838282;
+  padding-bottom: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Labels */
+.cost-te label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Cost Details */
+.cost-te div {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.cost-te p {
+  margin: 5px 0;
+}
+.cost-te p b {
+  font-size: 18px;
+  color: #222;
+}
+
+.cost-te p em {
+  font-style: italic;
+  color: #999;
+}
+
+/* Fabric Section */
+.cost-te h3:nth-of-type(2) {
+  margin-top: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Subtotal Section */
+.cost-te h3:last-of-type {
+  margin-top: 20px;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+.cost-te div:last-of-type p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
+
+/* Customer Information Section */
+.customer-info {
+  position: relative;
+  width: 420px;
+  height: 520px;
+  margin-left: 520px;
+  margin-top: -563px;
+  padding: 20px;
+  background: #d9d9d9;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Section Heading */
+.customer-info h3 {
+  margin-bottom: 15px;
+  color: #444;
+  border-bottom: 2px solid #838282;
+  padding-bottom: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Labels */
+.customer-info label {
+  display: block;
+  margin-top: 15px;
+  color: #555;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+/* Textarea for Address */
+.customer-info input {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 5px;
+  gap: 5px;
+  width: 396px;
+  height: 48px;
+
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  /* Button Shadow */
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+
+/* Focus Styles */
+.customer-info textarea:focus,
+.customer-info input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Delivery Options Section */
+.delivery-options {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.delivery-options h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.delivery-options label {
+  font-size: 16px;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.delivery-options select {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.delivery-options select:focus {
+  border-color: black;
+  outline: none;
+}
+
+.delivery-options option {
+  font-size: 14px;
+}
+
+.delivery-options .delivery-mode-label {
+  margin-top: 10px;
+  display: block;
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+
+/* Voucher Section */
+.voucher-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #d9d9d9;
+  width: 900px;
+  margin: 20px auto;
+}
+
+.voucher-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.voucher-section label {
+  color: #555;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.voucher-section input {
+  width: 97%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.voucher-section input:focus {
+  border-color: black;
+  outline: none;
+}
+
+.voucher-section button {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.voucher-section button:hover {
+  background-color: grey;
+}
+
+/* Payment Section */
+.payment-section {
+  margin-top: 20px;
+}
+
+.payment-section label {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.payment-section select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.payment-section select:focus {
+  border-color: black;
+  outline: none;
+}
+
+.payment-section option {
+  font-size: 16px;
+}
+
+/* Order Summary Section */
+.order-summary {
+  background-color: #d9d9d9;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #E0E0E0;
+  width: 900px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 20px auto;
+}
+
+.order-summary h3 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 150%;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.order-summary p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 150%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Place Order Button */
+#place-order {
+  width: 98%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+#place-order:hover {
+  background-color: black;
+}
+
+#place-order:active {
+  background-color: black;
+}
+
+
+
+
+

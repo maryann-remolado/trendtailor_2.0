@@ -578,7 +578,7 @@ h1, h2 {
   border: 1px solid #ccc; /* Add border */
   border-radius: 10px; /* Rounded corners */
   background: #fff; /* Set background color */
-  width: 340px; /* Make inputs fill the width of the container */
+  width: 390px; /* Make inputs fill the width of the container */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
   margin-top: -5px;
   margin-bottom: -10px;
@@ -644,12 +644,12 @@ h1, h2 {
 .fabric-preview-section h3{
   text-align: center;
   margin-bottom: 20px;
-  margin-left: -1010px;
-  margin-top: -20x ;
+  margin-left: -1110px;
+  margin-top: 20px ;
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 13px;
   line-height: 16px;
   color: #000000;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
@@ -658,7 +658,7 @@ h1, h2 {
 .fabric-preview-frame {
 
   padding: 10px;
-  width: 200px;
+  width: 150px;
   height: 110px; /* Adjust as needed */
   display: flex;
   justify-content: center;
@@ -679,60 +679,168 @@ h1, h2 {
 }
 
 /* Customization Details Section */
-.customization-details {
+.custom-details {
   position: relative;
   padding: 20px; /* Inner padding */
   margin-bottom: 20px; /* Space below the section */
-  margin-left: 200px; /* Center align */
+  margin-left: 10px; /* Center align */
+  border: 2px solid #d9d9d9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 930px;
+  margin-top: 30px;
 }
 
-.customization-details h3 {
+.custom-details h3 {
   font-size: 18px;
   color: #333; /* Darker text color */
   margin-bottom: 15px; /* Space below the heading */
   text-align: center; /* Center align heading */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 16px;
+  color: #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
 
-.customization-details label {
+.custom-details label {
   display: block; /* Each label on a new line */
   font-size: 14px; /* Adjust font size */
   color: #555; /* Subtle text color */
   margin-bottom: 5px; /* Space below label */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 16px;
+  color: #000000;
 }
 
-.customization-details input[type="text"] {
+.custom-details input[type="text"] {
   width: 100%; /* Full width */
   padding: 10px; /* Inner padding */
-  font-size: 14px; /* Font size */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
   color: #333; /* Text color */
   background-color: #fff; /* White background */
   border: 1px solid #ccc; /* Border */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
   margin-bottom: 15px; /* Space below each input */
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
 }
 
 /* Buttons Container */
 .bns {
+  position: relative;
   display: flex; /* Align buttons in a row */
   justify-content: space-between; /* Space out buttons evenly */
   align-items: center; /* Align buttons vertically */
   gap: 10px; /* Add spacing between buttons */
   margin-top: 20px; /* Add spacing above */
-  width: 100%; /* Make container responsive */
-  max-width: 600px; /* Limit the width */
-  margin-left: auto; /* Center align container */
-  margin-right: auto;
+  width: 200px; /* Make container responsive */
+  margin-left: 11px; /* Center align container */
 }
 
 /* Buttons in .bns */
 .bns button {
   flex: 1; /* Make buttons equal in width */
   padding: 10px 15px; /* Add padding for usability */
-  font-size: 14px; /* Adjust font size */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
   color: #fff !important; /* White text color */
   background-color: #000000 !important;
   border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.bns button:hover {
+  background-color: whitesmoke; /* Darker green on hover */
+  transform: scale(1.05);
+}
+.bns button:active{
+  background-color: whitesmoke; /* Even darker blue on click */
+  transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+
+/* Buttons Container */
+.bns11 {
+  position: relative;
+  display: flex; /* Align buttons in a row */
+  justify-content: space-between; /* Space out buttons evenly */
+  align-items: center; /* Align buttons vertically */
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: 20px; /* Add spacing above */
+  width: 200px; /* Make container responsive */
+  margin-left: 11px; /* Center align container */
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-left: 570px;
+  top: -70px;
+}
+
+/* Buttons in .bns */
+.bns11 button {
+  flex: 1; /* Make buttons equal in width */
+  padding: 10px 15px; /* Add padding for usability */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  color: black !important; /* White text color */
+  background-color: white !important;
+  border: 2px solid black; /* Border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+.bns11 button:hover {
+  background-color: whitesmoke; /* Darker green on hover */
+  transform: scale(1.05);
+}
+.bns11 button:active{
+  background-color: whitesmoke; /* Even darker blue on click */
+  transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+}
+/* Buttons Container */
+.bns2 {
+  position: relative;
+  display: flex; /* Align buttons in a row */
+  justify-content: space-between; /* Space out buttons evenly */
+  align-items: center; /* Align buttons vertically */
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: -120px; /* Add spacing above */
+  width: 200px; /* Make container responsive */
+  margin-left: 780px;
+}
+
+/* Buttons in .bns */
+.bns2 button {
+  flex: 1; /* Make buttons equal in width */
+  padding: 10px 15px; /* Add padding for usability */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  color: #fff !important; /* White text color */
+  background-color: #000000 !important;
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+.bns2 button:hover {
+  background-color: whitesmoke; /* Darker green on hover */
+  transform: scale(1.05);
+}
+.bns2 button:active{
+  background-color: whitesmoke; /* Even darker blue on click */
+  transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
 }

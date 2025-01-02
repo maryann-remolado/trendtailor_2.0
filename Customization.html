@@ -245,7 +245,7 @@
     </div>
 
     <!-- Customization Details -->
-    <div class="customization-details">
+    <div class="custom-details">
       <h3>Customization Details</h3>
       <label>Customized Order Name</label>
       <input type="text" value="My Satin" readonly>
@@ -256,7 +256,11 @@
     <!-- Buttons -->
     <div class="bns">
       <button class="btn-add">Add Customizations</button>
+    </div>
+    <div class="bns11">
       <button class="btn-share">Share</button>
+    </div>
+    <div class="bns2">
       <button class="btn-export">Export</button>
     </div>
   </div>
@@ -267,67 +271,156 @@
     <div class="box-i">
       <div class="cost-estimation">
         <h3>Cost Estimation</h3>
-        <label for="designer-labor"><b>Designer Labor</b></label>
+        
+        <!-- Top Price -->
+        <label for="top-price"><b>Top Price</b></label>
+        <div>
+          <p>₱ 500.00</p>
+        </div>
+      
+        <!-- Sleeve Style -->
+        <label for="sleeve-style"><b>Sleeve Style</b></label>
         <div>
           <p>₱ 150.00</p>
         </div>
-        <p><em>In seven-days deadline.</em></p>
-        <button>Chat with the Designer</button>
-        <h3>Fabric Selection</h3>
-        <p>₱ 101.00 / m</p>
-        <p>101 x2 (Fabric Used)</p>
+      
+        <!-- Bottom Style -->
+        <label for="bottom-style"><b>Bottom Style</b></label>
+        <div>
+          <p>₱ 400.00</p>
+        </div>
       </div>
-      <div class="tailor-info">
-        <h3>Tailor's Information</h3>
-        <label for="tailor-username">Username</label>
-        <input type="text" id="tailor-username" value="@threadneedlebtq.ph" readonly>
-        <label for="tailor-url">URL</label>
-        <input type="url" id="tailor-url" value="https://www.sample.com" readonly>
-      </div>      
+
+      <div class="cost-est">
+        <!-- Fabric Use -->
+        <h3>Fabric Selection</h3>
+        <label for="fabric-use"><b>Fabric Used</b></label>
+        <div>
+          <p>₱ 101.00 / m</p>
+          <p>₱ 101 x 2 = ₱ 202.00</p>
+        </div>
+      
+        <!-- Labor Cost -->
+        <label for="labor-cost"><b>Labor Cost</b></label>
+        <div>
+          <p>₱ 150.00</p>
+          <p><em>In seven-days deadline.</em></p>
+        </div>
+      </div>
+      
+      <div class="cost-subtotal">
+        <!-- Subtotal -->
+        <h3>Subtotal:</h3>
+        <div class="st">
+          <p><b>₱ 1,402.00</b></p>
+        </div>
+      </div>  
+    </div>
+    <div class="orderPlc">
+      <button class="btn-place">Proceed to Order Placement</button>
+    </div>
+    <div class="cancelPlc">
+      <button class="btn-cancel">Cancel</button>
     </div>
   </div>
 
-  <!-- Right Section -->
+  <!-- Place Order Section -->
   <div class="order" style="display: none;">
-    <div class="box-w">
-      <div class="address">
-        <h3>Place your Order</h3>
-        <label for="delivery-address">Address</label>
-        <textarea id="delivery-address" rows="4">
-        Juan Dela Cruz
-        +123 456 6789
-        Mangga St., Downtown Subdivision, New York City
-        </textarea>
+    <h1>Place Your Order</h1>
+
+    <!-- Cost Estimation Section -->
+    <div class="cost-te">
+      <h3>Cost Estimation</h3>
+      
+      <!-- Top Price -->
+      <label for="top-price"><b>Top Price</b></label>
+      <div>
+        <p>₱ 500.00</p>
       </div>
-      <div class="payment-details">
-        <div class="label">Designer Labor</div>
-        <input type="number" id="designer-cost" value="150" />
+
+      <!-- Sleeve Style -->
+      <label for="sleeve-style"><b>Sleeve Style</b></label>
+      <div>
+        <p>₱ 150.00</p>
       </div>
-      <div class="payment-details">
-        <div class="label">Fabric Cost</div>
-        <input type="number" id="fabric-cost" value="202" />
+
+      <!-- Bottom Style -->
+      <label for="bottom-style"><b>Bottom Style</b></label>
+      <div>
+        <p>₱ 400.00</p>
       </div>
-      <div class="payment-details">
-        <div class="label">Platform Fee</div>
-        <input type="number" id="system-revenue" value="20" readonly />
+
+      <!-- Fabric Use -->
+      <h3>Fabric Selection</h3>
+      <label for="fabric-use"><b>Fabric Used</b></label>
+      <div>
+        <p>₱ 101.00 / m</p>
+        <p>₱ 101 x 2 = ₱ 202.00</p>
       </div>
-      <div class="payment-details">
-        <div class="label">Shipping Method</div>
-        <select id="shipping-method">
-          <option value="0">Pick Up (Free)</option>
-          <option value="80">Cash on Delivery (₱80)</option>
-        </select>
+
+      <!-- Labor Cost -->
+      <label for="labor-cost"><b>Labor Cost</b></label>
+      <div>
+        <p>₱ 150.00</p>
+        <p><em>In seven-days deadline.</em></p>
       </div>
-      <div class="payment-details">
-        <div class="label">Total Payment</div>
-        <div id="total-payment">₱ 0</div>
-      </div>
-      <button id="calculate-total">Calculate Total Payment</button>
-      </div>
-        <!-- Add to Bag Button -->
-        <button class="add-to-bag">Place Order</button>
+
+      <!-- Subtotal -->
+      <h3>Subtotal</h3>
+      <div>
+        <p><b>₱ 1,402.00</b></p>
       </div>
     </div>
+
+    <!-- Customer Information Section -->
+    <div class="customer-info">
+      <h3>Customer Information</h3>
+      
+      <!-- Customer Address -->
+      <label for="address"><b>Delivery Address</b></label>
+      <input id="address" rows="3" placeholder="Enter your delivery address here"></input>
+      
+      <!-- Contact Information -->
+      <label for="contact"><b>Contact Number</b></label>
+      <input type="text" id="contact" placeholder="Enter your contact number">
+ 
+      <!-- Delivery Options -->
+      <div class="delivery-options">
+        <h3>Delivery Options</h3>
+        <label for="delivery-mode"><b>Mode of Delivery</b></label>
+        <select id="delivery-mode">
+          <option value="standard">Standard Delivery (₱ 50.00)</option>
+          <option value="express">Express Delivery (₱ 100.00)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Voucher Section -->
+    <div class="voucher-section">
+      <h3>Voucher</h3>
+      <label for="voucher-code"><b>Apply Voucher Code</b></label>
+      <input type="text" id="voucher-code" placeholder="Enter voucher code">
+      <button id="apply-voucher">Apply</button>
+      <!-- Payment Section -->
+      <div class="payment-section">
+        <h3>Payment Method</h3>
+        <label for="payment-method"><b>Select Payment Method</b></label>
+        <select id="payment-method">
+          <option value="cod">Cash on Delivery</option>
+          <option value="credit-card">Credit/Debit Card</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <p><b>Total Cost:</b> ₱ 1,452.00 (including standard delivery)</p>
+    </div>
+
+    <!-- Place Order Button -->
+    <button id="place-order">Place Order</button>
   </div>
 
 
