@@ -528,14 +528,19 @@ h1, h2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 20px;
-  width: 1000px; /* Full width for smaller screens */
+  width: 1100px; /* Full width for smaller screens */
   max-width: 1200px; /* Maximum width */
   margin-left: 60px;
   margin-bottom: 30px;
 }
 
 .controls {
+  position: relative;
   display: flex;
+  background: #d9d9d9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 20px;
   flex-direction: column; /* Arrange controls in a column */
   gap: 20px; /* Add space between controls */
   width: 100%; /* Make it responsive */
@@ -543,13 +548,19 @@ h1, h2 {
   margin-left: auto; /* Push the container to the right side */
   margin-right: -140px; /* Optional: Add spacing from the right edge */
   text-align: left; /* Align text inside the controls to the left */
+  top: 10px;
+  left: -60px;
+  margin-bottom: 30px;
+  height: 500px;
 }
 
 .control {
+  position: relative;
   display: flex;
   flex-direction: column; /* Stack label and input/select vertically */
   gap: 2px; /* Add space between label and input/select */
 }
+
 
 .control label {
   color: #000000; /* Set label color */
@@ -565,9 +576,9 @@ h1, h2 {
   padding: 8px 10px; /* Add padding for better usability */
   font-size: 14px; /* Adjust font size */
   border: 1px solid #ccc; /* Add border */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
   background: #fff; /* Set background color */
-  width: 50%; /* Make inputs fill the width of the container */
+  width: 340px; /* Make inputs fill the width of the container */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
   margin-top: -5px;
   margin-bottom: -10px;
@@ -575,9 +586,9 @@ h1, h2 {
 
 .control input[type="color"] {
   height: 40px; /* Set height for color picker */
-  padding: 0; /* Remove default padding */
+  padding: 5px; /* Remove default padding */
+  border-radius: 15px; /* Rounded corners */
 }
-
 
 .preview {
   border: 1px solid #ddd;
@@ -588,7 +599,7 @@ h1, h2 {
   height: 530px;
   position: relative;
   overflow: hidden;
-  margin-top: -370px;
+  margin-top: -435px;
   margin-left: 15px;
 }
 .preview img {
@@ -598,6 +609,7 @@ h1, h2 {
   top: 0;
   left: 0;
 }
+
 .garment-layer {
   position: absolute;
   top: 0;
@@ -611,6 +623,7 @@ h1, h2 {
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
+  margin-left: 600px;
 }
 .control {
   display: flex;
@@ -622,17 +635,16 @@ h1, h2 {
   font-style: normal;
   font-weight: 300;
   font-size: 10px;
-  margin-left: 640px;
-  margin-top: -150px;
+  margin-left: 5px;
+  margin-top: 355px;
   width: 100%;
   text-align: center;
-
 }
 
 .fabric-preview-section h3{
   text-align: center;
   margin-bottom: 20px;
-  margin-left: -890px;
+  margin-left: -1010px;
   margin-top: -20x ;
   font-family: 'Poppins';
   font-style: normal;
@@ -646,13 +658,13 @@ h1, h2 {
 .fabric-preview-frame {
 
   padding: 10px;
-  width: 100px;
-  height: 100px; /* Adjust as needed */
+  width: 200px;
+  height: 120px; /* Adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-left: -110px;
+  margin-left: -380px;
   margin-top: -10px;
 }
 
