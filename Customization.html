@@ -101,6 +101,18 @@
           </select>
         </div>
       </div>
+      <script>
+       document.getElementById("color-select").addEventListener("change", function () {
+        // Get the selected option
+        const selectedOption = this.options[this.selectedIndex];
+
+        // Retrieve the data-img attribute value
+        const newImageSrc = selectedOption.getAttribute("data-img");
+
+        // Update the fabric image
+        document.getElementById("fabric-image").src = newImageSrc;
+      });
+      </script>
     </div>
   
     <!-- Body Measurement -->
@@ -188,6 +200,37 @@
         </div>
       </div>
     </div>
+    <script>
+      // Select elements from the DOM
+      const sizeSelect = document.getElementById("size-select");
+      const manualMeasurements = document.getElementById("manual-measurements");
+      const sizeGuide = document.getElementById("size-guide");
+
+      // Add event listener for changes in the dropdown
+      sizeSelect.addEventListener("change", () => {
+        const selectedSize = sizeSelect.value;
+
+        // Debugging: Log the selected size
+        console.log("Selected size:", selectedSize);
+
+        if (selectedSize === "add-manually") {
+          // Show manual measurements and hide size guide
+          manualMeasurements.style.display = "block";
+          sizeGuide.style.display = "none";
+
+          // Debugging: Log visibility state
+          console.log("Manual measurements shown, size guide hidden.");
+        } else {
+          // Hide manual measurements and show size guide
+          manualMeasurements.style.display = "none";
+          sizeGuide.style.display = "block";
+
+          // Debugging: Log visibility state
+          console.log("Size guide shown, manual measurements hidden.");
+        }
+      });
+
+    </script>
   </div>
 
   <!-- Preview Model Section -->
@@ -235,7 +278,7 @@
       <div class="fabric-preview-section">
         <h3>Fabric Preview</h3>
         <div class="fabric-preview-frame">
-          <img id="fabric-preview" src="visual1.jpg" alt="Fabric Preview">
+          <img id="fabric-preview" src="visual1.png" alt="Fabric Preview">
         </div>
       </div>
     </div>
@@ -312,9 +355,21 @@
         <!-- Subtotal -->
         <h3>Subtotal:</h3>
         <div class="st">
-          <p><b>₱ 1,402.00</b></p>
+          <p><b>₱ <span id="subtotal-amount">1402.00</span></b></p>
         </div>
-      </div>  
+      
+        <!-- Transaction Fee -->
+        <h3>Transaction Fee:</h3>
+        <div class="tf">
+          <p>₱ <span id="transaction-fee">00.00</span></p>
+        </div>
+      
+        <!-- Total -->
+        <h3>Total:</h3>
+        <div class="total">
+          <p><b>₱ <span id="total-amount">1402.00</span></b></p>
+        </div>
+      </div>      
     </div>
     <div class="orderPlc">
       <button class="btn-place">Proceed to Order Placement</button>
@@ -365,12 +420,34 @@
         <p><em>In seven-days deadline.</em></p>
       </div>
 
+      <h3>Transaction Fee:</h3>
+      <div class="tf">
+        <p>₱ <span id="transaction-fee">42.06</span></p>
+      </div>
+
       <!-- Subtotal -->
       <h3>Subtotal</h3>
       <div>
         <p><b>₱ 1,402.00</b></p>
       </div>
     </div>
+    <script>
+      // Get elements
+
+      // Function to calculate and update transaction fee
+      function updateTransactionDetails() {
+        const subtotal = parseFloat(subtotalElement.textContent.replace(/,/g, "")); // Remove commas and parse as number
+        const transactionFeeRate = 0.03; // 3% transaction fee
+        const transactionFee = subtotal * transactionFeeRate;
+        
+        // Update the DOM
+        transactionFeeElement.textContent = transactionFee.toFixed(2);
+      }
+
+      // Call the function to initialize values
+      updateTransactionDetails();
+
+    </script>
 
     <!-- Customer Information Section -->
     <div class="customer-info">
@@ -662,15 +739,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Update the selected sleeve style
-function updateSleeveStyle() {
-  const sleeveStyle = sleeveStyleSelect.value; // Get the selected sleeve value
-  if (sleeveStyle) {
-    loadSvg(`assets/sleeves/${sleeveStyle}.svg`, 'sleeve-layer');
-  } else {
-    const sleeveLayer = document.getElementById('sleeve-layer');
-    if (sleeveLayer) preview.removeChild(sleeveLayer);
-  }
-}
+    function updateSleeveStyle() {
+      const sleeveStyle = sleeveStyleSelect.value; // Get the selected sleeve value
+      if (sleeveStyle) {
+        loadSvg(`assets/sleeves/${sleeveStyle}.svg`, 'sleeve-layer');
+      } else {
+        const sleeveLayer = document.getElementById('sleeve-layer');
+        if (sleeveLayer) preview.removeChild(sleeveLayer);
+      }
+    }
 
 
     // Update the selected bottom style
@@ -712,21 +789,27 @@ function updateSleeveStyle() {
     updateMannequin();
 
 
-document.getElementById("calculate-total").addEventListener("click", calculateTotal);
+// Get elements
+const subtotalElement = document.getElementById("subtotal-amount");
+const transactionFeeElement = document.getElementById("transaction-fee");
+const totalAmountElement = document.getElementById("total-amount");
 
-function calculateTotal() {
-  // Get input values
-  const designerCost = parseFloat(document.getElementById("designer-cost").value) || 0;
-  const fabricCost = parseFloat(document.getElementById("fabric-cost").value) || 0;
-  const systemRevenue = parseFloat(document.getElementById("system-revenue").value) || 0;
-  const shippingCost = parseFloat(document.getElementById("shipping-method").value) || 0;
+// Function to calculate and update transaction fee and total
+function updateTransactionDetails() {
+  const subtotal = parseFloat(subtotalElement.textContent.replace(/,/g, "")); // Remove commas and parse as number
+  const transactionFeeRate = 0.03; // 3% transaction fee
+  const transactionFee = subtotal * transactionFeeRate;
+  const totalAmount = subtotal + transactionFee;
 
-  // Calculate total payment
-  const totalPayment = designerCost + fabricCost + systemRevenue + shippingCost;
-
-  // Update total payment display
-  document.getElementById("total-payment").textContent = `₱ ${totalPayment.toFixed(2)}`;
+  // Update the DOM
+  transactionFeeElement.textContent = transactionFee.toFixed(2);
+  totalAmountElement.textContent = totalAmount.toFixed(2);
 }
+
+
+// Initial calculation on page load
+updateTransactionDetails();
+
 
 document.getElementById("color-select").addEventListener("change", function () {
   // Get the selected option
@@ -741,10 +824,7 @@ document.getElementById("color-select").addEventListener("change", function () {
 
 // Get elements
 const genderSelect = document.getElementById("gender-select");
-const sizeSelect = document.getElementById("size-select");
-const sizeGuide = document.getElementById("size-guide");
 const sizeGuideImage = document.getElementById("size-guide-image");
-const manualMeasurements = document.getElementById("manual-measurements");
 
 // Event listener for gender selection
 genderSelect.addEventListener("change", () => {
@@ -753,23 +833,6 @@ genderSelect.addEventListener("change", () => {
   // Update the size guide image based on gender
   sizeGuideImage.src = `assets/${gender}.png`;
 });
-
-// Event listener for size selection
-sizeSelect.addEventListener("change", () => {
-  const selectedSize = sizeSelect.value;
-
-  if (selectedSize === "add-manually") {
-    // Show manual measurements and hide size guide
-    manualMeasurements.style.display = "block";
-    sizeGuide.style.display = "none";
-  } else {
-    // Show size guide and hide manual measurements
-    manualMeasurements.style.display = "none";
-    sizeGuide.style.display = "block";
-  }
-});
-
-
 
 // Function to update the fabric image and preview dynamically
 function updateFabricPreview() {
@@ -785,6 +848,10 @@ function updateFabricPreview() {
   fabricImage.src = newImageSrc;
   fabricPreview.src = newImageSrc;
 }
+
+// Add event listener to call the function on selection change
+document.getElementById('color-select').addEventListener('change', updateFabricPreview);
+
 
 // Add event listener for the color select dropdown
 document.getElementById('color-select').addEventListener('change', updateFabricPreview);
