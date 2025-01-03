@@ -187,6 +187,36 @@
           </div>
         </div>
       </div>
+      <script>
+        // Select elements from the DOM
+          const sizeSelect = document.getElementById("size-select");
+          const manualMeasurements = document.getElementById("manual-measurements");
+          const sizeGuide = document.getElementById("size-guide");
+
+          // Add event listener for changes in the dropdown
+          sizeSelect.addEventListener("change", () => {
+            const selectedSize = sizeSelect.value;
+
+            // Debugging: Log the selected size
+            console.log("Selected size:", selectedSize);
+
+            if (selectedSize === "add-manually") {
+              // Show manual measurements and hide size guide
+              manualMeasurements.style.display = "block";
+              sizeGuide.style.display = "none";
+
+              // Debugging: Log visibility state
+              console.log("Manual measurements shown, size guide hidden.");
+            } else {
+              // Hide manual measurements and show size guide
+              manualMeasurements.style.display = "none";
+              sizeGuide.style.display = "block";
+
+              // Debugging: Log visibility state
+              console.log("Size guide shown, manual measurements hidden.");
+            }
+          });
+      </script>
     </div>
   </div>
 
@@ -741,11 +771,7 @@ document.getElementById("color-select").addEventListener("change", function () {
 
 // Get elements
 const genderSelect = document.getElementById("gender-select");
-const sizeSelect = document.getElementById("size-select");
-const sizeGuide = document.getElementById("size-guide");
 const sizeGuideImage = document.getElementById("size-guide-image");
-const manualMeasurements = document.getElementById("manual-measurements");
-
 // Event listener for gender selection
 genderSelect.addEventListener("change", () => {
   const gender = genderSelect.value;
@@ -753,22 +779,6 @@ genderSelect.addEventListener("change", () => {
   // Update the size guide image based on gender
   sizeGuideImage.src = `assets/${gender}.png`;
 });
-
-// Event listener for size selection
-sizeSelect.addEventListener("change", () => {
-  const selectedSize = sizeSelect.value;
-
-  if (selectedSize === "add-manually") {
-    // Show manual measurements and hide size guide
-    manualMeasurements.style.display = "block";
-    sizeGuide.style.display = "none";
-  } else {
-    // Show size guide and hide manual measurements
-    manualMeasurements.style.display = "none";
-    sizeGuide.style.display = "block";
-  }
-});
-
 
 
 // Function to update the fabric image and preview dynamically

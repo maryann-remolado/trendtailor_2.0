@@ -435,6 +435,7 @@ h1, h2 {
 }
 #size-guide-image{
   width: 500px; 
+  margin-top: 50px;
   height: 270px;
 }
 
