@@ -187,36 +187,6 @@
           </div>
         </div>
       </div>
-      <script>
-        // Select elements from the DOM
-          const sizeSelect = document.getElementById("size-select");
-          const manualMeasurements = document.getElementById("manual-measurements");
-          const sizeGuide = document.getElementById("size-guide");
-
-          // Add event listener for changes in the dropdown
-          sizeSelect.addEventListener("change", () => {
-            const selectedSize = sizeSelect.value;
-
-            // Debugging: Log the selected size
-            console.log("Selected size:", selectedSize);
-
-            if (selectedSize === "add-manually") {
-              // Show manual measurements and hide size guide
-              manualMeasurements.style.display = "block";
-              sizeGuide.style.display = "none";
-
-              // Debugging: Log visibility state
-              console.log("Manual measurements shown, size guide hidden.");
-            } else {
-              // Hide manual measurements and show size guide
-              manualMeasurements.style.display = "none";
-              sizeGuide.style.display = "block";
-
-              // Debugging: Log visibility state
-              console.log("Size guide shown, manual measurements hidden.");
-            }
-          });
-      </script>
     </div>
   </div>
 
@@ -811,7 +781,10 @@ document.getElementById("color-select").addEventListener("change", function () {
 
 // Get elements
 const genderSelect = document.getElementById("gender-select");
+const sizeSelect = document.getElementById("size-select");
+const sizeGuide = document.getElementById("size-guide");
 const sizeGuideImage = document.getElementById("size-guide-image");
+const manualMeasurements = document.getElementById("manual-measurements");
 
 // Event listener for gender selection
 genderSelect.addEventListener("change", () => {
@@ -826,6 +799,22 @@ genderSelect.addEventListener("change", () => {
   // Debugging: Log the updated image source
   console.log("Updated image source:", sizeGuideImage.src);
 });
+
+// Event listener for size selection
+sizeSelect.addEventListener("change", () => {
+  const selectedSize = sizeSelect.value;
+
+  if (selectedSize === "add-manually") {
+    // Show manual measurements and hide size guide
+    manualMeasurements.style.display = "block";
+    sizeGuide.style.display = "none";
+  } else {
+    // Show size guide and hide manual measurements
+    manualMeasurements.style.display = "none";
+    sizeGuide.style.display = "block";
+  }
+});
+
 
 
 // Function to update the fabric image and preview dynamically
@@ -849,89 +838,80 @@ document.getElementById('color-select').addEventListener('change', updateFabricP
 
 
 
-let userId;
+document.addEventListener("DOMContentLoaded", () => {
+  const auth = getAuth();
+  const database = getDatabase();
+  let userId;
 
-// Check if user is logged in
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    userId = user.uid;
-    console.log("User logged in:", userId);
+  // Ensure user is logged in
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      userId = user.uid;
+      console.log("User logged in:", userId);
+    } else {
+      alert("Please log in to place an order.");
+      window.location.href = "index.html"; // Redirect to login
+    }
+  });
+
+  // Place Order Button
+  const placeOrderButton = document.querySelector("#place-order");
+  if (placeOrderButton) {
+    placeOrderButton.addEventListener("click", async () => {
+      if (!userId) {
+        alert("Please log in to place an order.");
+        return;
+      }
+
+      try {
+        // Gather order details
+        const deliveryAddress = document.getElementById("address")?.value.trim() || "No Address Provided";
+        const contactNumber = document.getElementById("contact")?.value.trim() || "No Contact Number";
+        const topCost = parseFloat(document.querySelector("#top-cost")?.textContent.replace("₱", "").trim()) || 0;
+        const sleeveCost = parseFloat(document.querySelector("#sleeve-cost")?.textContent.replace("₱", "").trim()) || 0;
+        const bottomCost = parseFloat(document.querySelector("#bottom-cost")?.textContent.replace("₱", "").trim()) || 0;
+        const fabricCost = parseFloat(document.querySelector("#fabric-cost")?.textContent.replace("₱", "").trim()) || 0;
+        const laborCost = parseFloat(document.querySelector("#labor-cost")?.textContent.replace("₱", "").trim()) || 0;
+        const shippingCost = parseFloat(document.querySelector("#shipping-cost")?.textContent.replace("₱", "").trim()) || 0;
+
+        const totalPayment = topCost + sleeveCost + bottomCost + fabricCost + laborCost + shippingCost;
+        const paymentMethod = document.querySelector("#payment-method")?.value || "N/A";
+
+        const orderData = {
+          customerInfo: {
+            deliveryAddress,
+            contactNumber,
+          },
+          cost: {
+            topCost,
+            sleeveCost,
+            bottomCost,
+            fabricCost,
+            laborCost,
+            shippingCost,
+            totalPayment,
+          },
+          paymentDetails: {
+            method: paymentMethod,
+          },
+          timestamp: Date.now(),
+        };
+
+        console.log("Order Data:", orderData); // Debug log
+
+        // Save order to Firebase
+        const orderRef = push(ref(database, `users/${userId}/orders`));
+        await set(orderRef, orderData);
+
+        alert("Order placed successfully!");
+        window.location.reload();
+      } catch (error) {
+        console.error("Error placing order:", error);
+        alert("Failed to place the order. Please try again.");
+      }
+    });
   } else {
-    alert("Please log in to place an order.");
-    window.location.href = "index.html";
-  }
-});
-
-// Place Order
-const placeOrderButton = document.querySelector(".add-to-bag");
-
-placeOrderButton.addEventListener("click", async () => {
-  if (!userId) {
-    alert("Please log in to place an order.");
-    return;
-  }
-
-  const fabricType = document.querySelector(".fabric-box").textContent;
-  const fabricColor = document.getElementById("color-select").value;
-  const fabricPattern = document.querySelector(".drop select:nth-of-type(2)").value;
-  const gender = document.getElementById("gender-select").value;
-  const size = document.getElementById("size-select").value;
-  const manualMeasurements = Array.from(document.querySelectorAll("#manual-measurements input")).map(input => ({
-    label: input.nextElementSibling.textContent,
-    value: input.value || "N/A",
-  }));
-
-  const topStyle = document.getElementById("top-style").value;
-  const sleeveStyle = document.getElementById("sleeve-style").value;
-  const bottomStyle = document.getElementById("bottom-style").value;
-
-  const designerCost = parseInt(document.getElementById("designer-cost").value) || 0;
-  const fabricCost = parseInt(document.getElementById("fabric-cost").value) || 0;
-  const platformFee = parseInt(document.getElementById("system-revenue").value) || 0;
-  const shippingCost = parseInt(document.getElementById("shipping-method").value) || 0;
-  const totalPayment = designerCost + fabricCost + platformFee + shippingCost;
-
-  const tailorUsername = document.getElementById("tailor-username").value;
-  const deliveryAddress = document.getElementById("delivery-address").value;
-
-  const orderData = {
-    fabric: {
-      type: fabricType,
-      color: fabricColor,
-      pattern: fabricPattern,
-    },
-    bodyMeasurement: {
-      gender,
-      size,
-      manualMeasurements,
-    },
-    garmentStyle: {
-      topStyle,
-      sleeveStyle,
-      bottomStyle,
-    },
-    cost: {
-      designerCost,
-      fabricCost,
-      platformFee,
-      shippingCost,
-      totalPayment,
-    },
-    tailorInfo: {
-      username: tailorUsername,
-    },
-    address: deliveryAddress,
-    timestamp: Date.now(),
-  };
-
-  try {
-    const orderRef = push(ref(database, `users/${userId}/orders`));
-    await set(orderRef, orderData);
-    alert("Order placed successfully!");
-    window.location.reload();
-  } catch (error) {
-    console.error("Error placing order:", error);
-    alert("Failed to place the order. Please try again.");
+    console.error("Place Order button not found.");
   }
 });
 
