@@ -595,134 +595,91 @@ function attachStyleEventListeners() {
 fetchStyles();
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const auth = getAuth(); // Initialize Firebase Authentication
 
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const userId = user.uid; // Get the authenticated user's UID
+            const ordersRef = ref(database, `users/${userId}/orders`); // Path to orders in the database
 
-
-
-
-async function placeOrder() {
-    const userId = auth.currentUser?.uid; // Ensure a user is logged in
-    if (!userId) {
-        alert("Please log in to place an order.");
-        return;
-    }
-
-    const orderId = Date.now().toString(); // Generate a unique ID for the order
-    const orderData = {
-        fabric: {
-            type: "Satin", // Replace with selected type
-            color: document.getElementById("color-select").value || "Brown",
-        },
-        garmentStyle: {
-            topStyle: "Cropped-Boat", // Replace with selected top style
-            sleeves: "Long Sleeve",  // Replace with selected sleeve style
-            bottomStyle: "None",    // Replace with selected bottom style
-        },
-        cost: {
-            designerLabor: 150, // Replace with actual input value
-            fabricCost: 202,    // Replace with actual fabric cost
-            revenue: 20,        // System revenue
-            shipping: document.getElementById("shipping-select").value === "cod" ? 80 : 0,
-        },
-        status: "Pending",
-        tailorInfo: {
-            username: "@threadneedlebtq.ph", // Replace with actual input value
-            address: "Mangga St., Downtown Subdivision, New York City", // Replace with actual input value
-        },
-    };
-
-    try {
-        const ordersRef = ref(database, `users/${userId}/orders/${orderId}`);
-        await set(ordersRef, orderData);
-        alert("Order placed successfully!");
-        fetchOrders(); // Refresh orders table
-    } catch (error) {
-        console.error("Error placing order:", error);
-        alert("Failed to place order. Please try again.");
-    }
-}
-
-document.getElementById("place-order-btn").addEventListener("click", placeOrder);
-
-async function fetchOrders() {
-    const ordersTable = document.getElementById("orders-table").querySelector("tbody");
-    ordersTable.innerHTML = ""; // Clear existing table rows
-
-    try {
-        const usersRef = ref(database, "users");
-        const snapshot = await get(usersRef);
-
-        if (snapshot.exists()) {
-            const users = snapshot.val();
-
-            Object.keys(users).forEach((userId) => {
-                const user = users[userId];
-                if (user.orders) {
-                    Object.keys(user.orders).forEach((orderId) => {
-                        const order = user.orders[orderId];
-
-                        const row = document.createElement("tr");
-                        row.innerHTML = `
-                            <td>${orderId}</td>
-                            <td>${user.firstName || "N/A"} ${user.lastName || "N/A"}</td>
-                            <td>${order.fabric?.type || "N/A"} - ${order.fabric?.color || "N/A"}</td>
-                            <td>${order.status || "Pending"}</td>
-                            <td>₱${order.cost?.revenue || 0}</td>
-                            <td>
-                                <button class="edit-order" data-user-id="${userId}" data-order-id="${orderId}">Edit</button>
-                                <button class="delete-order" data-user-id="${userId}" data-order-id="${orderId}">Delete</button>
-                            </td>
-                        `;
-                        ordersTable.appendChild(row);
-                    });
-                }
-            });
-
-            attachOrderEventListeners();
+            // Fetch orders from the database
+            get(ordersRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const orders = snapshot.val();
+                        populateOrdersTable(orders);
+                    } else {
+                        console.log("No orders found.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching orders: ", error);
+                });
         } else {
-            ordersTable.innerHTML = "<tr><td colspan='6'>No orders found.</td></tr>";
+            console.log("User not logged in.");
         }
-    } catch (error) {
-        console.error("Error fetching orders:", error);
-        alert("Failed to fetch orders.");
+    });
+});
+
+// Populate the orders table
+function populateOrdersTable(orders) {
+    const orderTable = document.getElementById("order-table");
+    orderTable.innerHTML = ""; // Clear the table body
+
+    Object.entries(orders).forEach(([orderId, orderData]) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${orderId}</td>
+            <td>${orderData.client || "N/A"}</td>
+            <td>${orderData.fabric || "N/A"}</td>
+            <td>${orderData.status || "Pending"}</td>
+            <td>${orderData.revenue ? `$${orderData.revenue}` : "$0.00"}</td>
+            <td>
+                <button class="action-button" onclick="viewOrder('${orderId}')">View</button>
+                <button class="action-button" onclick="deleteOrder('${orderId}')">Delete</button>
+            </td>
+        `;
+
+        orderTable.appendChild(row);
+    });
+}
+
+// Handle viewing an order
+function viewOrder(orderId) {
+    alert(`Viewing details for order ID: ${orderId}`);
+    // Add logic for viewing order details
+}
+
+// Handle deleting an order
+function deleteOrder(orderId) {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+        const userId = user.uid;
+        const orderRef = ref(database, `users/${userId}/orders/${orderId}`);
+
+        remove(orderRef)
+            .then(() => {
+                alert(`Order ${orderId} deleted successfully.`);
+                // Refresh the table by fetching the orders again
+                document.dispatchEvent(new Event("DOMContentLoaded"));
+            })
+            .catch((error) => {
+                console.error("Error deleting order:", error);
+            });
     }
 }
-document.addEventListener("DOMContentLoaded", fetchOrders);
 
-function attachOrderEventListeners() {
-    document.querySelectorAll(".edit-order").forEach((button) => {
-        button.addEventListener("click", async (e) => {
-            const userId = e.target.dataset.userId;
-            const orderId = e.target.dataset.orderId;
-            const orderRef = ref(database, `users/${userId}/orders/${orderId}`);
-            const snapshot = await get(orderRef);
 
-            if (snapshot.exists()) {
-                const order = snapshot.val();
-                const newStatus = prompt("Enter new status (Pending/Completed):", order.status || "Pending");
-                if (newStatus) {
-                    await update(orderRef, { status: newStatus });
-                    alert("Order updated successfully!");
-                    fetchOrders();
-                }
-            }
-        });
-    });
 
-    document.querySelectorAll(".delete-order").forEach((button) => {
-        button.addEventListener("click", async (e) => {
-            const userId = e.target.dataset.userId;
-            const orderId = e.target.dataset.orderId;
 
-            if (confirm("Are you sure you want to delete this order?")) {
-                const orderRef = ref(database, `users/${userId}/orders/${orderId}`);
-                await remove(orderRef);
-                alert("Order deleted successfully!");
-                fetchOrders();
-            }
-        });
-    });
-}
+
+
+
+
 
 
 
