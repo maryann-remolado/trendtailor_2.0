@@ -342,9 +342,43 @@
         <!-- Subtotal -->
         <h3>Subtotal:</h3>
         <div class="st">
-          <p><b>₱ 1,402.00</b></p>
+          <p><b>₱ <span id="subtotal-amount">1402.00</span></b></p>
         </div>
-      </div>  
+      
+        <!-- Transaction Fee -->
+        <h3>Transaction Fee:</h3>
+        <div class="tf">
+          <p>₱ <span id="transaction-fee">10.00</span></p>
+        </div>
+      
+        <!-- Total -->
+        <h3>Total:</h3>
+        <div class="total">
+          <p><b>₱ <span id="total-amount">1402.00</span></b></p>
+        </div>
+      </div>   
+      <script>
+        // Get elements
+        const subtotalElement = document.getElementById("subtotal-amount");
+        const transactionFeeElement = document.getElementById("transaction-fee");
+        const totalAmountElement = document.getElementById("total-amount");
+
+        // Function to calculate and update transaction fee and total
+        function updateTransactionDetails() {
+          const subtotal = parseFloat(subtotalElement.textContent.replace(/,/g, "")); // Remove commas and parse as number
+          const transactionFeeRate = 0.03; // 3% transaction fee
+          const transactionFee = subtotal * transactionFeeRate;
+          const totalAmount = subtotal + transactionFee;
+
+          // Update the DOM
+          transactionFeeElement.textContent = transactionFee.toFixed(2);
+          totalAmountElement.textContent = totalAmount.toFixed(2);
+        }
+
+        // Initial calculation on page load
+        updateTransactionDetails();
+
+      </script>   
     </div>
     <div class="orderPlc">
       <button class="btn-place">Proceed to Order Placement</button>
@@ -393,6 +427,12 @@
       <div>
         <p>₱ 150.00</p>
         <p><em>In seven-days deadline.</em></p>
+      </div>
+
+      <!-- Labor Cost -->
+      <label for="labor-cost"><b>Transaction Fee</b></label>
+      <div>
+        <p>₱ 42.06</p>
       </div>
 
       <!-- Subtotal -->
@@ -772,12 +812,19 @@ document.getElementById("color-select").addEventListener("change", function () {
 // Get elements
 const genderSelect = document.getElementById("gender-select");
 const sizeGuideImage = document.getElementById("size-guide-image");
+
 // Event listener for gender selection
 genderSelect.addEventListener("change", () => {
   const gender = genderSelect.value;
 
+  // Debugging: Log the selected gender
+  console.log("Selected gender:", gender);
+
   // Update the size guide image based on gender
   sizeGuideImage.src = `assets/${gender}.png`;
+
+  // Debugging: Log the updated image source
+  console.log("Updated image source:", sizeGuideImage.src);
 });
 
 

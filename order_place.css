@@ -111,9 +111,9 @@ h3 {
 .customer-info {
   position: relative;
   width: 420px;
-  height: 520px;
+  height: 580px;
   margin-left: 520px;
-  margin-top: -563px;
+  margin-top: -620px;
   padding: 20px;
   background: #d9d9d9;
   border-radius: 15px;
@@ -301,7 +301,12 @@ h3 {
 }
 
 .voucher-section button:hover {
-  background-color: grey;
+  transform: scale(0.95);
+}
+
+.voucher-section button:active {
+  transform: scale(0.98); /* Slightly shrink on click for a pressed effect */
+
 }
 
 /* Payment Section */
@@ -391,12 +396,14 @@ h3 {
 
 #place-order:hover {
   background-color: black;
+  transform: scale(0.95);
 }
 
 #place-order:active {
   background-color: black;
-}
+  transform: scale(0.99); /* Slightly shrink on click for a pressed effect */
 
+}
 
 
 

@@ -147,45 +147,76 @@
   color: #555;
 }
 .cost-subtotal {
-  border-radius: 15px; /* Rounded corners */
-  border: 2px solid #d9d9d9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 20px; /* Inner padding */
-  width: 945px; /* Limit the box width */
-  color: #333; /* Dark text for readability */
-  font-family: Arial, sans-serif; /* Clean font */
-  margin-left: 5px;
-  margin-top: 20px;
-  height: 60px;
-}
-
-/* Section Headings */
-.cost-subtotal h3 {
   position: relative;
-  font-size: 17px !important;
-  color: #000000;
-  margin-top: 20px;
-  margin-left: 10px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-bottom: 5px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
   display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: flex-start; /* Align text to the left */
+  gap: 10px; /* Add spacing between items */
+  font-family: Arial, sans-serif; /* Set font family */
+  padding: 20px; /* Add padding for spacing */
+  background-color: #f9f9f9; /* Light background for the container */
+  border: 2px solid #d9d9d9; /* Add a subtle border */
+  border-radius: 15px; /* Rounded corners */
+  width: 440px; /* Set a fixed width */
+  height: 150px;
+  margin-top: 20px;
 }
 
-/* Highlight Important Costs */
-.st{
-  margin-left: 170px;
-  margin-top: -60px;
+.cost-subtotal h3 {
+  margin-top: -10px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  font-size: 25px;
-  line-height: 48px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+  line-height: 150%;
+  color: #333;
 }
+
+.cost-subtotal .st,
+.cost-subtotal .tf,
+.cost-subtotal .total {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Take full width of the container */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #333;
+  margin-top: -20px;
+  
+}
+
+.cost-subtotal p {
+  margin: 0;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #333;
+}
+
+.cost-subtotal p b {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #333;
+}
+
+.cost-subtotal .total p b {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #333;
+}
+
 .orderPlc {
   position: relative;
   display: flex; /* Align buttons in a row */

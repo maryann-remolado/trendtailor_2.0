@@ -533,6 +533,7 @@ h1, h2 {
   max-width: 1200px; /* Maximum width */
   margin-left: 100px;
   margin-bottom: 30px;
+  height: 870px;
 }
 
 .controls {
@@ -637,7 +638,7 @@ h1, h2 {
   font-weight: 300;
   font-size: 10px;
   margin-left: 5px;
-  margin-top: 355px;
+  margin-top: 290px;
   width: 100%;
   text-align: center;
 }
@@ -645,7 +646,7 @@ h1, h2 {
 .fabric-preview-section h3{
   text-align: center;
   margin-bottom: 20px;
-  margin-left: -1110px;
+  margin-left: -1140px;
   margin-top: 20px ;
   font-family: 'Poppins';
   font-style: normal;
@@ -659,13 +660,13 @@ h1, h2 {
 .fabric-preview-frame {
 
   padding: 10px;
-  width: 150px;
-  height: 110px; /* Adjust as needed */
+  width: 320px;
+  height: 150px; /* Adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-left: -300px;
+  margin-left: -400px;
   margin-top: -20px;
 }
 
@@ -743,7 +744,7 @@ h1, h2 {
   justify-content: space-between; /* Space out buttons evenly */
   align-items: center; /* Align buttons vertically */
   gap: 10px; /* Add spacing between buttons */
-  margin-top: 20px; /* Add spacing above */
+  margin-top: 10px; /* Add spacing above */
   width: 200px; /* Make container responsive */
   margin-left: 11px; /* Center align container */
 }
@@ -779,7 +780,7 @@ h1, h2 {
   justify-content: space-between; /* Space out buttons evenly */
   align-items: center; /* Align buttons vertically */
   gap: 10px; /* Add spacing between buttons */
-  margin-top: 20px; /* Add spacing above */
+  margin-top: 29px; /* Add spacing above */
   width: 200px; /* Make container responsive */
   margin-left: 11px; /* Center align container */
   display: flex;
@@ -818,7 +819,7 @@ h1, h2 {
   justify-content: space-between; /* Space out buttons evenly */
   align-items: center; /* Align buttons vertically */
   gap: 10px; /* Add spacing between buttons */
-  margin-top: -120px; /* Add spacing above */
+  margin-top: -110px; /* Add spacing above */
   width: 200px; /* Make container responsive */
   margin-left: 780px;
 }
