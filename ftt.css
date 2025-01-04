@@ -1,0 +1,234 @@
+.footer {
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    margin-top: -20px; /* Adds space above the footer */
+}
+
+/* Footer divider (line separating sections) */
+.footer-divider {
+    width: 1142px;
+    left: 40px;
+    top: 85px; /* Adjust the position as needed */
+    border: 1px solid #D9D9D9; /* Line color */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Shadow effect */
+    margin-bottom: 50px; /* Space below the line */
+    margin-left: 25px;
+}
+
+/* Container for footer content */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* Adjusts space between columns */
+}
+
+/* Individual footer columns */
+.footer-column, .footer-colmn, .footer-clmn {
+    flex: 1;
+    min-width: 200px;
+    padding: 0 20px;
+}
+
+/* Footer titles (h3, h4, h5) */
+.footer-column h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+    margin-top: 1px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px; /* Space between title and list */
+    margin-left: 15px;
+}
+
+.footer-colmn h4{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px; /* Space between title and list */
+    margin-left: -210px;
+    margin-top: 1px;
+
+}
+
+.footer-clmn h5 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 1px;
+    margin-bottom: 15px; /* Space between title and list */
+    margin-left: -410px;
+}
+
+
+/* Unordered list style */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #767272;
+    margin-left: 15px;
+}
+
+.footer-colmn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: -210px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #767272;
+
+}
+
+.footer-clmn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: -410px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #767272;
+}
+
+/* List item style */
+.footer-column ul li, .footer-colmn ul li, .footer-clmn ul li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+/* Links in the footer */
+.footer-column ul li a, .footer-colmn ul li a, .footer-clmn ul li a {
+    text-decoration: none;
+    color: #767272; /* Gray color for text */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.footer-column ul li a:hover, .footer-colmn ul li a:hover, .footer-clmn ul li a:hover {
+    color: black; /* Change to blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Icons in social media section */
+.footer-clmn ul li a i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 18px; /* Icon size */
+    color: #767272; /* Blue color for icons */
+}
+
+.reserved {
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.reserved h5 {
+    
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    left: 790px;
+    top: 220px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #767272
+}
+
+.reserved h5 i {
+    margin-right: 5px; /* Space between icon and text */
+    color: #333; /* Slightly darker gray for the icon */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Stack columns vertically on smaller screens */
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+
+    /* Ensure each footer column occupies an equal width */
+    .footer-column, .footer-colmn, .footer-clmn {
+        flex: 1;
+        min-width: 150px; /* Minimum width before wrapping */
+        padding: 10px;    
+    }
+
+    /* Remove left margin on headings and lists */
+    .footer-column h3, .footer-colmn h4, .footer-clmn h5,
+    .footer-column ul, .footer-colmn ul, .footer-clmn ul {
+        margin-left: 30px;
+        text-align: left;
+    }
+
+    /* Reduce font sizes for smaller screens */
+    .footer-column h3, .footer-colmn h4, .footer-clmn h5 {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .footer-column ul li a, .footer-colmn ul li a, .footer-clmn ul li a {
+        font-size: 10px;
+        margin-bottom: 2px;
+        padding: 0;
+
+    }
+
+    /* Center align reserved text */
+    .reserved h5 {
+        position: static;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    /* Adjust footer divider width */
+    .footer-divider {
+        width: 95%; 
+        margin-top: auto;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
