@@ -287,14 +287,16 @@
       <img id="mannequin-layer" src="assets/man.png" alt="Mannequin">
     </div>
 
-    <!-- Customization Details -->
+        <!-- Customization Details -->
     <div class="custom-details">
       <h3>Customization Details</h3>
-      <label>Customized Order Name</label>
-      <input type="text" value="My Satin" readonly>
-      <label>Customization Form ID</label>
-      <input type="text" value="10203040" readonly>
+      <label for="customOrderName">Customized Order Name</label>
+      <input type="text" id="customOrderName" placeholder="Enter your order name">
+
+      <label for="customFormId">Customization Form ID</label>
+      <input type="text" id="customFormId" readonly>
     </div>
+
   
     <!-- Buttons -->
     <div class="bns">
@@ -859,6 +861,7 @@ document.getElementById('color-select').addEventListener('change', updateFabricP
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const auth = getAuth(); // Initialize Firebase Authentication
 
@@ -867,6 +870,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (user) {
             const userId = user.uid; // Get the authenticated user's UID
             const orderRef = ref(database, `users/${userId}/orders`);
+
+            // Fetch the latest form ID from the database and display it
+            fetchLatestFormId(orderRef);
+
 
             // Add event listener for Place Order button
             const placeOrderButton = document.querySelector("#place-order");
@@ -884,6 +891,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Function to fetch the latest form ID
+function fetchLatestFormId(orderRef) {
+  get(orderRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const orders = snapshot.val();
+        const orderIds = Object.keys(orders);
+        const latestOrderId = orderIds[orderIds.length - 1]; // Get the latest order ID
+        document.getElementById("customFormId").value = latestOrderId || "N/A";
+      } else {
+        console.log("No orders found. Setting default form ID.");
+        document.getElementById("customFormId").value = "N/A"; // Default value
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching form ID:", error);
+      document.getElementById("customFormId").value = "Error";
+    });
+}
+
 function placeOrder(userId, orderRef) {
     // Gather Fabric Information
     const fabricType = document.querySelector(".fabric-box")?.textContent.trim() || null;
@@ -894,13 +921,17 @@ function placeOrder(userId, orderRef) {
     const gender = document.getElementById("gender-select")?.value || null;
     const size = document.getElementById("size-select")?.value || null;
     const manualMeasurements = Array.from(
-        document.querySelectorAll("#manual-measurements input")
-    ).map((input) => ({
-        label: input.nextElementSibling?.textContent || null,
-        value: input.value.trim() || null,
+    document.querySelectorAll("#manual-measurements .input-row")
+    ).map((row) => ({
+        bodyPart: row.querySelector("label")?.textContent.trim() || null, // Get the body part label
+        value: row.querySelector("input")?.value.trim() || null, // Get the input value
     }));
 
+
     // Gather Style and Cost Information
+    const customOrderName = document.getElementById("customOrderName")?.value.trim() || null;
+    const customFormId = document.getElementById("customFormId")?.value || "N/A";
+
     const topStyle = document.getElementById("top-style")?.value || null;
     const sleeveStyle = document.getElementById("sleeve-style")?.value || null;
     const bottomStyle = document.getElementById("bottom-style")?.value || null;
@@ -910,10 +941,11 @@ function placeOrder(userId, orderRef) {
     const bottomCost = parseFloat(document.querySelector("#bottom-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
     const fabricCost = parseFloat(document.querySelector("#fabric-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
     const laborCost = parseFloat(document.querySelector("#labor-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const transactionFee = parseFloat(document.querySelector("#transaction-fee")?.textContent.replace(/₱|,/g, "42.06").trim()) || 0;
     const shippingCost = parseFloat(
         document.getElementById("delivery-mode")?.value === "express" ? 100 : 50
     ) || 0;
-    const totalPayment = topCost + sleeveCost + bottomCost + fabricCost + laborCost + shippingCost;
+    const totalPayment = topCost + sleeveCost + bottomCost + fabricCost + laborCost + transactionFee + shippingCost;
 
     // Gather Customer Information
     const deliveryAddress = document.getElementById("address")?.value.trim() || null;
@@ -928,10 +960,12 @@ function placeOrder(userId, orderRef) {
 
     // Create Order Data
     const orderData = {
+        customOrderName,
+        customFormId,
         fabric: { type: fabricType, color: fabricColor, pattern: fabricPattern },
         bodyMeasurement: { gender, size, manualMeasurements },
         garmentStyle: { topStyle, sleeveStyle, bottomStyle },
-        cost: { topCost, sleeveCost, bottomCost, fabricCost, laborCost, shippingCost, totalPayment },
+        cost: { topCost, sleeveCost, bottomCost, fabricCost, laborCost, shippingCost, transactionFee, totalPayment },
         customerInfo: { deliveryAddress, contactNumber },
         paymentDetails: { method: paymentMethod },
         timestamp: Date.now(),
@@ -941,7 +975,7 @@ function placeOrder(userId, orderRef) {
     push(orderRef, orderData)
         .then(() => {
             alert("Order placed successfully!");
-            window.location.reload(); // Reload page after successful order placement
+            window.location.href = 'ClientDash.html?section=my-orders&status=to-stitch';
         })
         .catch((error) => {
             console.error("Error placing order:", error);
