@@ -550,6 +550,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
   import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+  import { push } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
   // Your Firebase configuration
   const firebaseConfig = {
@@ -858,81 +859,97 @@ document.getElementById('color-select').addEventListener('change', updateFabricP
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  let userId;
+document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth(); // Initialize Firebase Authentication
 
-  // Check if the user is logged in
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      userId = user.uid; // Get the user's UID
-      console.log("User logged in:", userId);
-    } else {
-      alert("Please log in to place an order.");
-      window.location.href = "index.html"; // Redirect to login page
-    }
-  });
+    // Check if the user is logged in
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const userId = user.uid; // Get the authenticated user's UID
+            const orderRef = ref(database, `users/${userId}/orders`);
 
-  // Place Order Button Logic
-  const placeOrderButton = document.querySelector("#place-order");
-  if (placeOrderButton) {
-    placeOrderButton.addEventListener("click", async () => {
-      if (!userId) {
-        alert("Please log in to place an order.");
-        return;
-      }
-
-      // Gather Order Details
-      const deliveryAddress = document.getElementById("address")?.value.trim() || "No Address Provided";
-      const contactNumber = document.getElementById("contact")?.value.trim() || "No Contact Number";
-
-      const topCost = parseFloat(document.querySelector("#top-cost")?.textContent.replace("₱", "").trim()) || 0;
-      const sleeveCost = parseFloat(document.querySelector("#sleeve-cost")?.textContent.replace("₱", "").trim()) || 0;
-      const bottomCost = parseFloat(document.querySelector("#bottom-cost")?.textContent.replace("₱", "").trim()) || 0;
-      const fabricCost = parseFloat(document.querySelector("#fabric-cost")?.textContent.replace("₱", "").trim()) || 0;
-      const laborCost = parseFloat(document.querySelector("#labor-cost")?.textContent.replace("₱", "").trim()) || 0;
-      const shippingCost = parseFloat(document.querySelector("#shipping-cost")?.textContent.replace("₱", "").trim()) || 0;
-
-      const totalPayment = topCost + sleeveCost + bottomCost + fabricCost + laborCost + shippingCost;
-      const paymentMethod = document.querySelector("#payment-method")?.value || "N/A";
-
-      // Order Data
-      const orderData = {
-        customerInfo: {
-          deliveryAddress,
-          contactNumber,
-        },
-        cost: {
-          topCost,
-          sleeveCost,
-          bottomCost,
-          fabricCost,
-          laborCost,
-          shippingCost,
-          totalPayment,
-        },
-        paymentDetails: {
-          method: paymentMethod,
-        },
-        timestamp: Date.now(),
-      };
-
-      console.log("Order Data:", orderData); // Debug log
-
-      // Save Order to Firebase
-      try {
-        const orderRef = push(ref(database, `users/${userId}/orders`));
-        await set(orderRef, orderData);
-        alert("Order placed successfully!");
-        window.location.reload(); // Reload the page after order placement
-      } catch (error) {
-        console.error("Error placing order:", error);
-        alert("Failed to place the order. Please try again.");
-      }
+            // Add event listener for Place Order button
+            const placeOrderButton = document.querySelector("#place-order");
+            if (placeOrderButton) {
+                placeOrderButton.addEventListener("click", function () {
+                    placeOrder(userId, orderRef);
+                });
+            } else {
+                console.error("Place Order button not found!");
+            }
+        } else {
+            alert("You must be logged in to place an order.");
+            window.location.href = "index.html"; // Redirect to login page
+        }
     });
-  } else {
-    console.error("Place Order button not found in the DOM.");
-  }
 });
+
+function placeOrder(userId, orderRef) {
+    // Gather Fabric Information
+    const fabricType = document.querySelector(".fabric-box")?.textContent.trim() || null;
+    const fabricColor = document.getElementById("color-select")?.value || null;
+    const fabricPattern = document.querySelector(".drop select:nth-of-type(2)")?.value || null;
+
+    // Gather Body Measurements
+    const gender = document.getElementById("gender-select")?.value || null;
+    const size = document.getElementById("size-select")?.value || null;
+    const manualMeasurements = Array.from(
+        document.querySelectorAll("#manual-measurements input")
+    ).map((input) => ({
+        label: input.nextElementSibling?.textContent || null,
+        value: input.value.trim() || null,
+    }));
+
+    // Gather Style and Cost Information
+    const topStyle = document.getElementById("top-style")?.value || null;
+    const sleeveStyle = document.getElementById("sleeve-style")?.value || null;
+    const bottomStyle = document.getElementById("bottom-style")?.value || null;
+
+    const topCost = parseFloat(document.querySelector("#top-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const sleeveCost = parseFloat(document.querySelector("#sleeve-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const bottomCost = parseFloat(document.querySelector("#bottom-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const fabricCost = parseFloat(document.querySelector("#fabric-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const laborCost = parseFloat(document.querySelector("#labor-cost")?.textContent.replace(/₱|,/g, "").trim()) || 0;
+    const shippingCost = parseFloat(
+        document.getElementById("delivery-mode")?.value === "express" ? 100 : 50
+    ) || 0;
+    const totalPayment = topCost + sleeveCost + bottomCost + fabricCost + laborCost + shippingCost;
+
+    // Gather Customer Information
+    const deliveryAddress = document.getElementById("address")?.value.trim() || null;
+    const contactNumber = document.getElementById("contact")?.value.trim() || null;
+    const paymentMethod = document.getElementById("payment-method")?.value || null;
+
+    // Validate Required Fields
+    if (!deliveryAddress || !contactNumber) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Create Order Data
+    const orderData = {
+        fabric: { type: fabricType, color: fabricColor, pattern: fabricPattern },
+        bodyMeasurement: { gender, size, manualMeasurements },
+        garmentStyle: { topStyle, sleeveStyle, bottomStyle },
+        cost: { topCost, sleeveCost, bottomCost, fabricCost, laborCost, shippingCost, totalPayment },
+        customerInfo: { deliveryAddress, contactNumber },
+        paymentDetails: { method: paymentMethod },
+        timestamp: Date.now(),
+    };
+
+    // Save Order to Firebase using push
+    push(orderRef, orderData)
+        .then(() => {
+            alert("Order placed successfully!");
+            window.location.reload(); // Reload page after successful order placement
+        })
+        .catch((error) => {
+            console.error("Error placing order:", error);
+            alert("Error placing order. Please try again.");
+        });
+}
+
+
 
 
 

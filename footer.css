@@ -5,7 +5,7 @@ footer {
     position: relative;
     width: 100%;
     bottom: 0;
-    margin-top: 140px; /* Adds space above the footer */
+    margin-top: -640px; /* Adds space above the footer */
 }
 
 footer hr {
